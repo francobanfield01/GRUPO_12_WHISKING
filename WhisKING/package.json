@@ -1,0 +1,23 @@
+{
+  "name": "grupo_12_whisking",
+  "version": "1.0.0",
+  "description": "![Logotipo](WhisKING/design/logoWhisKING.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francobanfield01/GRUPO_12_WHISKING.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francobanfield01/GRUPO_12_WHISKING/issues"
+  },
+  "homepage": "https://github.com/francobanfield01/GRUPO_12_WHISKING#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
