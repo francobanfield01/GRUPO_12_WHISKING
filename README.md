@@ -1,5 +1,5 @@
 # PROYECTO INTEGRADOR : GRUPO 12
-![Logotipo](WhisKING/public/images/logoWhisKING.jpg)
+![Logotipo](WhisKING/design/logoWhisKING.jpg)
 
 ## ***SPRINT I : Fecha de entrega 01/10***
 
