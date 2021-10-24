@@ -52,7 +52,11 @@ Después de una investigación de mercado sobre nuestro público objetivo enfoca
 - [Carrito de Compras]()
 - []()
 
+## Link a Trello
+- [Grupo 12](https://trello.com/b/ov0OlD47/proyecto-integrador-grupo-12-v20)
 
+## Link a GitHub
+- [WhisKING](https://github.com/francobanfield01/GRUPO_12_WHISKING.git)
 
 
 
