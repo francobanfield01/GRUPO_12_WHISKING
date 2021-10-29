@@ -1,0 +1,25 @@
+/* variables */
+:root {
+    /* Colors */
+    --grisOscuro:#353534 ;
+    --cobre:#a45323 ;
+    --beige:#e4dbca ;
+    
+    /* Font */
+    --rubik: "Rubik", sans-serif;
+    --roboto: "Roboto", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+body {
+    font-family: var(--rubik, --roboto);
+}

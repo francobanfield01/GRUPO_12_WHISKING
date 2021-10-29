@@ -1,0 +1,32 @@
+footer {
+    background-color: var(--grisOscuro);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+ }
+
+ footer .logo2 {
+    width: 40px;
+   padding-bottom: 5px;
+}
+footer a{
+    font-size: 14px;
+}
+
+footer .copyright p{
+    color: var(--beige);
+    font-size: 10px;
+    padding-top: 10px;
+}
+
+footer a{
+    color: var(--beige);
+    text-decoration: none;
+}
+
+footer .redesSociales {
+    color: var(--beige);
+}
