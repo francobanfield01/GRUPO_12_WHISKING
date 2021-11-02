@@ -1,84 +1,137 @@
-header {
-    background-color: var(--grisOscuro);
-    top: 0;
+body{
+    background-color: violet;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header{
+   
     width: 100%;
-    margin: 0 auto;
-    padding: 0 auto;
+    height: 100px;
+    background-color: var(--grisOscuro);
+    display: flex;
     position: sticky;
     z-index: 1;
-    }
-
-header .burger-container{
-        display: flex;
-        justify-content: space-evenly;
-    }  
-
+}
 header img {
-        width: 25%;
-        margin-right: 250px;
-        padding-top: 24px;
-        margin-bottom: 10px;
-        position: absolute;
-    }
-
-header input.search-bar{
-    width: 100px;
-    height: 2rem;
-    padding-top: 10px;
-    margin-top: 30px;
-    
-
-}
-
-header .search-bar {
-         margin: 0;
-         position: relative;
-         padding-top: 10px;
-        margin-bottom: 10px;
-    
-     }
-
-header button.lupa{
-    padding-top: 10px;
-    margin-bottom: 10px;
-    width: 2rem;
-    height: 2rem;
-
-}
-
-header ul li{
-        color: var(--beige); 
-        text-align: right;   
-}
-
-header .main-menu {
-         display: none;
-     }   
-
-header .burger-menu{
-    position: absolute;
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0;
-    right: 45px;
-    top: 0;
-    
+    margin-left: 5%;
+    width: 25%;
+  
    
 }
-header .fa-bars{
+header .container{
     position: relative;
-    left: 120px;
-    top: 35px;
-    width: 5rem;
-    height: 5rem; 
-    font-size: 1.5rem;
+    margin: auto;
+    
 }
-header .burger-menu a {
-    color: var(--grisOscuro);
-    text-decoration: none;
-    display: block;
-    padding: 10px 20px;
-     max-width: 200px;
+header .buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%,-50%);
     background: var(--beige);
-    font-variant: small-caps;
+    padding: 20px;
+    height: 30px;
+    padding-left: 50px;
+    border-radius: 20px;
+}
+header .search-bar{
+border: none;
+background: none;
+outline: none;
+color: var(--grisOscuro);
+font-size: 20px;
+float: left;
+line-height: 60px;
+transition: .3s;
+width: 0;
+
+}
+header .lupa_buscar{
+    width: 25px;
+    height: 20px;
+    text-decoration: none;
+    color: var(--grisOscuro);
+    font-size: 20px;
+
+}
+header nav{
+    height: 100px;
+    align-items: center;
+    display: flex;
+    
+     
+ }
+ 
+ header .bar-btn{
+     font-size: 25px;
+     color:var(--beige);
+     margin-right: 20px;
+     cursor: pointer;
+ }
+ 
+ header .nav-menu{
+     position: relative;
+     width: 100%;
+     height: 0vh;
+     top: 0px;
+     background: rgba(53,53, 52, .95);
+     transition: all .5s;
+ }
+ header .nav-menu li{
+     display: none;
+     line-height: 20px;
+     margin: 20px 10px;
+     transition: all .5s;
+ }
+ 
+ header .nav-menu li a {
+     color: var(--beige);
+     font-size: 16px;
+     text-transform: uppercase;
+     font-weight: 600;
+     text-decoration: none;
+ }
+ 
+ header .nav-menu li a.active, header .nav-menu li a:hover {
+     color: var(--cobre);
+     transition: .3s;
+ }
+ 
+ header #check {
+     display: none;
+ }
+ 
+ header #check:checked ~.nav-menu{
+     height: 250px;
+     position: absolute;
+     top: 100px;
+     right: 0;
+     width: 50%;
+ }
+ 
+ header #check:checked ~.nav-menu li {
+     display: block;
+ }
+
+
+/* == RESPONSIVE == */
+@media(min-width:480px) {
+    .buscar:hover > .search-bar{
+width: 150px;
+height: 10px;
+    }
+}
+
+@media(min-width:768px) {
+    .buscar:hover > .search-bar{
+width: 200px;
+    }
+}
+
+@media(min-width:1024px) {
+    .buscar:hover > .search-bar{
+width: 300px;
+    }
 }
