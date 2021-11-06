@@ -6,6 +6,9 @@ footer {
     justify-content: center;
     align-items: center;
     margin-bottom: 0px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
  }
 
  footer .logo2 {
