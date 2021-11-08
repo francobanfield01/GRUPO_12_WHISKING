@@ -1,6 +1,75 @@
-main{
-    background-color: white;
-    margin: 0 auto;
-    width: 90%;
-
+.home-main{
+    width: 100%;
+    left: 50px;
+    
 }
+/* SECTION */
+.subtitle-home {
+    background-color: var(--beige);
+    width: 250px;
+    height: 40px;
+    
+ } 
+ 
+.ofertas-home {
+   display: flex;
+   align-items: center;
+   color: var(--cobre);
+   height: 40px;
+   margin-top: 20px;
+   margin-left: 30px;
+   font-size: .9rem;
+   text-align: center;
+ 
+     }
+
+ .home-main .articulos{
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         align-items: baseline;
+         padding-right: 50px;
+     }
+
+ .home-main .card-home{
+         
+         margin-left: 30px;
+         width: 100px;
+         height: 100%; 
+        
+     }
+
+ .home-main .card-home img {
+     width: 120px;
+     margin-top: 10px;
+     justify-content: center;
+     align-items: center;  
+     
+     
+ }
+ 
+ .home-main .card-home .card-content-home {
+     text-align: center;
+     background-color: var(--beige);
+     width: 120px;
+    height: 60px;
+    margin-bottom: 15px;
+   align-items: center;
+   border-radius: 10px 5px 10px 10px;
+   box-shadow: 0px 0px 5px gray;
+   color: var(--grisOscuro);
+ }
+ 
+ .home-main .card-home .card-content-home:hover{
+     background-color: var(--cobre);
+     color: var(--beige);
+ }
+ 
+ .home-main .card-home .card-content-home h5{
+     margin-top: 10px;
+     padding-top: 5px;
+ }
+ 
+.home-main .card-home .card-content-home p {
+     margin-bottom: 15px;
+ }
