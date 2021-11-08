@@ -6,11 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Cart page</title>
     <link rel="stylesheet" href=""><!--hoja de estilo google fonts-->
-    <link rel="stylesheet" href="/css/normalize.css"><!--hoja de estilo normalize-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/style.css"><!--hoja de estilo-->
 </head>
 <body>
-    <a href="/">Volver al Home</a>
-    <h1>Archivo de Product Cart</h1>
+    <header>
+        <img src="images/logo.svg" alt="logo">
+
+        <div class="container">
+
+            <div class="buscar">
+                <input type="text" class="search-bar" placeholder="Buscar...">
+                <a href="" class="lupa_buscar">
+                    <i class="fas fa-search fa-lg"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="bar-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="">Ofertas</a></li>
+                <li><a href="">Productos</a></li>
+                <li><a href="">Carrito</a></li>
+                <li><a href="">Ingresar</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    
+    <div class="productCart">
+        <section class="section1">
+            <div class="productCartTitle">
+                <i class="fas fa-shopping-cart"></i>
+                <h1 class="cart-title">Mi carrito</h1>
+            </div>
+            <div class="cart-subtitles">
+                <h3>Productos</h3>
+                <h3>Cant.</h3>
+                <div>
+                <h3>Subtot.</h3>
+                </div>
+            </div>
+            <div class="cart-description">
+                <div class="product-name">
+                <div class="product-img">
+                    <img src="images/whisky01.jpg" alt="whisky01">
+                </div>
+                <div class="product-name-text"><p>Nombre del producto</p></div>
+            </div>
+                <div><input type="number"></div>
+                <div class="product-subt">
+                   <p>10000</p>
+                </div> 
+            </div>
+            <hr>
+            <div class="cart-description">
+                <div class="product-name">
+                <div class="product-img">
+                    <img src="images/whisky01.jpg" alt="whisky01">
+                </div>
+                <div class="product-name-text"><p>Nombre del producto</p></div>
+            </div>
+                <div><input type="number"></div>
+                <div class="product-subt">
+                   <p>10000</p>
+                </div> 
+            </div>
+            <hr>
+            <div class="cart-description">
+                <div class="product-name">
+                <div class="product-img">
+                    <img src="images/whisky01.jpg" alt="whisky01">
+                </div>
+                <div class="product-name-text"><p>Nombre del producto</p></div>
+            </div>
+                <div><input type="number"></div>
+                <div class="product-subt">
+                   <p>10000</p>
+                </div> 
+            </div>
+            <hr>   
+
+
+        </section>
+        <section class="section2">
+
+        </section>
+    </div>
+    <footer>
+        <div class="logo2">
+            <img src="images/logo2.svg" alt="logo">
+        </div>
+
+        <div class="redesSociales">
+            <a href="">contacto</a> <!-- link a formulario -->
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="copyright">
+            <p>Copyright ©️ WhisKING 2021 | Todos los derechos reservados</p>
+        </div>
+    </footer>
 </body>
 </html>
