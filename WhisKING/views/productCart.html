@@ -40,12 +40,14 @@
         
     </header>
     
-    <div class="productCart">
+    <div class="productCart-main">
+        <div class="productCartTitle">
+            <i class="fas fa-shopping-cart"></i>
+            <h1 class="cart-title">Mi carrito</h1>
+        </div>
+        <div class="sections">
         <section class="section1">
-            <div class="productCartTitle">
-                <i class="fas fa-shopping-cart"></i>
-                <h1 class="cart-title">Mi carrito</h1>
-            </div>
+            
             <div class="cart-subtitles">
                 <h3>Productos</h3>
                 <h3>Cant.</h3>
@@ -60,12 +62,18 @@
                 </div>
                 <div class="product-name-text"><p>Nombre del producto</p></div>
             </div>
-                <div><input type="number"></div>
+            <div class="suma"><select id="dropdown" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+             </select> 
+             </div>
                 <div class="product-subt">
                    <p>10000</p>
                 </div> 
             </div>
-            <hr>
             <div class="cart-description">
                 <div class="product-name">
                 <div class="product-img">
@@ -73,33 +81,64 @@
                 </div>
                 <div class="product-name-text"><p>Nombre del producto</p></div>
             </div>
-                <div><input type="number"></div>
-                <div class="product-subt">
-                   <p>10000</p>
-                </div> 
-            </div>
-            <hr>
-            <div class="cart-description">
-                <div class="product-name">
-                <div class="product-img">
-                    <img src="images/productos/whisky_03.jpeg" alt="whisky">
-                </div>
-                <div class="product-name-text"><p>Nombre del producto</p></div>
-            </div>
-                <div><input type="number"></div>
-                <div class="product-subt">
-                   <p>10000</p>
-                </div> 
-            </div>
-            <hr>   
+            <div class="suma"><select id="dropdown" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
 
+             </select> 
+             </div>
+                <div class="product-subt">
+                   <p>10000</p>
+                </div> 
+            </div>
+            <div class="cart-description">
+                <div class="product-name">
+                <div class="product-img">
+                    <img src="images/productos/whisky_03.jpeg" alt="whisky">
+                </div>
+                <div class="product-name-text"><p>Nombre del producto</p></div>
+            </div>
+            <div class="suma"><select id="dropdown" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+             </select> 
+             </div>
+                <div class="product-subt">
+                   <p>10000</p>
+                </div> 
+            </div>
 
         </section>
         <section class="section2">
-
+            <div class="subtotal">
+                <div class="value1">Subtotal</div>
+                <div class="value2">45000</div>
+            </div>
+            <div class="envio">
+                <div class="value1">Envio</div>
+                <div class="value2">450</div>
+            </div>
+            <div class="cupon-desc">
+                <div class="value1">Cupon de desc.</div>
+                <div class="value2">CYBERWHISKY</div>
+            </div>
+            <div class="total">
+                <div class="value1">Total</div>
+                <div class="value2">48900</div>
+            </div>
         </section>
     </div>
-    <footer>
+       <div class="button-container">
+           <button type="submit">Finalizar compra</button>
+        </div>
+    </div>
+    <footer class="productCart">
         <div class="logo2">
             <img src="images/logo2.svg" alt="logo">
         </div>

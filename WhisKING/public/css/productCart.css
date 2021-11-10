@@ -1,5 +1,14 @@
-.productCartTitle {
-    padding-top: 10px;
+.productCart-main {
+    min-height: 80vh;
+}
+
+.productCart-main .section1 {
+    border: 1px solid black;
+}
+
+
+.productCart-main .productCartTitle {
+    padding: 10px 0px;
 }
 
 i.fa-shopping-cart {
@@ -12,12 +21,12 @@ h1.cart-title {
     display: inline-block;
     width: 80%;
     text-align: center;
+    font-size: 1.8rem;
 }
 
 .cart-subtitles {
     background-color: var(--beige);
     display:flex;
-    border: 1px solid black;
     padding: 5px 2px;
     margin-right: 0px;
     padding-right: 0px;
@@ -53,6 +62,7 @@ h1.cart-title {
 }
 .cart-description {
     display: flex;
+    border-top: 1px solid black;
 }
 
 .cart-description .product-name {
@@ -84,3 +94,101 @@ h1.cart-title {
     font-size: 0.9rem;
 }
 
+/* Section 2 */
+
+.productCart-main .section2 {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 94%;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.section2 .subtotal,
+.envio, .cupon-desc, .total {
+    display: flex;
+    justify-content: space-between;
+}
+.section2 .total {
+    font-weight: 500;
+}
+.section2 .subtotal,
+.cupon-desc {
+    background-color: rgba(156, 121, 51, 0.3)
+}
+
+.section2 .value1 {
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.section2 .value2 {
+    padding-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.productCart-main .button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.productCart-main .button-container button {
+    height: 2.5rem;
+    border-radius: 0.5rem ;
+    padding: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.productCart-main .button-container button:hover {
+    color: var(--cobre);
+}
+
+.productCart-main select {
+    text-align: center;
+}
+
+
+@media (min-width: 480px) {
+    .productCart-main {
+        margin: 0 auto;
+        max-width: 90%;
+    }
+
+    .productCart-main .section1 {
+        
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media (min-width: 768px) {
+    .productCart-main {
+        margin: 0 auto;
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 992px) {
+    .sections {
+        display:flex;
+        
+    }
+
+    .productCart-main {
+        max-width: 1100px;
+    }
+
+    .productCart-main .section1 {
+        width: 50%;
+    }
+
+    .productCart-main .section2 {
+        width: 50%;
+        margin: 0 0 0 3rem;
+    }
+    .productCart-main .button-container {
+        padding-top: 2rem;
+    }
+}
