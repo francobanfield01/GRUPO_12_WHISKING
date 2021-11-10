@@ -1,16 +1,111 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
-    <link rel="stylesheet" href=""><!--hoja de estilo google fonts-->
-    <link rel="stylesheet" href="/css/normalize.css"><!--hoja de estilo normalize-->
-    <link rel="stylesheet" href="/css/style.css"><!--hoja de estilo-->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!--hoja de estilo normalize-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!--hoja de estilo-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 <body>
-    <a href="/">Volver al Home</a>
-    <h1>Archivo de Register</h1>
+    <header>
+        <img src="images/logo.svg" alt="logo">
+
+        <div class="container">
+
+            <div class="buscar">
+                <input type="text" class="search-bar" placeholder="Buscar...">
+                <a href="" class="lupa_buscar">
+                    <i class="fas fa-search fa-lg"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="bar-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="">Ofertas</a></li>
+                <li><a href="">Productos</a></li>
+                <li><a href="">Carrito</a></li>
+                <li><a href="">Ingresar</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    
+    <main class="register-main">        
+            <h2>Registra tu Cuenta</h2>
+            <hr>
+            <form action="">
+                <div class="form-regiter">                    
+                    <div class="input-container-register">                       
+                        <input class="input-style-register" type="text" name="user_first_name" placeholder="Ingrese su nombre" id="nombre">
+                        <span class="error-message-register">Debes ingresar tu nombre</span>
+                    </div>
+                    <div class="input-container-register">                       
+                        <input class="input-style-register" type="text" name="user_last_name" placeholder="Ingrese su apellido" id="apellido">
+                        <span class="error-message-register">Debes ingresar tu nombre</span>
+                    </div>
+                    <div class="input-container-register">                        
+                        <input class="input-style-register" type="date" name="date_of_birth" placeholder="Ingrese su Fecha de Nacimiento" min="1900-01-01" max="2050-12-31" id="f_nacimiento">
+                        <span class="error-message-register">Debes ingresar tu Fecha de Nacimiento</span>
+                    </div>
+                    <div class="input-container-register">                        
+                        <input class="input-style-register" type="email" name="mail" placeholder="Ingrese su email" id="email">
+                        <span class="error-message-register">Debes ingresar tu email</span>
+                    </div>
+                    <div class="input-container-register">                       
+                        <input class="input-style-register" type="password" name="pass" placeholder="Ingrese su contraseña" id="contrasenia">
+                        <span class="error-message-register">Debes ingresar tu contraseña</span>
+                    </div>
+                   
+                    <div class="input-container-register">
+                        <input class="input-style-register" type="password" name="pass2" placeholder="Confirma su contraseña" id="contrasenia2">
+                        <span class="error-message-register">Debes confirmar tu contraseña</span>
+                    </div>
+                   <div class="check-register">
+                       <label for="terminos_cond">Acepto los <a href="">términos y condiciones</a></label>
+                       <input type="checkbox" name="terms" id="terminos-cond">
+                       <span class="error-message-register">Debes aceptar los términos y condiciones</span>
+                   </div>
+                   <div class="button-container-register">
+                       <span class="error-message-register">Hubo errores en el envío</span>
+                       <input type="submit" class="btn" value="REGISTRARSE">
+                   </div>
+                   <span><a href="login.html">Ya tiene cuenta</a></span>
+                  <!--  <div><img src="/public/images/compartir.jpg" alt=""></div> -->
+                </div>
+            </form>
+           
+
+    </main>
+    <footer>
+        <div class="logo2">
+            <img src="images/logo2.svg" alt="logo">
+        </div>
+
+        <div class="redesSociales">
+            <a href="">contacto</a> <!-- link a formulario -->
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="copyright">
+            <p>Copyright ©️ WhisKING 2021 | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+
+    
 </body>
 </html>
