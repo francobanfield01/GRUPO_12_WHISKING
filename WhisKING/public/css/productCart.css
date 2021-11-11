@@ -136,13 +136,15 @@ h1.cart-title {
     height: 2.5rem;
     border-radius: 0.5rem ;
     padding: 0.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 50%);
     font-size: 0.9rem;
     font-weight: 700;
+    background-color: var(--grisOscuro);
+    color: var(--beige);
 }
 
 .productCart-main .button-container button:hover {
-    color: var(--cobre);
+    color: white;
 }
 
 .productCart-main select {
