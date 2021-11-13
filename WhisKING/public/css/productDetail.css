@@ -1,0 +1,52 @@
+main.productDetail {
+    min-height: 80vh;
+}
+
+main.productDetail .img-container .main-img {
+    height: 250px;
+    width: 250px;
+    display: flex;
+    margin: 0 auto;
+}
+
+main.productDetail .img-container  img {
+    height: 100%;
+    width: 100%;
+}
+
+main.productDetail .second-img {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main.productDetail .second-img img {
+    width: 100px;
+    height: 100px;
+}
+
+main.productDetail .productDescription .precio {
+    display: flex;
+}
+
+main.productDetail .productDescription p
+ {
+    display: flex;
+    padding-right: 1rem;
+}
+
+main.productDetail button.comprar {
+    background-color: var(--grisOscuro);
+    padding: 0.5rem;
+    color: var(--beige);
+    border-radius: 0.5rem
+}
+
+main.productDetail .button-container {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+main.productDetail .pais-origen {
+    display: flex;
+}
