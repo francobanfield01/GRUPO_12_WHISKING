@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
-<body>
+<body class="body-register"> 
     <header>
         <img src="images/logo.svg" alt="logo">
 
@@ -44,10 +44,10 @@
     </header>
     
     <main class="register-main">        
-            <h2>Registra tu Cuenta</h2>
+            <h2>Registrate</h2>
             <hr>
             <form action="">
-                <div class="form-regiter">                    
+                <div class="form-register">                    
                     <div class="input-container-register">                       
                         <input class="input-style-register" type="text" name="user_first_name" placeholder="Ingrese su nombre" id="nombre">
                         <span class="error-message-register">Debes ingresar tu nombre</span>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="input-container-register">                        
                         <input class="input-style-register" type="date" name="date_of_birth" placeholder="Ingrese su Fecha de Nacimiento" min="1900-01-01" max="2050-12-31" id="f_nacimiento">
-                        <span class="error-message-register">Debes ingresar tu Fecha de Nacimiento</span>
+                        <span class="error-message-register">Debes ingresar tu fecha de Nacimiento</span>
                     </div>
                     <div class="input-container-register">                        
                         <input class="input-style-register" type="email" name="mail" placeholder="Ingrese su email" id="email">
@@ -74,15 +74,17 @@
                         <span class="error-message-register">Debes confirmar tu contraseña</span>
                     </div>
                    <div class="check-register">
-                       <label for="terminos_cond">Acepto los <a href="">términos y condiciones</a></label>
-                       <input type="checkbox" name="terms" id="terminos-cond">
-                       <span class="error-message-register">Debes aceptar los términos y condiciones</span>
+                       <label class="label-terms-register" for="terminos_cond">Acepto los <a href="">términos y condiciones</a></label>
+                       <input class="checkbox-terms-register" type="checkbox" name="terms" id="terminos-cond">              <br>
+                       
                    </div>
+                   <span class="error-message-register">Debes aceptar los términos y condiciones</span>
                    <div class="button-container-register">
-                       <span class="error-message-register">Hubo errores en el envío</span>
-                       <input type="submit" class="btn" value="REGISTRARSE">
+                        <button type="submit">Registrarse</button>
+                       
                    </div>
-                   <span><a href="login.html">Ya tiene cuenta</a></span>
+                   
+                   <span class="span-cuenta"><a href="login.html">Ya tienes cuenta</a></span>
                   <!--  <div><img src="/public/images/compartir.jpg" alt=""></div> -->
                 </div>
             </form>
