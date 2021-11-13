@@ -28,12 +28,14 @@
     border-radius: 1rem;
     height: 2rem;
     width: 100%;
-    padding: 1rem;
- /*    background-color: var(--beige); */
+    padding: 1rem; 
     border: none;
 } 
 
-.register-main .form-register .input-container-register .error-message-register {
+.register-main .form-register .input-container-register .error-message-register, 
+.register-main .form-register .check-register .error-message-register,
+.register-main .form-register .error-message-register
+ {
     display: block;
     color: red;
     padding-left: 1rem;
@@ -45,13 +47,22 @@
     display: -webkit-inline-box;
 }
 
-.register-main .form-register .check-register label.remember-login {
+.register-main .form-register .check-register .label-terms-register {
+    font-size: 0.8rem;   
+ }
+
+.register-main .form-register .check-register .label-terms-register a{
     font-size: 0.8rem;
-    
+    color: black;
+    text-decoration: none;    
 }
 
-/* .register-main .form-register .check-register input.input-check-login */
+/* .register-main .form-register .check-register .check-terms-register {
+    display: inline-flex;
+} */
+/* .register-main .form-register .check-register .error-message-register {
 
+} */
 
 .register-main .form-register .button-container-register {
     display: flex;
@@ -59,23 +70,67 @@
     padding-bottom: 0.5rem;
 }
 
-.register-main .form-register .button-container-register button {
+/* .register-main .form-register .button-container-register .btn {
     height: 2.5rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
+    cursor: pointer;
+} */
 
-.register-main .form-register .links-register a {
+
+
+.register-main .form-register .check-register .label-terms-register a,
+span a:hover, .register-main a {
+    
     text-decoration: none;
     color: black;
-    cursor: pointer;
-    font-size: 0.9rem;    
 }
 
-.register-main .form-register a:hover {
-    color: var(--cobre);
+/* background: linear-gradient(to bottom, blue, white); */
+.register-main .button-container-register button{
+    height: 2.5rem;
+    border-radius: 0.5rem ;
+    padding: 0.5rem;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 50%);
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: var(--grisOscuro);
+    color: var(--beige);
 }
+
+.register-main .span-cuenta:hover {
+    cursor: pointer;
+    color: var(--cobre);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.register-main .span-cuenta {
+    text-decoration: none;
+}
+
+
+
+/*Media Queries*/
+@media(min-width:480px){
+    .body-register {
+        background-color: var(--beige);
+      /*  background: linear-gradient(rgb(228,219,202), white);
+       height: 100vh; ¿puedo poner gradient?*/
+
+    }
+    .register-main {
+        width: 480px;
+        justify-content: center;
+        margin: 1rem auto;
+        border: 1px solid var(--grisOscuro);
+        border-radius: 1.5rem;
+        min-height: 68vh;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
 
 /* 
 .register-main span {
