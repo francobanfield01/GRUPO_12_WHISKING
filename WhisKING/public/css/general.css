@@ -23,3 +23,18 @@ li{
 body {
     font-family: var(--rubik, --roboto);
 }
+
+.btn-whisking {
+        height: 2.5rem;
+        border-radius: 0.5rem ;
+        padding: 0.5rem;
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 50%);
+        font-size: 0.9rem;
+        font-weight: 700;
+        background-color: var(--grisOscuro);
+        color: var(--beige);
+}
+
+.btn-whisking:hover {
+    color: white;
+}

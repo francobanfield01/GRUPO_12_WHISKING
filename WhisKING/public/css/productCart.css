@@ -22,10 +22,11 @@ h1.cart-title {
     width: 80%;
     text-align: center;
     font-size: 1.8rem;
+    color: var(--cobre);
 }
 
 .cart-subtitles {
-    background-color: var(--beige);
+    background-color: rgba(156, 121, 51, 0.3);
     display:flex;
     padding: 5px 2px;
     margin-right: 0px;
@@ -81,6 +82,7 @@ h1.cart-title {
 .cart-description .product-name .product-img img {
     height:100%;
     width: 100%;
+    object-fit: contain;
 }
 
 
