@@ -1,3 +1,6 @@
+-body-register {
+    background-color: var(--beige);
+}
 .register-main {
     background-color: var(--beige);
     width: 100%;
@@ -5,6 +8,7 @@
     flex-direction: column;
     justify-content: center;    
     padding: 2rem;
+    min-height:80vh;
 }
 
 .register-main h2 {
@@ -134,11 +138,13 @@
     .register-main {
         width: 480px;
         justify-content: center;
-        margin: 1rem auto;
+        margin: 10vh auto;
         border: 1px solid var(--grisOscuro);
         border-radius: 1.5rem;
         min-height: 68vh;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        min-height:600px;
+        
     }
 }
 
