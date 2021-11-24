@@ -38,3 +38,39 @@
 - Dailys de mas de 15 minutos.
 
 ___
+
+# RETROSPECTIVA GRUPO 12 - COM12 - SPRINT 2.
+
+
+## Comenzar a hacer
+
+- Estimar mejor los tiempos
+
+- Comenzar a utilizar otras ramas para tener mas control sobre el avance de nuestro proyecto.
+
+
+## Hacer más
+
+- Revisiones.
+
+
+## Continuar haciendo
+- Seguir comunicandonos de manera fluida.
+- Se probaron los archivos antes de subirlos.
+- Asistencia perfecta del equipo en todas las daily.
+- Buena colaboración entre los miembros del equipo.
+- Las dailys duraron 15 minutos.
+- Se fijo un horario de referencia para las dailys.
+
+
+
+## Hacer menos
+
+- 
+
+
+## Dejar de hacer
+
+- 
+
+___
