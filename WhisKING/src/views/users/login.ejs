@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head.ejs')  %> 
+<body class="body-login">
+    <%- include('../partials/header.ejs')  %>
+    <main class="login-main">        
+        <h2>Iniciar Sesión</h2>
+        <hr>
+        <form action="">
+            <div class="form-login">
+                <div class="input-container-login">
+                    <input class="input-style-login" type="email" name="mail" placeholder="Ingrese su email" id="email">
+                    <span class="error-message-login">Debes ingresar tu email</span>
+                </div>
+
+                <div class="input-container-login">
+                    <input class="input-style-login" type="password" name="pass" placeholder="Ingrese su contraseña"
+                        id="contrasenia">
+                    <span class="error-message-login">Debes ingresar tu contraseña</span>
+                </div>
+
+                <div class="check-login">
+                    <label class="remember-login" for="remember">Recordarme</label>
+                    <input class="input-check-login" type="checkbox" name="remember" id="remember">
+
+                </div>
+
+                <div class="button-container-login">
+                    <button type="submit" class="btn-whisking">Iniciar sesión</button>
+                </div>
+
+                <span class="error-message-login">Credenciales inválidas</span>
+
+                <div class="links-login">
+                    <br>
+                    <a href="">¿Olvidaste tu contraseña?</a>
+                    <br>
+                    <br>
+                    <a href="register.html">Aún no tengo cuenta</a>
+                </div>
+
+            </div>
+        </form>
+    </main>
+    
+    <%- include('../partials/footer.ejs')  %>
+</body>
+</html>
