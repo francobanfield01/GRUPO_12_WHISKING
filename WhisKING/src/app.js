@@ -19,11 +19,8 @@ let usersRouter = require('./routes/users')
 
 /* Routes */
 app.use('/', mainRouter)
-app.use('/productCart', productsRouter)
-app.use('/productDetail', productsRouter)
-app.use('/login', mainRouter)
-app.use('/register', usersRouter)
-
+app.use('/products', productsRouter)
+app.use('/users', usersRouter)
 
 
 //Server
