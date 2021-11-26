@@ -1,48 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <!--hoja de estilo normalize-->
-    <link rel="stylesheet" href="/css/style.css">
-    <!--hoja de estilo-->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-</head>
-
+    <%- include('../partials/head.ejs')  %> 
 <body class="body-login">
-    <header>
-        <img src="images/logo.svg" alt="logo">
-
-        <div class="container">
-
-            <div class="buscar">
-                <input type="text" class="search-bar" placeholder="Buscar...">
-                <a href="" class="lupa_buscar">
-                    <i class="fas fa-search fa-lg"></i>
-                </a>
-            </div>
-
-        </div>
-
-        <nav>
-            <input type="checkbox" id="check">
-            <label for="check" class="bar-btn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <ul class="nav-menu">
-                <li><a href="">Ofertas</a></li>
-                <li><a href="">Productos</a></li>
-                <li><a href="">Carrito</a></li>
-                <li><a href="">Ingresar</a></li>
-            </ul>
-        </nav>
-
-    </header>
+    <%- include('../partials/header.ejs')  %>
     <main class="login-main">        
         <h2>Iniciar Sesión</h2>
         <hr>
@@ -83,24 +43,6 @@
         </form>
     </main>
     
-    <footer>
-        <div class="logo2">
-            <img src="images/logo2.svg" alt="logo">
-        </div>
-
-        <div class="redesSociales">
-            <a href="">contacto</a> <!-- link a formulario -->
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-whatsapp"></i>
-        </div>
-        <div class="copyright">
-            <p>Copyright ©️ WhisKING 2021 | Todos los derechos reservados</p>
-        </div>
-    </footer>
-
-
-
+    <%- include('../partials/footer.ejs')  %>
 </body>
-
 </html>
