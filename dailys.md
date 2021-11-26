@@ -21,5 +21,15 @@ Ausentes: Joel.
 - Se encontró impedimento para mostrar algunas vistas, queda pendiente solución.
 
 
+### Acta 26-11-2021 ###
+Presentes: Jeanette, Gisela, Franco, Fernanda.
+Ausentes: Joel.
+
+Se decidió a partir de las consultas realizadas y de la invitación a reunirnos en el dia de la fecha por la mañana con Jeanette.
+Franco realizó la consulta sobre el inconveniente de no poder ver las vistas y Jeanette nos logra dar cuenta el error cometido, se solucionó el problema.
+Fernanda, también solicita ver ese mismo problema pero ya con la incorporación de la carpeta partials, era un problema de ruta.
+
+
+
 
 
