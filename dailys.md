@@ -30,6 +30,32 @@ Franco realizó la consulta sobre el inconveniente de no poder ver las vistas y 
 Fernanda, también solicita ver ese mismo problema pero ya con la incorporación de la carpeta partials, era un problema de ruta.
 
 
+### Acta 29-11-2021 02.00 pm ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Joel.
+
+**Franco**
+- Desde las correcciones realizadas durante la última cita en la cuál Jeanette solucionó el problema presentado en la visualización de las vistas, se encuentra a la espera de nuestras devoluciones en las tareas asignadas.
+
+**Fernanda**
+- Solucionó las vistas, el problema se encontraba en la ruta de los partials en sus archivos consecuentes .ejs, al encontrarse index.ejs y prodcutCart.ejs por fuera de las carpetas products y users, requerian una ubicación diferente para ser llamadas en la visualización. Pusheo los arreglos y el archivo .md de las dailies que se va actualizando con cada cita. Citó que las titles que van en los heads de las distintas vistas, solo visualiza el recorte que se repite de una vista, habrá que consultar como se resuelve dicho inconveniente.
+
+**Gisela**
+- Creó la maquetación de productCreate y productEdit, avanzó con la vista de productCreate y considera que a su impresión visual queda conforme, le falta la parte de la @media queries, en la vista de productEdit encuentra el impedimento de seguir en la parte estética basada en los ejemplos vistos en clase con Boostrap. 
+- Nos muestra como queda productCreate con un header diferente a las vistas que se verá de parte del usuario final, esta visual corresponderá a la visual administrador.  
+- Se decide que tanto productCreate y productEdit tengan los mismos head,header y footer  
+
+> Se decide una nueva daily en el horario de las 20.00hs para continuar con los ajustes y que las vistas mencionadas queden perfectamente visualizadas.
+
+
+### Acta 29-11-2021  08:00 pm. ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Joel.
+
+Trabajamos sobre la posición de las etiquetas inputs, placeholders y @media queries de las vistas habladas en la anterior cita, se pacta nueva daily para el día de mañana a las 02.30 pm para ultimar detalles, y hacer una revisión general del proyecto para su posterior entrega estimada a las 06.00 pm.
+
+
+
 
 
 
