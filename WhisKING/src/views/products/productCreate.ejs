@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head.ejs')  %>
+
+<body class="body-create">
+    <%- include('../partials/headerAdmin.ejs')  %> 
+    <main class="create-main">
+
+        <form action="" method="POST">
+            <div class="form-create">
+
+                <section class="mediaCreate1">
+                    <div class="section-create">
+                        <p>nombre del producto</p>
+                        <input class="" type="" name="nombreProducto" placeholder="" id="productName">
+                        <span class="error-message-create">Debes ingresar el nombre del producto</span>
+                    </div>
+
+                    <div class="section-create">
+                        <p>descripción</p>
+                        <input class="" type="" name="descripcion" placeholder="" id="description">
+                        <span class="error-message-create">Debes ingresar una breve descripción del producto</span>
+                    </div>
+                    <div class="section-create">
+                        <p>categoria</p>
+                        <input class="" type="" name="categoria" placeholder="" id="category">
+                        <span class="error-message-create">Debes ingresar la categoria del producto</span>
+                    </div>
+                    <div class="price-stock">
+                    <div class="section-create">
+                        <p>precio</p>
+                        <input class="" type="" name="precio" placeholder="" id="price">
+                        <span class="error-message-create">Debes ingresar el precio</span>
+                    </div>
+
+                    <div class="section-create stock">
+                        <p>stock</p>
+                        <input class="input-stock" type="" name="cantidad" placeholder="" id="stock">
+
+                    </div>
+                </div>
+                </section>
+                <section class="mediaCreate2">
+                    
+                    <div class="section-create">
+                        <p>imágen</p>
+                        <i class="far fa-image"></i>
+                        <button type="submit" class="addImage">agrega una imagen</button>
+
+                    </div>
+                    <div class="botones">
+                        <div class="button-cancel-create">
+                            <button type="submit" class="botonCancel">cancelar</button>
+                        </div>
+                        <div class="button-public-create">
+                            <button type="submit" class="botonCreate">publicar</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </form>
+
+    </main>
+    <%-include('../partials/footerAdmin.ejs')%> 
+</body>
+
+</html>
