@@ -1,0 +1,37 @@
+main.edit-main form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+    main .containerEdit{
+        display: flex;
+    }
+    main.edit-main form{
+        display: block;
+    }
+    main.edit-main form .searchEdit{
+        display: flex;
+    }
+    form p.tituloEdit{
+        color: var(--cobre);
+        font-size: small;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-right: 2rem;
+        
+    }
+    main input.buscarEdit{
+        border-radius: 5px;
+        border-color: lightgray;
+    }
+    main.edit-main section.sectionEdit{
+        display: flex;
+        font-size: small;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--cobre);
+    }
+    main section.sectionEdit p{
+        margin-right: 1rem;
+    }
+    
