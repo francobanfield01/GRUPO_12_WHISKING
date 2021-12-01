@@ -32,3 +32,12 @@ footer a{
 footer .redesSociales {
     color: var(--beige);
 }
+
+.footer-admin {
+    background-color: var(--beige);
+    
+}
+
+.footer-admin a , i, .copyright {
+    color: var(--cobre);
+}
