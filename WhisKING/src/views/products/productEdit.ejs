@@ -1,65 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edición del producto</title>
-    <!--hoja de estilo normalize-->
-    <link rel="stylesheet" href="/css/style.css">
-    <!--hoja de estilo-->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-</head>
+    <%- include('../partials/head.ejs')  %>
 
 <body class="body-edit">
-    <header class="headerCreate">
-        <img src="images/logoCobre.svg" alt="logo">
-
-        <div class="container-create">
-            <div class="acceso">
-                <p>Usuario: Administrador</p>
-                <a href="">cerrar sesión</a>
-            </div>
-
-            <nav class="menu-create">
-
-                <ul class="nav-menu-create">
-                    <li><a href="">crear</a></li>
-                    <li><a href="">editar</a></li>
-                    <li><a href="">promos</a></li>
-                </ul>
-
-            </nav>
-        </div>
-    </header>
+    <%- include('../partials/headerAdmin.ejs')  %> 
 
     <main class="edit-main">
 
-            <form action="">
-                <div class="searchEdit">
-                    <p class="tituloEdit">producto</p>
-                    <input class="buscarEdit" type="search" placeholder="buscar" name="" id="">
-
+        <form action="">
+            <div class="searchEdit">
+                <p class="tituloEdit">producto</p>
+                <input class="buscarEdit" type="search" placeholder="buscar" name="" id="">
+            </div>
+            <section class="sectionEdit">
+                <div class="container-product">
+                    <div class="img-container">
+                        <img src="../images/productos/whisky_03.jpeg" alt="whisky">
+                    </div>
+                    <div class="product-description">
+                        <p>nombre</p>
+                        <p>categoria</p>
+                        <p>precio</p>
+                        <p>descuento</p>
+                    </div>
                 </div>
-                <section class="sectionEdit">
-                    <p>id</p>
-                    <p>producto</p>
-                    <br>
-                    <img src="images/productos/whisky_03.jpeg" alt="whisky">
-                    <div class="button-cancel-create">
-                        <button type="submit" class="botonCancel">eliminar</button>
-                    </div>
-                    <div class="button-editar">
-                        <button type="submit" class="botonEdit">editar</button>
-                    </div>
-                </section>
+                <div class="buttons-cancel-create">
+                    <button type="submit" class="botonCancel">eliminar</button>
+                    <button type="submit" class="btn-whisking2">editar</button>
+                </div>
 
-            </form>
+            </section>
+
+        </form>
 
 
     </main>
+    <%-include('../partials/footerAdmin.ejs')%> 
 </body>
 
 </html>

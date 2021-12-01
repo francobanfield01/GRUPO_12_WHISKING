@@ -38,3 +38,20 @@ body {
 .btn-whisking:hover {
     color: white;
 }
+.btn-whisking2{
+    cursor: pointer;
+    border-radius: 5px;
+    color: var(--beige);
+    background-color: var(--cobre);
+    width: 6rem;
+    height: 2rem;
+    text-transform: capitalize;
+    border: none;
+    font-weight: bold; 
+    font-size: small;
+}
+.btn-whisking2:hover{
+    color: var(--cobre);
+    background-color: var(--beige);
+    box-shadow: 0px 0px 5px var(--grisOscuro);
+}
