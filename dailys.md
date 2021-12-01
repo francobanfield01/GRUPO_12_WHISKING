@@ -100,6 +100,7 @@ Ausentes: Joel.
 - Se agregó el footer a productCreate con algunos cambios estéticos para diferenciarlo del footer que va a ver finalmente el usuario.
 - Se decide cambiar productCreate y productEdit por create y edit y detail
 - Se cierra la cita y con el compromiso de realizar más cambios y ser subidos en el día de mañana.
+- Quedan pendientes algunas correcciones del sprint2
 
 
 
