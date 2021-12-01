@@ -38,6 +38,6 @@ footer .redesSociales {
     
 }
 
-.footer-admin a , i, .copyright {
+.footer-admin .redesSociales, .footer-admin .redesSociales a, .copyright {
     color: var(--cobre);
 }

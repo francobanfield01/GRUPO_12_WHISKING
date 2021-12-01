@@ -1,18 +1,34 @@
+main.edit-main{
+    min-height: 80vh;
+}
+main.edit-main, .sectionEdit {
+padding-top: 2rem;
+
+}
 main.edit-main form{
     display: flex;
     flex-direction: row;
     justify-content: center;
     }
-    main .containerEdit{
+main .containerEdit{
         display: flex;
     }
-    main.edit-main form{
+main.edit-main form{
         display: block;
     }
-    main.edit-main form .searchEdit{
+main.edit-main .img-container{
+        width: 150px;
+        height: 150px;
+    }
+main.edit-main form .img-container img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+ main.edit-main form .searchEdit{
         display: flex;
     }
-    form p.tituloEdit{
+form p.tituloEdit{
         color: var(--cobre);
         font-size: small;
         font-weight: bold;
@@ -20,18 +36,53 @@ main.edit-main form{
         margin-right: 2rem;
         
     }
-    main input.buscarEdit{
+main.edit-main .container-product{
+    display: flex;
+}
+main.edit-main section.sectionEdit{
+    display: flex;
+    flex-direction: column;
+}
+main input.buscarEdit{
         border-radius: 5px;
         border-color: lightgray;
     }
-    main.edit-main section.sectionEdit{
+main.edit-main section.sectionEdit{
         display: flex;
         font-size: small;
         font-weight: bold;
         text-transform: uppercase;
         color: var(--cobre);
     }
-    main section.sectionEdit p{
+main section.sectionEdit p{
         margin-right: 1rem;
     }
-    
+main.edit-main .product-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}    
+main.edit-main .buttons-cancel-create{
+    margin: 0 auto;
+}
+
+
+/* MEDIAS */
+@media(min-width:480px){
+    main.edit-main section.sectionEdit{
+        flex-direction: row;
+    } 
+    main.edit-main .buttons-cancel-create {
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media(min-width:768px){
+
+main.edit-main .product-description {
+    flex-direction: row;
+    }
+}
