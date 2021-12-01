@@ -108,7 +108,7 @@
 @media(min-width:480px){
 
     .login-main {
-        width: 480px;
+        width: 490px;
         justify-content: center;
         margin: 10vh auto;
         border: 1px solid var(--grisOscuro);
