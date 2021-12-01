@@ -21,12 +21,13 @@ body .container-create a{
 }
 body .acceso{
     text-align: right;
-    margin-right: 1rem;
+    padding-right: 1.5rem;
     
 }
 nav.menu-create{
     width: 100%;
     justify-content: right;
+    padding-right: 0.5rem;
 }
 nav ul.nav-menu-create{
     display: flex;
@@ -50,7 +51,7 @@ body nav ul.nav-menu-create a:hover{
     box-shadow: 0px 0px 5px var(--grisOscuro);
 }
 main.create-main{
-    margin: 2rem;
+    margin: 2rem 1rem;
     min-height: 80vh;
 }
 main span{
@@ -147,7 +148,7 @@ form .form-create{
 main.create-main{
     flex-direction: row;
     width: 100%;
-    margin: 2rem 2rem;
+    margin: 2rem 1rem;
 }
 form .price-stock{
     display: flex;
