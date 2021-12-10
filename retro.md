@@ -77,3 +77,29 @@ ___
 - 
 
 ___
+___
+
+# RETROSPECTIVA GRUPO 12 - COM12 - SPRINT 3.
+
+
+## Comenzar a hacer
+- Los ajustes solicitados en la revisión.
+- Tablero extra con ajustes y mejoras sugeridas por los profesores y por nosotros.
+- Implementar las ramas.
+
+## Hacer más
+- 
+
+## Continuar haciendo
+- Seguir estimando correctamente los tiempos.
+- Probar los archivos antes de la entrega.
+- Reuniones de trabajo colaborativo.
+
+## Hacer menos
+- 
+
+## Dejar de hacer
+- 
+
+___
+___
