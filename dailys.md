@@ -1,5 +1,5 @@
 ***
-# DAILY
+# DAILY SPRINT 3
 *** 
 ### Acta 25-11-2021 ###
 Presentes: Gisela, Franco, Fernanda.
@@ -102,10 +102,51 @@ Ausentes: Joel.
 - Se cierra la cita y con el compromiso de realizar más cambios y ser subidos en el día de mañana.
 - Quedan pendientes algunas correcciones del sprint2
 
+___
+___
+
+# DAILY SPRINT 4
+*** 
+### Acta 7-12-2021 ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Joel.
+
+- Realizamos la distribución de tareas.
+- Se actualizó el tablero de Trello y se asignaron las dificultades de las tareas al mismo.
+- Reorganizamos los horarios para sincronizar las reuniones.
+
+### Acta 9-12-2021 ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Joel.
+
+**Fernanda**
+- Reunió información.
+- Realizó parte de user.json
+
+**Franco**
+- Decidió las categorias de los productos que van a estar dentro del proyecto.
+- Seleccionó la cantidad de imagenes de los productos a trabajar en este sprint.
+
+**Gisela**
+- Tomó nota de todo lo que sucedió en la reunión, para realizar la retro y las dailys.
+
+### Acta 10-12-2021 ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Joel.
+
+**Fernanda**
+- Concluyo con su parte de user.json.
+- Subió los archivos al GitHub.
+
+**Franco**
+- Nos mostró parte del product.json en el que estaba trabajando.
+- Nos hizo saber que tuvo un problema con el archivo y que estaba intentando resolverlo.
+
+**Gisela**
+- Se puso a trabajar en la retro.md y las dailys y subió los archivos a GitHub.
 
 
 
-
-
-
+___
+___
 
