@@ -102,6 +102,9 @@ Ausentes: Joel.
 - Se cierra la cita y con el compromiso de realizar más cambios y ser subidos en el día de mañana.
 - Quedan pendientes algunas correcciones del sprint2
 
+___
+___
+
 # DAILY SPRINT 4
 *** 
 ### Acta 7-12-2021 ###
@@ -144,5 +147,6 @@ Ausentes: Joel.
 
 
 
-
+___
+___
 
