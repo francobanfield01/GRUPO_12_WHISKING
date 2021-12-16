@@ -109,7 +109,19 @@ header nav{
  header #check:checked ~.nav-menu li {
      display: block;
  }
+ 
+/* headerAdmin */
+header.headerCreate{
+    background-color: var(--beige);
+    width: 100%;
+    height: 100px;
+}
 
+header.headerCreate a img {
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 150px;
+}
 
 /* == RESPONSIVE == */
 @media(min-width:480px) {
