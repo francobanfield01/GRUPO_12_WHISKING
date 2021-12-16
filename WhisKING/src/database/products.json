@@ -150,7 +150,7 @@
         "category": "Japonés",
         "description": "Mars Iwai Whisky es uno de los whiskies japoneses más nuevos que ha aparecido en los estantes en los últimos años. Es una destilería que existe desde hace un tiempo y es conocida por el whisky de alta calidad en Japón.",
         "cata": "Color: Caramelo oscuro. Nariz: Pequeñas hebras de vainilla y nueces saladas. Boca: Malta cremosa, higos secos y manzanas acarameladas. Final: Es muy afrutado, especias de madera.",
-      "origen": "Japon",
+        "origen": "Japon",
         "image": "img-iwai-mars.jpg"
     },
     {
@@ -437,5 +437,14 @@
         "cata": "Color: Oro con reflejos brillantes. Nariz: Un calor maravilloso, naranjas maduras, quizá algo de manzana al horno, vainilla y caramelo. Hay una chispa de centeno en su perfume, cosa que lo hace irresistible. Al acercarte la copa a la nariz sabes desde el primer momento que se trata de un whisky fuerte y animado. Boca: Un dulce al horno y notas de malta vuelan por todas partes. Azúcar de vainilla y un ligero toque de fruta. Algo seco y ligero. Final: Largo y fuerte, notas de pimienta resisten en la boca durante largo tiempo. Recogió el premio en su categoría en el Whisky World Awards 2010, y fue nombrado como mejor whisky irlandés del año por Jim Murray en el Whisky Bible 2010, con una puntuación de 96 puntos.",
         "origen": "Irlanda",
         "image": "img-redbreast-single.jpg"
+    },
+    {
+        "id": 41,
+        "name": "Whisky Juanito",
+        "price": 100,
+        "discount": 10,
+        "category": "Pedorros",
+        "description": "Para prender fuego sirve.",
+        "image": "default-image.png"
     }
 ]

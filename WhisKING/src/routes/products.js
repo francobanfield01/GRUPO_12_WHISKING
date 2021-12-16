@@ -3,8 +3,14 @@ let router = express.Router();
 let controller = require('../controllers/productsController');
 
 router.get('/detail', controller.detail)
-router.get('/create', controller.create)
-router.get('/edit', controller.edit)
 
+
+/* Create products */
+router.get('/create', controller.create)
+router.post('/', controller.store)
+
+/* Edit one product */
+router.get('/:id/edit', controller.edit)
+router.put('/:id', controller.update)
 
 module.exports = router; 

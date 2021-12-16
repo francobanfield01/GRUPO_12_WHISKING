@@ -7,39 +7,39 @@
     <%- include('../partials/headerAdmin.ejs')  %> 
     <main class="create-main">
 
-        <form action="" method="POST">
+        <form action="/products" method="POST">
             <div class="form-create">
 
                 <section class="mediaCreate1">
                     <div class="section-create">
                         <p>nombre del producto</p>
-                        <input class="" type="" name="nombreProducto" placeholder="" id="productName">
+                        <input class="" type="" name="name" placeholder="" id="productName">
                         <span class="error-message-create">Debes ingresar el nombre del producto</span>
-                    </div>
-
-                    <div class="section-create">
-                        <p>descripción</p>
-                        <input class="" type="" name="descripcion" placeholder="" id="description">
-                        <span class="error-message-create">Debes ingresar una breve descripción del producto</span>
                     </div>
                     <div class="section-create">
                         <p>categoria</p>
-                        <input class="" type="" name="categoria" placeholder="" id="category">
+                        <input class="" type="" name="category" placeholder="" id="category">
                         <span class="error-message-create">Debes ingresar la categoria del producto</span>
                     </div>
                     <div class="price-stock">
+                        <div class="section-create">
+                            <p>precio</p>
+                            <input class="" type="" name="price" placeholder="" id="price">
+                            <span class="error-message-create">Debes ingresar el precio</span>
+                        </div>
+    
+                        <div class="section-create stock">
+                            <p>Descuento</p>
+                            <input class="input-stock" type="" name="discount" placeholder="" id="stock">
+    
+                        </div>
+                    </div>
                     <div class="section-create">
-                        <p>precio</p>
-                        <input class="" type="" name="precio" placeholder="" id="price">
-                        <span class="error-message-create">Debes ingresar el precio</span>
+                        <p>descripción</p>
+                        <textarea class="" type="" name="description" placeholder="" id="description"></textarea>
+                        <span class="error-message-create">Debes ingresar una breve descripción del producto</span>
                     </div>
-
-                    <div class="section-create stock">
-                        <p>stock</p>
-                        <input class="input-stock" type="" name="cantidad" placeholder="" id="stock">
-
-                    </div>
-                </div>
+                    
                 </section>
                 <section class="mediaCreate2">
                     

@@ -2,6 +2,7 @@ let express = require('express'); // rquiero express
 let app = express(); //ejecuto express
 const PORT = 3001;// defino la variable PORT en 3001
 let path = require('path');
+const methodOverride = require('method-override');
 
 
 //middlewares: usamos el método use de app (aplicación de express), x ej intentando acceder a un archivo estático
@@ -11,6 +12,11 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs'); // Setea el template engine
 app.set('views', path.join(__dirname, 'views'))
 
+/* Middlewares */
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(methodOverride('_method'));
 
 /* Enrutadores */
 let mainRouter = require('./routes/main')
