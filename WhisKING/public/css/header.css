@@ -1,5 +1,4 @@
-header{
-   
+header{     
     width: 100%;
     height: 100px;
     background-color: var(--grisOscuro);
@@ -7,9 +6,11 @@ header{
     position: sticky;
     z-index: 1;
 }
-header img {
-    margin-left: 5%;
-    width: 25%;
+header a img {
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 150px;
+    
   
    
 }

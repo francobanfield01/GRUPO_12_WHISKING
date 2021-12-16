@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head.ejs')  %>
+    <%- include('../partials/head.ejs', {title: 'Crear Producto'})%>
 
 <body class="body-create">
-    <%- include('../partials/headerAdmin.ejs')  %> 
+    <%- include('../partials/headerAdmin.ejs')%> 
     <main class="create-main">
-
+        <h2>Crear Producto</h2>
         <form action="/products" method="POST">
             <div class="form-create">
-
+                
                 <section class="mediaCreate1">
                     <div class="section-create">
                         <p>nombre del producto</p>
