@@ -9,8 +9,15 @@ router.get('/detail', controller.detail)
 router.get('/create', controller.create)
 router.post('/', controller.store)
 
-/* Edit one product */
-router.get('/:id/edit', controller.edit)
-router.put('/:id', controller.update)
+/*** EDIT ONE PRODUCT ***/ 
+router.get('/:id/edit', controller.edit); /* ponemos por get xq es la que va a renderizar el formulario router.???, '/:id/???' y aca me esta pidiendo que le ponga edit */
+/* router.put('/:id', upload.single('image'), productsController.update); /* y la 2da es por put que es la que va a modificar */
+ 
 
-module.exports = router; 
+/*** DELETE ONE PRODUCT***/ 
+/* router.delete('/:id', controller.destroy);  */
+
+
+module.exports = router;
+
+
