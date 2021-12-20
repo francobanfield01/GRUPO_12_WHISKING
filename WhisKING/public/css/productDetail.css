@@ -45,8 +45,13 @@ main.productDetail .productDescription p, .pais-origen p
     display: flex;
     padding-right: 0.5rem;
 }
+
+main.productDetail .pais-origen :nth-child(1){
+    font-weight: 700;
+}
 main.productDetail .productDescription-text{
     padding-left: 0.7rem;
+    font-size: 0.9rem;
 }
 
 main.productDetail button.comprar {
@@ -64,6 +69,7 @@ main.productDetail .button-container {
 
 main.productDetail .pais-origen {
     display: flex;
+    padding-bottom: 0.5rem;
 }
 
 

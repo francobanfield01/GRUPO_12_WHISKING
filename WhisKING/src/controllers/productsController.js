@@ -13,11 +13,15 @@ let controller = {
 
 	// Detail - Detail from one product
     detail: (req, res) => {
-        res.render('products/productDetail');
+		let productId  = +req.params.id;
+		let product = products.find(product => product.id === productId)
 
-    },
+		res.render('products/productDetail', {
+			product
+		})
+	},
 	// Create - Form to create
-    create:(req, res) =>{
+    create:(req, res) => {
         res.render('products/productCreate');
 
     },

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include('../partials/head.ejs', { title: 'Detalle del producto' })  %> 
+    <%- include('../partials/head.ejs', {title: product.name})  %> 
 
 <body>
     <%- include('../partials/header.ejs')  %> 
@@ -10,22 +10,22 @@
         <div class="productResponsive">
             <div class="img-container">
                 <div class="second-img">
-                    <img src="/images/productos/whisky_01.jpeg" alt="">
-                    <img src="/images/productos/whisky_02.jpeg" alt="">
-                    <img src="/images/productos/whisky_03.jpeg" alt="">
+                    <img src="/images/products/<%- product.image %>" alt="">
+                    <img src="/images/products/<%- product.image %>" alt="">
+                    <img src="/images/products/<%- product.image %>" alt="">
                 </div>
                 <div class="main-img">
-                    <img src="/images/productos/whisky_04.jpeg" alt="">
+                    <img src="/images/products/<%- product.image %>" alt="">
                 </div>
             </div>
             <div class="productResponsive2">
                 <div class="nombreProducto">
-                    <h2>Nombre del producto</h2>
+                    <h2><%- product.name %> </h2>
                 </div>
                 <div class="productDescription">
                     <div class="precio">
                         <p>Precio: </p>
-                        <p>$10000</p>
+                        <p><%- product.price %> $</p>
                     </div>
                     <div class="button-container">
                         <button class="comprar btn-whisking">Comprar</button>
@@ -37,11 +37,11 @@
         <div class="productDescription-text">
             <div class="pais-origen">
                 <p>País de origen: </p>
-                <p>Escocia</p>
+                <p><%- product.origen  %></p>
             </div>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore amet inventore optio officiis numquam sit
-            dicta illo quibusdam, minima voluptas adipisci hic, provident distinctio obcaecati quisquam libero unde!
-            Sint, vero.
+            <div class="text-description">
+                <b>Descripción: </b><%- product.description %>
+            </div>
         </div>
     </main>
     <%- include('../partials/footer.ejs')  %>
