@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-    <%- include('../partials/head.ejs'), {title: 'Editar Producto'}   %>
+    <%- include('../partials/head.ejs'), {title: 'Editar Producto:' + product.name})   %>
 
 <body class="body-edit">
     <!-- HeaderAdmin -->
@@ -9,30 +9,81 @@
     <!-- /Header -->
 
     <main class="edit-main">
-
-        <form action="/products" method="POST">
-            <div class="searchEdit">
-                <p class="tituloEdit">producto</p>
-                <input class="buscarEdit" type="search" placeholder="buscar" name="" id="">
-            </div>
-            <section class="sectionEdit">
-                <div class="container-product">
-                    <div class="img-container">
-                        <img src="../images/productos/whisky_03.jpeg" alt="whisky">
+        <form action="/products/<%- product.id  %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
+            <div class="form-edit">   <!-- css class="form-create" -->
+                <section class="mediaEdit1"> <!--  css class="mediaCreate1"   -->                         
+                        <h2>Estas editando: <i><%= product.name  %></i></h2> <!-- reemplazar PRODUCT NAME con ejs, le ponemos un '=' porque es una variable que esta llegando de la B.de datos del controlador -->
+                    <div class="section-edit"> <!-- css class="section-create"  -->
+                        <p>nombre del producto</p>
+                        <input class="" type="text" name="name" placeholder="" id="productName" value="<%= product.name  %>"> <!-- PREGUNTAR AL EQUIPO xq id="productName" y  NO id="name"  -->
+                        <span class="error-message-create">Debes ingresar el nombre del producto</span>
                     </div>
-                    <div class="product-description">
-                        <p>nombre</p>
+                    <div class="section-edit"> <!-- css class="section-create" -->
                         <p>categoria</p>
-                        <p>precio</p>
-                        <p>descuento</p>
+                        <!-- <input class="" type="text" name="category" placeholder="" id="category" value="<%= product.category  %>"> -->
+                        <select name="select" id=""></select>
+                            <option value="Single-Malt"<%- producto.category === "Single-Malt" && `selected` %> >Single-Malt</option>
+                            <option value="Japonés"<%- producto.category === "Japonés" && `selected` %>>Japonés</option>
+                            <option value="Blended"<%- producto.category === "Blended" && `selected` %>>Blended</option>
+                            <option value="Bourbon"<%- producto.category === "Bourbon" && `selected` %>>Bourbon</option>
+                            <option value="Irlandeses"<%- producto.category === "Irlandeses" && `selected` %>>Irlandeses</option>
+                            <option value="Pedorros"<%- producto.category === "Pedorros" && `selected` %>>Pedorros</option>
+                        </select>
+                        <span class="error-message-create">Debes ingresar la categoria del producto</span>
                     </div>
-                </div>
-                <div class="buttons-cancel-create">
-                    <button type="submit" class="botonCancel">eliminar</button>
-                    <button type="submit" class="btn-whisking2">editar</button>
-                </div>
+                    <div class="price-stock">
+                        <div class="section-edit"> <!-- css class="section-create" -->
+                            <p>precio</p>
+                            <input class="" type="text" name="price" placeholder="" id="price" value="<%= product.price  %>">
+                            <span class="error-message-create">Debes ingresar el precio</span>
+                        </div>
+    
+                        <div class="section-edit stock"> <!--  css class="section-create stock"  -->
+                            <p>Descuento</p>
+                            <input class="input-stock" type="" name="discount" placeholder="" id="stock" value="<%= product.discount  %>">    
+                        </div>
+                    </div>
 
-            </section>
+                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap -->
+                        <div>
+                            <span>Upload</span>
+
+                        </div>
+                        <div>
+                            <label for="">Choose file</label>
+                            <input type="file" name"archivosubido" class="" id="" >
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="section-edit"> <!-- css class="section-create" -->
+                        <p>descripción</p>
+                        <textarea class="" type="" name="description" placeholder="" id="description"><%= product.description  %></textarea>
+                        <span class="error-message-create">Debes ingresar una breve descripción del producto</span>
+                    </div>
+                    
+                </section>
+                <section class="mediaEdit2"> <!-- css class="mediaCreate2" -->
+                    
+                    <div class="section-edit"> <!-- css class="section-create"  ver como se hace linea 47 -->
+                        <p>imágen</p>
+                        <i class="far fa-image"></i>
+                        <button type="submit" class="addImage">agrega una imagen</button>
+
+                    </div>
+                    <div class="botones">
+                        <div class="button-cancel-create">
+                            <button type="submit" class="botonCancel">cancelar</button>
+                        </div>
+                        <div class="button-public-create">
+                            <button type="submit" class="botonCreate">publicar</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>   
+          
 
         </form>
 
