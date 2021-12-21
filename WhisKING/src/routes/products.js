@@ -3,7 +3,7 @@ let router = express.Router();
 let controller = require('../controllers/productsController');
 
 /* Detail product selected */
-router.get('/:id', controller.detail)
+router.get('/detail/:id', controller.detail)
 
 
 /* Create products */

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-    <%- include('../partials/head.ejs'), {title: 'Editar Producto:' + product.name})   %>
+    <%- include('../partials/head.ejs', {title: 'Editar Producto:' + product.name})   %>
 
 <body class="body-edit">
     <!-- HeaderAdmin -->
@@ -22,12 +22,12 @@
                         <p>categoria</p>
                         <!-- <input class="" type="text" name="category" placeholder="" id="category" value="<%= product.category  %>"> -->
                         <select name="select" id=""></select>
-                            <option value="Single-Malt"<%- producto.category === "Single-Malt" && `selected` %> >Single-Malt</option>
-                            <option value="Japonés"<%- producto.category === "Japonés" && `selected` %>>Japonés</option>
-                            <option value="Blended"<%- producto.category === "Blended" && `selected` %>>Blended</option>
-                            <option value="Bourbon"<%- producto.category === "Bourbon" && `selected` %>>Bourbon</option>
-                            <option value="Irlandeses"<%- producto.category === "Irlandeses" && `selected` %>>Irlandeses</option>
-                            <option value="Pedorros"<%- producto.category === "Pedorros" && `selected` %>>Pedorros</option>
+                            <option value="Single-Malt"<%- product.category === "Single-Malt" && `selected` %> >Single-Malt</option>
+                            <option value="Japonés"<%- product.category === "Japonés" && `selected` %>>Japonés</option>
+                            <option value="Blended"<%- product.category === "Blended" && `selected` %>>Blended</option>
+                            <option value="Bourbon"<%- product.category === "Bourbon" && `selected` %>>Bourbon</option>
+                            <option value="Irlandeses"<%- product.category === "Irlandeses" && `selected` %>>Irlandeses</option>
+                            <option value="Pedorros"<%- product.category === "Pedorros" && `selected` %>>Pedorros</option>
                         </select>
                         <span class="error-message-create">Debes ingresar la categoria del producto</span>
                     </div>
