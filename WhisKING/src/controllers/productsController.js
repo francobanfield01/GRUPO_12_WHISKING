@@ -12,14 +12,18 @@ let controller = {
 	// Root - Show all products ----//falta 
 
 	// Detail - Detail from one product
-    detail: (req, res) => {	
-		res.render('products/productDetail');
+    detail: (req, res) => {
+		let productId  = +req.params.id;
+		let product = products.find(product => product.id === productId)
 
+		res.render('products/productDetail', {
+			product,
+			toThousand
+		})
 	},
 	// Create - Form to create
     create:(req, res) => {
         res.render('products/productCreate');
-
     },
    // Create -  Method to store
     store: (req, res) => {

@@ -25,7 +25,8 @@
                 <div class="productDescription">
                     <div class="precio">
                         <p>Precio: </p>
-                        <p><%- product.price %> $</p>
+                        <p>$ <%- toThousand(product.price - product.price * product.discount / 100) %></p>
+                        <span><%- product.discount > 0 ? `${product.discount} % OFF` : "" %></span>
                     </div>
                     <div class="button-container">
                         <button class="comprar btn-whisking">Comprar</button>                    
