@@ -9,7 +9,7 @@ const writeJson = dataBase => {
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 	
 let controller = {
-	// Root - Show all products ----//falta 
+	// Root - Show all products ----//falta
 
 	// Detail - Detail from one product
     detail: (req, res) => {
@@ -22,7 +22,7 @@ let controller = {
 		})
 	},
 	// Create - Form to create
-    create:(req, res) => {
+    create:(req, res) =>{
         res.render('products/productCreate');
     },
    // Create -  Method to store
@@ -42,14 +42,14 @@ let controller = {
 			discount: +discount,
 			category,
 			description,
-			image: "default-image.png" //----falta multer 
+			image: "default-image.png" //----falta multer
 		}
 		
 		products.push(newProduct)  // Agrega el objeto al final del array(JSON)
 
 		writeJson(products)   // Sobreescribe el JSON modificado
 
-		res.redirect('/products') // Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)?
+		res.redirect('/') // Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)?
     
 	},
 
@@ -57,8 +57,8 @@ let controller = {
     edit: (req, res) => {
 		let productId = +req.params.id; // Capturo el id desde la url y la almaceno en una variable
 		let productToEdit = products.find(product => product.id === productId); // Busco el producto que tenga el mismo id que el parametro del url.
-		
-	    res.render('products/productEdit', { // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
+
+        res.render('products/productEdit', { // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
 			 product : productToEdit // para que no sea tan largo se lo pasamos asi a product
 			});
     },
@@ -133,4 +133,6 @@ let controller = {
 }
 
 module.exports = controller;
+
+
 

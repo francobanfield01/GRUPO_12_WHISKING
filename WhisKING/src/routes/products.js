@@ -7,7 +7,7 @@ router.get('/:id', controller.detail)
 
 
 /* Create products */
-router.get('/create', controller.create)
+router.get('/products/create', controller.create)
 router.post('/', controller.store)
 
 /*** EDIT ONE PRODUCT ***/ 
