@@ -3,11 +3,11 @@ let router = express.Router();
 let controller = require('../controllers/productsController');
 
 /* Detail product selected */
-router.get('/detail/:id', controller.detail)
+router.get('/products/detail/:id', controller.detail)
 
 
 /* Create products */
-router.get('/create', controller.create)
+router.get('/products/create', controller.create)
 router.post('/', controller.store)
 
 /*** EDIT ONE PRODUCT ***/ 
