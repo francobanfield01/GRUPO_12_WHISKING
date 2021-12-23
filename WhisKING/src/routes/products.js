@@ -2,13 +2,19 @@ let express = require('express')
 let router = express.Router();
 let controller = require('../controllers/productsController');
 
+const productsController = require('../controllers/productsController')
+
+/*** GET ALL PRODUCTS ***/
+router.get('/', productsController.index);
+
+
 /* Detail product selected */
-router.get('/:id', controller.detail)
+router.get('/:id', controller.detail);
 
 
 /* Create products */
-router.get('/products/create', controller.create)
-router.post('/', controller.store)
+router.get('/products/create', controller.create);
+router.post('/', controller.store);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/:id/edit', controller.edit); /* ponemos por get xq es la que va a renderizar el formulario router.???, '/:id/???' y aca me esta pidiendo que le ponga edit */
