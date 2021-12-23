@@ -2,8 +2,14 @@ let express = require('express')
 let router = express.Router();
 let controller = require('../controllers/productsController');
 
+const productsController = require('../controllers/productsController')
+
+/*** GET ALL PRODUCTS ***/
+router.get('/', productsController.index);
+
+
 /* Detail product selected */
-router.get('/:id', controller.detail)
+router.get('/:id', controller.detail);
 
 
 /* Create products */
