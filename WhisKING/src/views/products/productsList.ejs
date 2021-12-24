@@ -6,10 +6,7 @@
         <%- include('../partials/header.ejs') %>
 
             <main class="home-main">
-                <div>
-                    <img src="/images/productos/banner.jpg" alt="Banner" width="100%" />
-                </div>
-                
+               
                 <section>
                     <div class="subtitle-home">
                         <h3 class="ofertas-home">TODOS LOS PRODUCTOS</h3>
@@ -19,7 +16,7 @@
                             <a href="/products/detail/ <%- products.id %>">
                             <article class="card-home">
                                 <img src="images/products/<%- products.image %>" width="100%"
-                                    alt="WHISKY GLENFIDDICH 15 AÑOS HAND FILLED DISTILLERY BACTH 74" />
+                                    alt="<%- products.name %>" />
                                 <div class="card-content-home">
                                     <h5><%- products.name %></h5>
                                     <p>$<%- toThousand(products.price) %></p>
