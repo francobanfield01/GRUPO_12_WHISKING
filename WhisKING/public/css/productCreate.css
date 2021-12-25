@@ -133,6 +133,9 @@ footer.create{
     resize: none;
     overflow: scroll;
 }
+
+
+
 /* MEDIAS QUERIES */
 @media (min-width: 480px){
    main.create-main{

@@ -7,7 +7,8 @@ const methodOverride = require('method-override');
 
 
 //************ Middlewares  ************ Usamos el método use de app (aplicación de express), x ej intentando acceder a un archivo estático
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '../public'))) //asi lo vi en el mercado liebre
+/* app.use(express.static('public')) */ //asi estabab
 
 // ************ Template Engine  ************
 app.set('view engine', 'ejs'); // Setea el template engine

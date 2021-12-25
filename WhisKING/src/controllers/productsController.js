@@ -8,12 +8,13 @@ const writeJson = dataBase => {
 }
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 	
-let controller = {
+let productsController = {
 	// Root - Show all products
 	index: (req, res) =>{
 		res.render('productsList', {
 			products,
 			toThousand
+			
 		})
 	},
 
@@ -24,7 +25,8 @@ let controller = {
 
 		res.render('products/productDetail', {
 			product,
-			toThousand
+			toThousand/* , 
+			title: `Detalle Producto: ${product.name}` */ // no funciona para edit
 		})
 	},
 	// Create - Form to create
@@ -65,9 +67,13 @@ let controller = {
 		let productToEdit = products.find(product => product.id === productId); // Busco el producto que tenga el mismo id que el parametro del url.
 
         res.render('products/productEdit', { // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
-			 product : productToEdit // para que no sea tan largo se lo pasamos asi a product
-			});
+			 product : productToEdit,
+			 toThousand/* , 
+			 title:`Editar Producto: ${product.name}`  */ // no funciona para edit
+		});
+			
     },
+
 
     // Update - Method to update 
     update: (req, res) => {
@@ -100,7 +106,11 @@ let controller = {
 		writeJson(products); //y ahora directamente usamos el writeJson le vamos a decir que le vamos a pasar el array de productos 
 
 		/* res.redirect(`/products/detail/${productId}`)   y un res.redirect que redireccione al detalle del producto que acabo de editar para ver que editó, utilizando el template string `` de js, de esta forma le vamos a pasar el productId la variable que me esta guardando el id params*/
-		res.render(`/products/edit/${productId}`) 
+		res.render(`/products/edit/${product.id}`/* ,{
+			title:`Actualizar Producto: ${product.name}`
+		} */) //no funciona para edit
+
+	
 
     },
 
@@ -138,7 +148,7 @@ let controller = {
 
 }
 
-module.exports = controller;
+module.exports = productsController;
 
 
 
