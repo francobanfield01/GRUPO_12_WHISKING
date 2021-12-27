@@ -446,5 +446,14 @@
         "category": "Pedorros",
         "description": "Para prender fuego sirve.",
         "image": "default-image.png"
+    },
+    {
+        "id": 42,
+        "name": "",
+        "price": 0,
+        "discount": 0,
+        "category": "",
+        "description": "",
+        "image": "default-image.png"
     }
 ]
