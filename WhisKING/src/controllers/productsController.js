@@ -8,7 +8,7 @@ const writeJson = dataBase => {
 }
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 	
-let productsController = {
+let controller = {
 	// Root - Show all products
 	index: (req, res) =>{
 		res.render('productsList', {
@@ -148,7 +148,7 @@ let productsController = {
 
 }
 
-module.exports = productsController;
+module.exports = controller;
 
 
 
