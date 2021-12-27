@@ -41,3 +41,7 @@ footer .redesSociales {
 .footer-admin .redesSociales, .footer-admin .redesSociales a, .copyright {
     color: var(--cobre);
 }
+
+.footer-admin .copyright {
+    font-size: 10px;
+}
