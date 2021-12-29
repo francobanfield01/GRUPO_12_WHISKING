@@ -22,7 +22,7 @@
                     <div class="section-edit"> <!-- css class="section-create" -->
                         <p>categoria</p>
                         <!-- <input class="" type="text" name="category" placeholder="" id="category" value="<%= product.category  %>"> -->
-                        <select name="select" id="">
+                        <select name="category" id="category">
                             <option value="Single-Malt"<%- product.category === "Single-Malt" && `selected` %> >Single-Malt</option>
                             <option value="Japonés"<%- product.category === "Japonés" && `selected` %>>Japonés</option>
                             <option value="Blended"<%- product.category === "Blended" && `selected` %>>Blended</option>
@@ -56,11 +56,10 @@
                     <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
                         <div>
                             <span>Upload</span>
-
                         </div>
                         <div>
-                            <label for="">Cargar Foto</label>
-                            <input type="file" name="archivosubido" class="" id="" >
+                            <label for="image">Cargar Foto</label>
+                            <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
                             
                         </div>
                     </div>
@@ -70,6 +69,7 @@
                         <div class="button-public-edit">
                             <button type="submit" class="buttonCreate">actualizar</button>
                         </div>
+                        </div>                      
                         
                     </div>
                 </section>

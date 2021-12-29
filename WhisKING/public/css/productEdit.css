@@ -4,8 +4,7 @@ body .container-edit{
 }
 body .container-edit p{
     color:var(--grisOscuro);
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 body .container-edit a{
     color:var(--grisOscuro);
@@ -16,8 +15,7 @@ body .container-edit a{
 }
 body .acceso{
     text-align: right;
-    padding-right: 1.5rem;
-    
+    padding-right: 1.5rem;    
 }
 nav.menu-edit{
     width: 100%;
@@ -37,8 +35,7 @@ body nav ul.nav-menu-edit a{
     font-weight: bold; 
     font-size: small;
 }
-body nav ul.nav-menu-edit a:hover{
-    
+body nav ul.nav-menu-edit a:hover{    
     color: var(--beige);
     background-color: var(--cobre);
     padding: 1rem;
@@ -49,7 +46,6 @@ main.edit-main{
     margin: 2rem 1rem;
     min-height: 80vh;
 }
-
 .body-edit h2 {
     padding-bottom: 1rem;
 }
@@ -87,7 +83,7 @@ main .botones{
     justify-content: end;
 }
 main .addImage:hover{
-color: lightgray;
+    color: lightgray;
 }
 
 

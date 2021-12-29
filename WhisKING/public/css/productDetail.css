@@ -3,15 +3,14 @@ main.productDetail {
     padding-top: 0.5rem;
 }
 main.productDetail .img-container{
-display: flex;
-justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 main.productDetail .img-container .main-img {
     height: 240px;
     width: 240px;
     display: flex;
-    
 }
 
 main.productDetail .img-container img {
@@ -33,23 +32,22 @@ main.productDetail .second-img img {
 }
 main.productDetail h2{
    padding-left: 0.7rem;
-    color: var(--cobre);
+   color: var(--cobre);
 }
 main.productDetail .productDescription .precio {
     display: flex;
     padding-left: 0.7rem;
 }
 
-main.productDetail .productDescription p, .pais-origen p
- {
+main.productDetail .productDescription p, .pais-origen p {
     display: flex;
     padding-right: 0.5rem;
 }
 
-main.productDetail .pais-origen :nth-child(1){
+main.productDetail .pais-origen :nth-child(1) {
     font-weight: 700;
 }
-main.productDetail .productDescription-text{
+main.productDetail .productDescription-text {
     padding-left: 0.7rem;
     font-size: 0.9rem;
 }
@@ -75,42 +73,42 @@ main.productDetail .pais-origen {
 
 /* Media Queries */
 
-@media (min-width: 480px){
-main.productDetail .productResponsive {
-display: flex;
+@media (min-width: 480px) {
+    main.productDetail .productResponsive {
+    display: flex;
+    }
 
-}
-
-main.productDetail .img-container{
+    main.productDetail .img-container {
     width: 65%;   
     padding-bottom: 1rem;
-}
+    }
 
-main.productDetail .productResponsive2{
+    main.productDetail .productResponsive2 {
     width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-main.productDetail .button-container{
+    }
+    main.productDetail .button-container{
     display: flex;
     justify-content: left; 
-}
-main.productDetail h2{
+    }
+    main.productDetail h2{
     padding-bottom: 0.5rem;
-}
-main.productDetail .img-container .main-img {
+    }
+    main.productDetail .img-container .main-img {
     height: 300px;
     width: 300px;   
-}
-main.productDetail .second-img img {
+    }
+    main.productDetail .second-img img {
     width: 100px;
     height: 100px;
-}
-main.productDetail .second-img {
+    }
+    main.productDetail .second-img {
     width: 100px;
+    }
 }
-}
+
 @media (min-width:768px){
     main.productDetail{
         max-width: 768px;
