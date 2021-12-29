@@ -4,8 +4,7 @@ body .container-edit{
 }
 body .container-edit p{
     color:var(--grisOscuro);
-    text-decoration: none;
-    
+    text-decoration: none;    
 }
 body .container-edit a{
     color:var(--grisOscuro);
@@ -16,8 +15,7 @@ body .container-edit a{
 }
 body .acceso{
     text-align: right;
-    padding-right: 1.5rem;
-    
+    padding-right: 1.5rem;    
 }
 nav.menu-edit{
     width: 100%;
@@ -37,8 +35,7 @@ body nav ul.nav-menu-edit a{
     font-weight: bold; 
     font-size: small;
 }
-body nav ul.nav-menu-edit a:hover{
-    
+body nav ul.nav-menu-edit a:hover{    
     color: var(--beige);
     background-color: var(--cobre);
     padding: 1rem;
@@ -49,7 +46,6 @@ main.edit-main{
     margin: 2rem 1rem;
     min-height: 80vh;
 }
-
 .body-edit h2 {
     padding-bottom: 1rem;
 }
@@ -87,7 +83,7 @@ main .botones{
     justify-content: center;
 }
 main .addImage:hover{
-color: lightgray;
+    color: lightgray;
 }
 main button.botonEdit{
     cursor: pointer;
@@ -145,8 +141,7 @@ footer.edit{
     font-weight: bold; 
     font-size: small;
     margin-right: 2rem;
-    padding: 9px 23px;
-    
+    padding: 9px 23px;    
 }
 .botonCanceledit:hover{
     color: #adacaa;
@@ -164,28 +159,27 @@ footer.edit{
 }
 
 @media(min-width: 768px){
-form .form-edit{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-main.edit-main{
-    flex-direction: row;
-    width: 100%;
-    margin: 2rem 1rem;
-}
-form .price-stock{
-    display: flex;
-    justify-content: space-between;
-}
-form .price-stock input{
-width: 95%;
-}
-form .price-stock .input-stock{
-    align-self: end;
-}
-form .price-stock .stock p{
-    margin-left: 0.5rem;
-}
-
+    form .form-edit{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    main.edit-main{
+        flex-direction: row;
+        width: 100%;
+        margin: 2rem 1rem;
+    }
+    form .price-stock{
+        display: flex;
+        justify-content: space-between;
+    }
+    form .price-stock input{
+    width: 95%;
+    }
+    form .price-stock .input-stock{
+        align-self: end;
+    }
+    form .price-stock .stock p{
+        margin-left: 0.5rem;
+    }
 }

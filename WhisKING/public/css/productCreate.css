@@ -145,28 +145,28 @@ footer.create{
 }
 
 @media(min-width: 768px){
-form .form-create{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-main.create-main{
-    flex-direction: row;
-    width: 100%;
-    margin: 2rem 1rem;
-}
-form .price-stock{
-    display: flex;
-    justify-content: space-between;
-}
-form .price-stock input{
-width: 95%;
-}
-form .price-stock .input-stock{
-    align-self: end;
-}
-form .price-stock .stock p{
-    margin-left: 0.5rem;
-}
+    form .form-create{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    main.create-main{
+        flex-direction: row;
+        width: 100%;
+        margin: 2rem 1rem;
+    }
+    form .price-stock{
+        display: flex;
+        justify-content: space-between;
+    }
+    form .price-stock input{
+    width: 95%;
+    }
+    form .price-stock .input-stock{
+        align-self: end;
+    }
+    form .price-stock .stock p{
+        margin-left: 0.5rem;
+    }
 
 }

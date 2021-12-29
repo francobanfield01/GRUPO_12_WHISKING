@@ -9,7 +9,7 @@ const writeJson = dataBase => {
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 	
 let controller = {
-	// Root - Show all products
+	// Root - Show all products NO FUNCIONA
 	index: (req, res) =>{
 		res.render('productsList', {
 			products,
@@ -20,7 +20,7 @@ let controller = {
 
 	// Detail - Detail from one product
     detail: (req, res) => {
-		let productId  = +req.params.id;
+		let productId  = +req.params.id; // id parametro
 		let product = products.find(product => product.id === productId)
 
 		res.render('products/productDetail', {
@@ -34,7 +34,7 @@ let controller = {
         res.render('products/productCreate');
     },
    // Create -  Method to store
-    store: (req, res) => {
+    store: (req, res) => {		
 		const { name, price, discount, category, description } = req.body;
 		let lastId = 1;
 		products.forEach(product => {
@@ -50,14 +50,15 @@ let controller = {
 			discount: +discount,
 			category,
 			description,
-			image: "default-image.png" //----falta multer
+			image: req.file ? req.file.filename : "default-image.png"
 		}
 		
 		products.push(newProduct)  // Agrega el objeto al final del array(JSON)
 
 		writeJson(products)   // Sobreescribe el JSON modificado
 
-		res.redirect('/') // Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)?
+		//res.redirect('/products/productsList') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
+		res.redirect('/') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
     
 	},
 
@@ -66,9 +67,9 @@ let controller = {
 		let productId = +req.params.id; // Capturo el id desde la url y la almaceno en una variable
 		let productToEdit = products.find(product => product.id === productId); // Busco el producto que tenga el mismo id que el parametro del url.
 
-        res.render('products/productEdit', { // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
+        res.render('products/productEdit', {  // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
 			 product : productToEdit,
-			 toThousand/* , 
+			 toThousand /* , 
 			 title:`Editar Producto: ${product.name}`  */ // no funciona para edit
 		});
 			
@@ -86,7 +87,8 @@ let controller = {
 				product.id = product.id, // al product.id le decimos que se mantenga el mismo
 				product.name = name.trim(), // elimina los espacios en blanco
 				product.price = +price, //metodo number() pero con +
-				product.discount = +discount,				
+				product.discount = +discount,
+				product.category = category.trim(),				
 				product.description = description.trim()
 				if(req.file){
 					if(fs.existsSync('./public/images/products', product.image)){
@@ -96,7 +98,7 @@ let controller = {
 						console.log('No encontró el archivo');
 					}
 					product.image = req.file.filename
-				}else {
+				}else{
 					product.image = product.image
 				}
 
