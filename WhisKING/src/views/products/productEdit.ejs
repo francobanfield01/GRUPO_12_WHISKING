@@ -45,17 +45,6 @@
                         </div>
                     </div>
 
-                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
-                        <div>
-                            <span>Upload</span>
-
-                        </div>
-                        <div>
-                            <label for="">Cargar Foto</label>
-                            <input type="file" name"archivosubido" class="" id="" >
-                            
-                        </div>
-                    </div>
 
 
                     <div class="section-edit"> <!-- css class="section-create" -->
@@ -63,36 +52,35 @@
                         <textarea class="" type="" name="description" placeholder="" id="description"><%= product.description  %></textarea>
                         <span class="error-message-edit">Debes ingresar una breve descripción del producto</span>
                     </div>
-                    
-                </section>
-                <section class="mediaEdit2"> <!-- css class="mediaCreate2" -->
-                    
-                    <div class="section-edit"> <!-- css class="section-create"  ver como se hace linea 47 -->
-                        <p>imágen</p>
-                        <i class="far fa-image"></i>
-                        <button type="submit" class="addImage">agrega una imagen</button>
 
+                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
+                        <div>
+                            <span>Upload</span>
+
+                        </div>
+                        <div>
+                            <label for="">Cargar Foto</label>
+                            <input type="file" name="archivosubido" class="" id="" >
+                            
+                        </div>
                     </div>
                     <div class="botones">
-                       
-                        <div class="button-public-edit">
-                            <button type="submit" class="botonEdit">actualizar</button>
-                        </div>
-                        <div class="button-cancel-edit">
-                            <a href="/products/detail/ <%- product.id %>" class="botonCanceledit">cancelar</a>
+                            
                             <!--  <button type="submit" class="botonCancel" >cancelar</button> -->
+                        <div class="button-public-edit">
+                            <button type="submit" class="buttonCreate">actualizar</button>
                         </div>
-              
-                    
                         
                     </div>
                 </section>
 
             </div>   
         </form> 
-        <form action="/products/<%- product.id  %>?_method=DELETE" method="POST" style="display: inline-flex"> <!--reemplazar /products/delete/¿? por el producto.id con ejs, borramos el delete  -->
-            <button type="submit" class="botonCancel">eliminar</button> <!-- lo hice asi fuera del form porque  -->
+        <form action="/products/<%- product.id  %>?_method=DELETE" method="POST">
+             <!--reemplazar /products/delete/¿? por el producto.id con ejs, borramos el delete  -->
+            <button type="submit" class="buttonCancel">eliminar</button> <!-- lo hice asi fuera del form porque  -->
         </form>
+        <div></div><a href="/products/detail/<%- product.id %>"><button class="buttonCancel">cancelar</button></a>
     </main>
     
     <%-include('../partials/footerAdmin.ejs')%> 

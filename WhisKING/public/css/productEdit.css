@@ -61,7 +61,7 @@ main span{
 main .section-edit{
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 } 
 main .section-edit p{
     color: var(--cobre); 
@@ -84,75 +84,13 @@ main .section-edit button{
 }
 main .botones{
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 main .addImage:hover{
 color: lightgray;
 }
-main button.botonEdit{
-    cursor: pointer;
-    border-radius: 5px;
-    color: var(--beige);
-    background-color: var(--cobre);
-    width: 6rem;
-    height: 2rem;
-    text-transform: capitalize;
-    border: none;
-    font-weight: bold; 
-    font-size: small;
-}
-main button.botonEdit:hover{
-    color: var(--cobre);
-    background-color: var(--beige);
-    box-shadow: 0px 0px 5px var(--grisOscuro);
-}
-main button.botonCancel{
-    cursor: pointer;
-    border-radius: 5px;
-    color: var(--grisOscuro);
-    background-color: #adacaa;
-    width: 6rem;
-    height: 2rem;
-    text-transform: capitalize;
-    border: none;
-    font-weight: bold; 
-    font-size: small;
-    margin-right: 2rem;
-}
-main button.botonCancel:hover{
-    color: #adacaa;
-    background-color: var(--grisOscuro);
-    box-shadow: 0px 0px 5px var(--grisOscuro);
-}
-footer.edit{
-    width: 100%;
-    height: 50px;
-    background-color: var(--beige);
-}
-.body-edit textarea {
-    resize: none;
-    overflow: scroll;
-}
-.botonCanceledit{
-    cursor: pointer;
-    border-radius: 5px;
-    color: var(--grisOscuro);
-    background-color: #adacaa;
-   /*  width: 6rem;
-    height: 2rem; */
-    text-transform: capitalize;
-    border: none;
-    font-weight: bold; 
-    font-size: small;
-    margin-right: 2rem;
-    padding: 9px 23px;
-    
-}
-.botonCanceledit:hover{
-    color: #adacaa;
-    background-color: var(--grisOscuro);
-    box-shadow: 0px 0px 5px var(--grisOscuro);
-}
+
+
 
 
 /* MEDIAS QUERIES */
@@ -170,9 +108,8 @@ form .form-edit{
     justify-content: space-around;
 }
 main.edit-main{
-    flex-direction: row;
-    width: 100%;
-    margin: 2rem 1rem;
+    max-width: 768px;
+    margin: 2rem auto;
 }
 form .price-stock{
     display: flex;

@@ -89,7 +89,7 @@ main .botones{
 main .addImage:hover{
 color: lightgray;
 }
-main button.botonCreate{
+main button.buttonCreate{
     cursor: pointer;
     border-radius: 5px;
     color: var(--beige);
@@ -101,12 +101,12 @@ main button.botonCreate{
     font-weight: bold; 
     font-size: small;
 }
-main button.botonCreate:hover{
+main button.buttonCreate:hover{
     color: var(--cobre);
     background-color: var(--beige);
     box-shadow: 0px 0px 5px var(--grisOscuro);
 }
-main button.botonCancel{
+main button.buttonCancel{
     cursor: pointer;
     border-radius: 5px;
     color: var(--grisOscuro);
@@ -119,7 +119,7 @@ main button.botonCancel{
     font-size: small;
     margin-right: 2rem;
 }
-main button.botonCancel:hover{
+main button.buttonCancel:hover{
     color: #adacaa;
     background-color: var(--grisOscuro);
     box-shadow: 0px 0px 5px var(--grisOscuro);
