@@ -11,7 +11,14 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* f
 let controller = {
 	// Root - Show all products NO FUNCIONA
 	index: (req, res) =>{
-		res.render('productsList', {
+		res.render('index', {
+			products,
+			toThousand
+			
+		})
+	},
+	list: (req, res) =>{
+		res.render('products/productsList', {
 			products,
 			toThousand
 			
@@ -91,7 +98,7 @@ let controller = {
 				product.category = category.trim(),				
 				product.description = description.trim()
 				if(req.file){
-					if(fs.existsSync('./public/images/products', product.image)){
+					if(fs.existsSync('./public/images/products', product.image) && (product.image !== "default-image.png")){
 						
 						fs.unlinkSync(`./public/images/products/${product.image}`)
 					}else{
@@ -123,7 +130,7 @@ let controller = {
 
 		products.forEach(product => { /* recorremos el array para preguntar si el product.id si coincide con el req.params.id */
 			if(product.id === productId){ /* bloque de eliminacion de imagenes en products */
-				if(fs.existsSync('./public/images/products/', product.image)){
+				if(fs.existsSync('./public/images/products/', product.image) && (product.image !== "default-image.png")){
 					fs.unlinkSync(`./public/images/products/${product.image}`)
 
 				}else{
