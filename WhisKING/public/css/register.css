@@ -10,24 +10,19 @@ body.body-register {
     padding: 2rem;
     min-height:80vh;
 }
-
 .register-main h2 {
     padding: 10px; 
     text-align: center;
     color: var(--cobre);
     text-transform: uppercase;
-
 }
 /* .register-main (falta form action=" ") */
-
 .register-main .form-register {
     margin-top: 5px;
 }
-
 .register-main .form-register .input-container-register {
     padding: 10px 0px;
 }
-
 .register-main .form-register .input-container-register .input-style-register {
     border-radius: 1rem;
     height: 2rem;
@@ -35,9 +30,7 @@ body.body-register {
     padding: 1rem; 
     border: none;
 } 
-
 /*errors messages :  de los input del form y span Debes aceptar los terminos y codiciones*/
-
 .register-main .form-register .input-container-register .error-message-register, 
 .register-main .form-register .error-message-terms
  {
@@ -45,9 +38,7 @@ body.body-register {
     color: red;
     padding-left: 1rem;
 }
-
 /*checkbox de terminos y condiciones*/
-
 .register-main .form-register .check-register {
     padding-left: 1rem;
     margin-right: 4rem;
@@ -55,13 +46,11 @@ body.body-register {
     cursor: pointer;
     color: black;
 }
-
 /*hover de terminos y condiciones*/
 .register-main .form-register .check-register .label-terms-register:hover {
     cursor: pointer;
     color: var(--cobre);
 }
-
 .register-main .form-register .check-register .label-terms-register {
     font-size: 0.8rem;
     color: black;      
@@ -72,29 +61,23 @@ body.body-register {
     cursor: pointer;
      color: var(--cobre);
  }
-
 .register-main .form-register .check-register .label-terms-register a{
     font-size: 0.8rem;    
     color: black;
     text-decoration: none;    
 }
-
 /*posicion del checkbox*/
 .register-main .form-register .check-register .checkbox-terms-register {
     position: relative;
     top: 2px;
     left: 3px;
 }
-
 /*button de Whisking y hover*/
-
 .register-main .form-register .button-container-register {
     display: flex;
     justify-content: flex-end;
     padding-bottom: 0.5rem;
 }
-
-
 .register-main .button-container-register .btn-whisking:hover {
     color: white;
 
@@ -109,8 +92,6 @@ body.body-register {
     background-color: var(--grisOscuro);
     color: var(--beige);
 }
-
-
 /*hover a links a login.html*/
 .register-main .form-register .span-cuenta a:hover {
     cursor: pointer;
@@ -118,13 +99,11 @@ body.body-register {
     font-size: 1rem;
     font-weight: 500;
 }
-
 /*link a login.html*/
 .register-main .form-register .span-cuenta a {
     text-decoration: none;
     color: black;
 }
-
 
 
 /*Media Queries*/

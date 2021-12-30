@@ -34,10 +34,13 @@ footer .redesSociales {
 }
 
 .footer-admin {
-    background-color: var(--beige);
-    
+    background-color: var(--beige);    
 }
 
 .footer-admin .redesSociales, .footer-admin .redesSociales a, .copyright {
     color: var(--cobre);
+}
+
+.footer-admin .copyright {
+    font-size: 10px;
 }

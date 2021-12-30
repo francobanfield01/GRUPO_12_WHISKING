@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head.ejs', {title: 'Crear Producto'})%>
+    <%- include('../partials/head.ejs', {title: 'Crear Producto - The WhisKING Argentina'})%> 
 
 <body class="body-create">
     <%- include('../partials/headerAdmin.ejs')%> 
     <main class="create-main">
-        <form action="/products" method="POST">
+        <form action="/products" method="POST" enctype="multipart/form-data">
             <div class="form-create">   
                 <section class="mediaCreate1">
                     <h2>Crear Producto</h2>
@@ -17,9 +17,17 @@
                     </div>
                     <div class="section-create">
                         <p>categoria</p>
-                        <input class="" type="" name="category" placeholder="" id="category">
+                        <select name="category" id="">
+                            <option value="" hidden>Elegí</option>
+                            <option value="Single-Malt">Single-Malt</option>
+                            <option value="Japonés">Japonés</option>
+                            <option value="Blended">Blended</option>
+                            <option value="Bourbon">Bourbon</option>
+                            <option value="Irlandeses">Irlandeses</option>
+                            <option value="Pedorros">Pedorros</option>
+                        </select>
                         <span class="error-message-create">Debes ingresar la categoria del producto</span>
-                    </div>
+                    </div>                    
                     <div class="price-stock">
                         <div class="section-create">
                             <p>precio</p>
@@ -29,10 +37,20 @@
     
                         <div class="section-create stock">
                             <p>Descuento</p>
-                            <input class="input-stock" type="" name="discount" placeholder="" id="stock">
-    
+                            <input class="input-stock" type="" name="discount" placeholder="" id="stock">    
                         </div>
                     </div>
+                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
+                        <div>
+                            <span>Upload</span>
+                        </div>
+                        <div>
+                            <label for="image">Cargar Foto</label>
+                            <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
+                            
+                        </div>
+                    </div>
+
                     <div class="section-create">
                         <p>descripción</p>
                         <textarea class="" type="" name="description" placeholder="" id="description"></textarea>
@@ -50,10 +68,10 @@
                     </div>
                     <div class="botones">
                         <div class="button-cancel-create">
-                            <button type="submit" class="botonCancel">cancelar</button>
+                            <button type="submit" class="buttonCancel">cancelar</button>
                         </div>
                         <div class="button-public-create">
-                            <button type="submit" class="botonCreate">publicar</button>
+                            <button type="submit" class="buttonCreate">publicar</button>
                         </div>
                     </div>
                 </section>

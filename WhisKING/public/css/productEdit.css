@@ -1,88 +1,124 @@
+body .container-edit{
+    font-size: small;
+    width: 100%;
+}
+body .container-edit p{
+    color:var(--grisOscuro);
+    text-decoration: none;    
+}
+body .container-edit a{
+    color:var(--grisOscuro);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    justify-content: left;
+}
+body .acceso{
+    text-align: right;
+    padding-right: 1.5rem;    
+}
+nav.menu-edit{
+    width: 100%;
+    justify-content: right;
+    padding-right: 0.5rem;
+}
+nav ul.nav-menu-edit{
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    margin-right: 0.5rem;
+}
+body nav ul.nav-menu-edit a{
+    color: var(--cobre);
+    text-decoration: none;
+    margin-right: 0.5rem;
+    font-weight: bold; 
+    font-size: small;
+}
+body nav ul.nav-menu-edit a:hover{    
+    color: var(--beige);
+    background-color: var(--cobre);
+    padding: 1rem;
+    padding-bottom: 12px;
+    box-shadow: 0px 0px 5px var(--grisOscuro);
+}
 main.edit-main{
+    margin: 2rem 1rem;
     min-height: 80vh;
 }
-main.edit-main, .sectionEdit {
-padding-top: 2rem;
-
+.body-edit h2 {
+    padding-bottom: 1rem;
 }
-main.edit-main form{
+main span{
+    font-weight: 100;
+    font-size: small;
+    color: red;
+}
+main .section-edit{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+} 
+main .section-edit p{
+    color: var(--cobre); 
+    text-transform: uppercase;
+    font-weight: bold; 
+    font-size: small;
+}
+main .section-edit i{
+    font-size: 150px;
+    color: lightgray;
+    display: flex;
     justify-content: center;
-    }
-main .containerEdit{
-        display: flex;
-    }
-main.edit-main form{
-        display: block;
-    }
-main.edit-main .img-container{
-        width: 150px;
-        height: 150px;
-    }
-main.edit-main form .img-container img{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
- main.edit-main form .searchEdit{
-        display: flex;
-    }
-form p.tituloEdit{
-        color: var(--cobre);
-        font-size: small;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin-right: 2rem;
-        
-    }
-main.edit-main .container-product{
-    display: flex;
 }
-main.edit-main section.sectionEdit{
+main .section-edit button{
+    border: none;
+    background-color: white;
+    color: var(--grisOscuro);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
-main input.buscarEdit{
-        border-radius: 5px;
-        border-color: lightgray;
-    }
-main.edit-main section.sectionEdit{
-        display: flex;
-        font-size: small;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: var(--cobre);
-    }
-main section.sectionEdit p{
-        margin-right: 1rem;
-    }
-main.edit-main .product-description{
+main .botones{
     display: flex;
-    flex-direction: column;
+    justify-content: end;
+}
+main .addImage:hover{
+    color: lightgray;
+}
+
+
+
+
+/* MEDIAS QUERIES */
+@media (min-width: 480px){
+   main.edit-main{
+       width:70% ; 
+       margin:2rem auto;
+    }
+}
+
+@media(min-width: 768px){
+form .form-edit{
+    display: flex;
+    width: 100%;
     justify-content: space-around;
-}    
-main.edit-main .buttons-cancel-create{
-    margin: 0 auto;
+}
+main.edit-main{
+    max-width: 768px;
+    margin: 2rem auto;
+}
+form .price-stock{
+    display: flex;
+    justify-content: space-between;
+}
+form .price-stock input{
+width: 95%;
+}
+form .price-stock .input-stock{
+    align-self: end;
+}
+form .price-stock .stock p{
+    margin-left: 0.5rem;
 }
 
-
-/* MEDIAS */
-@media(min-width:480px){
-    main.edit-main section.sectionEdit{
-        flex-direction: row;
-    } 
-    main.edit-main .buttons-cancel-create {
-        margin: 0 auto;
-        flex-direction: column-reverse;
-        display: flex;
-        justify-content: space-evenly;
-    }
-}
-
-@media(min-width:768px){
-
-main.edit-main .product-description {
-    flex-direction: row;
-    }
 }

@@ -9,22 +9,24 @@ const writeJson = dataBase => {
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 	
 let controller = {
-	// Root - Show all products
+	// Root - Show all products NO FUNCIONA
 	index: (req, res) =>{
 		res.render('productsList', {
 			products,
 			toThousand
+			
 		})
 	},
 
 	// Detail - Detail from one product
     detail: (req, res) => {
-		let productId  = +req.params.id;
+		let productId  = +req.params.id; // id parametro
 		let product = products.find(product => product.id === productId)
 
 		res.render('products/productDetail', {
 			product,
-			toThousand
+			toThousand/* , 
+			title: `Detalle Producto: ${product.name}` */ // no funciona para edit
 		})
 	},
 	// Create - Form to create
@@ -32,7 +34,7 @@ let controller = {
         res.render('products/productCreate');
     },
    // Create -  Method to store
-    store: (req, res) => {
+    store: (req, res) => {		
 		const { name, price, discount, category, description } = req.body;
 		let lastId = 1;
 		products.forEach(product => {
@@ -48,14 +50,15 @@ let controller = {
 			discount: +discount,
 			category,
 			description,
-			image: "default-image.png" //----falta multer
+			image: req.file ? req.file.filename : "default-image.png"
 		}
 		
 		products.push(newProduct)  // Agrega el objeto al final del array(JSON)
 
 		writeJson(products)   // Sobreescribe el JSON modificado
 
-		res.redirect('/') // Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)?
+		//res.redirect('/products/productsList') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
+		res.redirect('/') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
     
 	},
 
@@ -64,10 +67,14 @@ let controller = {
 		let productId = +req.params.id; // Capturo el id desde la url y la almaceno en una variable
 		let productToEdit = products.find(product => product.id === productId); // Busco el producto que tenga el mismo id que el parametro del url.
 
-        res.render('products/productEdit', { // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
-			 product : productToEdit // para que no sea tan largo se lo pasamos asi a product
-			});
+        res.render('products/productEdit', {  // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
+			 product : productToEdit,
+			 toThousand /* , 
+			 title:`Editar Producto: ${product.name}`  */ // no funciona para edit
+		});
+			
     },
+
 
     // Update - Method to update 
     update: (req, res) => {
@@ -80,7 +87,8 @@ let controller = {
 				product.id = product.id, // al product.id le decimos que se mantenga el mismo
 				product.name = name.trim(), // elimina los espacios en blanco
 				product.price = +price, //metodo number() pero con +
-				product.discount = +discount,				
+				product.discount = +discount,
+				product.category = category.trim(),				
 				product.description = description.trim()
 				if(req.file){
 					if(fs.existsSync('./public/images/products', product.image)){
@@ -90,7 +98,7 @@ let controller = {
 						console.log('No encontró el archivo');
 					}
 					product.image = req.file.filename
-				}else {
+				}else{
 					product.image = product.image
 				}
 
@@ -100,7 +108,11 @@ let controller = {
 		writeJson(products); //y ahora directamente usamos el writeJson le vamos a decir que le vamos a pasar el array de productos 
 
 		/* res.redirect(`/products/detail/${productId}`)   y un res.redirect que redireccione al detalle del producto que acabo de editar para ver que editó, utilizando el template string `` de js, de esta forma le vamos a pasar el productId la variable que me esta guardando el id params*/
-		res.render(`/products/edit/${productId}`) 
+		res.render(`/products/edit/${product.id}`/* ,{
+			title:`Actualizar Producto: ${product.name}`
+		} */) //no funciona para edit
+
+	
 
     },
 

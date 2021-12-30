@@ -15,7 +15,7 @@ let controller = {
             productsInsale,
             productsStandOut,
             toThousand,
-            title: 'Home'
+            title: 'Home - The  WhisKING Argentina' 
 
 });
     },
