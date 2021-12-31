@@ -58,8 +58,7 @@ let controller = {
 		writeJson(products)   // Sobreescribe el JSON modificado
 
 		//res.redirect('/products/productsList') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
-		res.redirect('/') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
-    
+		res.redirect(`/products/detail/${lastId + 1}`) // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
 	},
 
      // Update - Form to edit 

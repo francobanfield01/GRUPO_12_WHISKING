@@ -40,31 +40,17 @@
                             <input class="input-stock" type="" name="discount" placeholder="" id="stock">    
                         </div>
                     </div>
-                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
-                        <div>
-                            <span>Upload</span>
-                        </div>
-                        <div>
-                            <label for="image">Cargar Foto</label>
-                            <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
-                            
-                        </div>
-                    </div>
-
                     <div class="section-create">
                         <p>descripción</p>
                         <textarea class="" type="" name="description" placeholder="" id="description"></textarea>
-                        <span class="error-message-create">Debes ingresar una breve descripción del producto</span>
+                        <span class="error-message-create">Debes ingresar una descripción del producto</span>
                     </div>
-                    
-                </section>
-                <section class="mediaCreate2">
-                    
-                    <div class="section-create">
-                        <p>imágen</p>
-                        <i class="far fa-image"></i>
-                        <button type="submit" class="addImage">agrega una imagen</button>
-
+                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
+                        <div class="section-create">
+                            <p>Cargar foto</p>
+                            <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
+                            
+                        </div>
                     </div>
                     <div class="botones">
                         <div class="button-cancel-create">
@@ -74,8 +60,18 @@
                             <button type="submit" class="buttonCreate">publicar</button>
                         </div>
                     </div>
+                    
                 </section>
+                <!-- <section class="mediaCreate2"> 
+                  Comento esta seccion, hasta cuando sepamos renderizar una previa de la imagen cargada con multer  
+                    <div class="section-create">
+                        <p>imágen</p>
+                        <i class="far fa-image"></i>
+                        <button type="submit" class="addImage">agrega una imagen</button>
 
+                    </div>
+                </section> -->
+                
             </div>
         </form>
 

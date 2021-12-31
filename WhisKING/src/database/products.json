@@ -605,5 +605,14 @@
     "category": "Blended",
     "description": "creame el producto 12, ahora editame el producto 60",
     "image": "1640804128202_img_.jpg"
+  },
+  {
+    "id": 61,
+    "name": "Blenders Pride",
+    "price": 250,
+    "discount": 10,
+    "category": "Pedorros",
+    "description": "Es feo, pero en el invierno te saca un poco el frio.",
+    "image": "1640813918519_img_.jpg"
   }
 ]

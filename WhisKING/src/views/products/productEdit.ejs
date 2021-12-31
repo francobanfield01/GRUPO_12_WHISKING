@@ -50,15 +50,13 @@
                     <div class="section-edit"> <!-- css class="section-create" -->
                         <p>descripción</p>
                         <textarea class="" type="" name="description" placeholder="" id="description"><%= product.description  %></textarea>
-                        <span class="error-message-edit">Debes ingresar una breve descripción del producto</span>
+                        <span class="error-message-edit">Debes ingresar una descripción del producto</span>
                     </div>
 
                     <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
-                        <div>
-                            <span>Upload</span>
-                        </div>
-                        <div>
-                            <label for="image">Cargar Foto</label>
+                        
+                        <div class="section-edit">
+                            <p>Cargar foto</p>
                             <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
                             
                         </div>
@@ -76,11 +74,13 @@
 
             </div>   
         </form> 
+        <div></div><a href="/products/detail/<%- product.id %>"><button class="buttonCancel">cancelar</button></a>
         <form action="/products/<%- product.id  %>?_method=DELETE" method="POST">
              <!--reemplazar /products/delete/¿? por el producto.id con ejs, borramos el delete  -->
-            <button type="submit" class="buttonCancel">eliminar</button> <!-- lo hice asi fuera del form porque  -->
+            <div class="div-delete">
+                <button type="submit" class="buttonDelete">eliminar</button>
+            </div> <!-- lo hice asi fuera del form porque  -->
         </form>
-        <div></div><a href="/products/detail/<%- product.id %>"><button class="buttonCancel">cancelar</button></a>
     </main>
     
     <%-include('../partials/footerAdmin.ejs')%> 

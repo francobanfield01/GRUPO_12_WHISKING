@@ -82,9 +82,14 @@ main .section-create button{
     display: flex;
     justify-content: center;
 }
-main .botones{
+.body-create main .botones{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+}
+
+.body-create input ,select, textarea {
+    font-size: 0.8rem;
 }
 main .addImage:hover{
 color: lightgray;
@@ -145,15 +150,9 @@ footer.create{
 }
 
 @media(min-width: 768px){
-    form .form-create{
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-    }
+    
     main.create-main{
-        flex-direction: row;
-        width: 100%;
-        margin: 2rem 1rem;
+        max-width: 550px;
     }
     form .price-stock{
         display: flex;
@@ -167,6 +166,13 @@ footer.create{
     }
     form .price-stock .stock p{
         margin-left: 0.5rem;
+    }
+    .body-create .price-stock .section-create {
+        width: 50%;
+    }
+
+    .price-stock .section-create .stock p {
+        padding-left: 1rem;
     }
 
 }
