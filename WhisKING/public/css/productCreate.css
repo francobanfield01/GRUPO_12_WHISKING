@@ -139,6 +139,9 @@ footer.create{
     overflow: scroll;
 }
 
+.error-message-create {
+    font-size: 0.7rem;
+}
 
 
 /* MEDIAS QUERIES */

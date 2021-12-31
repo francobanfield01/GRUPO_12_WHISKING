@@ -122,6 +122,10 @@ main .addImage:hover{
     box-shadow: 0px 0px 5px var(--grisOscuro);
 }
 
+.error-message-edit {
+    font-size: 0.7rem;
+}
+
 /* MEDIAS QUERIES */
 @media (min-width: 480px){
    main.edit-main{
