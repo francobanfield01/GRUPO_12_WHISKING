@@ -9,7 +9,8 @@ let upload = require('../middlewares/uploadProductFiles') //requerimos el multer
 const controller = require('../controllers/productsController')
 
 /*** GET ALL PRODUCTS ***/
-router.get('/', controller.index);
+router.get('/', controller.list);
+
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', controller.create); //devolverm el formulario para que lo vea el usuario
