@@ -20,18 +20,16 @@
                                 <article class="card-home">
                                     <img src="images/products/<%- products.image %>" width="100%"
                                         alt="<%- products.name %>" />
-                                    
-                                    <button type="submit" class="btn-whisking2">
 
-                                        <div class="card-content-home">
-                                            <h5>
-                                                <%- products.name %>
-                                            </h5>
-                                            <p>$<%- toThousand(products.price - products.price*products.discount/100) %>
-                                            </p>
+                                    <div class="card-content-home">
+                                        <h5>
+                                            <%- products.name %>
+                                        </h5>
+                                        <p>$<%- toThousand(products.price - products.price*products.discount/100) %>
+                                        </p>
 
-                                        </div>
-                                    </button>
+                                    </div>
+
                                 </article>
                             </a>
                         </div>
