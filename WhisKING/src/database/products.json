@@ -589,15 +589,6 @@
         "image": "1640804128202_img_.jpg"
     },
     {
-        "id": 61,
-        "name": "20",
-        "price": 1233,
-        "discount": 3,
-        "category": "Japonés",
-        "description": "adasdad",
-        "image": "1640877349983_img_.jpg"
-    },
-    {
         "id": 62,
         "name": "qw",
         "price": 34343,
@@ -605,5 +596,14 @@
         "category": "Single-Malt",
         "description": "aad",
         "image": "1640877454538_img_.jpg"
+    },
+    {
+        "id": 63,
+        "name": "Whisky Blenders",
+        "price": 500,
+        "discount": 0,
+        "category": "Pedorros",
+        "description": "No es rico, pero en invierno te saca el frio.",
+        "image": "1641172382198_img_.jpeg"
     }
 ]

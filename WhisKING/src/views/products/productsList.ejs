@@ -11,15 +11,15 @@
                     <div class="subtitle-home">
                         <h3 class="ofertas-home">TODOS LOS PRODUCTOS</h3>
                     </div>
-                    <% products.forEach(products=> { %>
+                    <% products.forEach(product=> { %>
                         <div class="articulos">
-                            <a href="/products/detail/<%- products.id %>">
+                            <a href="/products/detail/<%- product.id %>">
                             <article class="card-home">
-                                <img src="images/products/<%- products.image %>" width="100%"
+                                <img src="images/products/<%- product.image %>" width="100%"
                                     alt="<%- products.name %>" />
                                 <div class="card-content-home">
-                                    <h5><%- products.name %></h5>
-                                    <p>$<%- toThousand(products.price) %></p>
+                                    <h5><%- product.name %></h5>
+                                    <p>$<%- toThousand(product.price) %></p>
 
                                 </div>
                             </article>
