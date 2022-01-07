@@ -150,3 +150,57 @@ Ausentes: Joel.
 ___
 ___
 
+***
+# DAILY SPRINT 5
+*** 
+### Acta 06-01-2022 08.30 pm. ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Exequiel
+
+**Fernanda** 
+- Transcripción de la ceremonias de las dailys.
+- Partimos con la fuente de datos de usuarios (base de datos Json de Usuarios) completada en el sprint anterior.
+- Implementación del formulario de registro de usuarios, incluyendo los campos mínimos mencionados en el sprint anterior, permitir la subida de una imágen de perfil con multer, encriptar la contraseña ingresada por el usuario con bcrypt.js, guardar los datos enviados en el archivo JSON de usuarios (formulario funcional de creación de usuarios)
+
+**Gisela**
+- Se decide que realice la tarea de implementar la entidad de usuarios, replicando la estructura de archivos y directorios que necesitarán para implementar las funcionalidades (roles: usuarios: usuarios comunes y usuarios administrador)
+- Establecer la estructura de archivos y directorios de usuarios: de las rutas, controladores, vistas, directorios para imágenes y colección de datos.
+- Implementación de la función de recordar al usuario, deberán agregarle al formulario de login la posibilidad de que se recuerde al usuario(checkbox). En caso de que el usuario decida ser recordado, utilizar cookies para guardar esa información en el navegador, implementar un middleware de aplicación que busque la cookie y loguee al usuario en caso de que exista y sus datos sean correctos.
+
+**Franco**
+- Creación backlog del Sprint 5 en Trello.
+- Se encargará de la realización de una breve retrospectiva, en la cual se detallará qué hicimos bien en el sprint anterior, qué hicimos mal, qué deberíamos empezar a hacer, qué deberíamos dejar de hacer...(conclusiones sprint 4)
+- Implementación del login de usuarios, poner en práctica middlewares, sesiones y cookies incluyendo los campos de email y password, verificar la información enviada por el usuario y según el caso: redireccionar a la home o a la página de perfil en caso de éxito y muestre los datos del usuario en algún lugar del sitio, como el header, redireccionar nuevamente al login en caso de error (formulario funcional de login) 
+ 
+ 
+
+> Se dividen las tareas del presente sprint.
+> Se deberá ver el tema del select para elegir categoría que deberá ser consumida desde la base de datos, no hardcodeado.
+> Se acuerda realizar la implementación de rutas de huéspedes y de usuarios entre Gisela, Franco y Fernanda una vez completos los puntos anteriores, y tengamos un login funcionando será nuestro próximo desafío separar las rutas que se pueden acceder en cualquier momento, de las que se puede acceder solo si uno no está logueado y, por último, de las que requieren estar logueado. En cada caso deberemos implementar el comportamiento que corresponda: rutas accesibles por cualquiera (huéspedes), rutas accesibles solo sin login, rutas accesibles solo con login.
+> Se toma la decisión de posponer la realización de la retrospectiva, por el horario de la reunión en el día de la fecha para la próxima daily, con la participación de todos sus integrantes.
+>  Se decide una nueva daily para el dia de mañana 07-01-2022 en el horario de las 11.00hs para continuar con los detalles de la división de tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
+
+
+### Acta 07-01-2022 11.00 am. ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Exequiel
+
+**Fernanda** 
+- Daily realizada del día anterior.
+- Pendiente la implementación de registro de usuarios.
+
+
+**Gisela**
+- El punto de establecer la estructura de archivos y directorios de usuarios: de las rutas, controladores, vistas, directorios para imágenes y colección de datos ya está realizado, se fundamentó en esta daily.
+- Pendiente la función de recordar usuario.
+- Realizar el wireframe del dashboard de la vista administrador. 
+
+**Franco**
+- Se comentó que tenemos que trabajar sobre el select de category, se precisa una vista de crear categorias.
+- Pendiente la retrospectiva.
+- Pendiente la implementación de login.
+
+
+
+>  Se decide una nueva daily para el dia lunes 10-01-2022 en el horario de las 15.30hs para continuar con las tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
+
