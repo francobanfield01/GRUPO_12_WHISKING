@@ -1,24 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-
-const usersFilePath = path.join(__dirname, '../database/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-const writeJson = dataBase => {
-	fs.writeFileSync(usersFilePath, JSON.stringify(dataBase), 'utf-8')
-}
-
-const { validationResult } = require('express-validator')
-
-
-/* const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); */ // creo que no hace falta
+let { users, writeUsersJSON } = require('../database/dataBase');
+let { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs'); // para hasheo
 
 let controller = {
     register: (req, res) => {
-        res.render('users/register', {title:'Registración', img: 'src="../images/logo.svg"', img2: 'src="../images/logo2.svg"'});
+        res.render('users/register')
     },
     processRegister: (req, res) => {
         let errors = validationResult(req);  
-        res.send(errors.mapped())      
+       /*  res.send(errors.mapped()) me toma 2 mails no funciona ya registrado */ 
         if(errors.isEmpty){   // se pregunta si los errores estan vacios
            let lastId = 1;
 
@@ -28,34 +18,37 @@ let controller = {
                }               
            });
 
-           let { name, last_name, email, pass } = req.body
+           let { user_first_name, user_last_name, date_of_birth, email, pass } = req.body
 
            let newUser = {
                id: lastId + 1,
-               name,
-               last_name,
-               email,
-               pass,
-               rol: "ROL_USER",
-               date_of_birth: "",
+               user_first_name: user_first_name.trim(),
+               user_last_name: user_last_name.trim(),
+               date_of_birth,
+               email: email.trim(),
+               pass: bcrypt.hashSync(pass, 10),
+               rol: "ROL_USER",               
                address: "",
                province: "",
                city: "",
                postal_code: "",
                phone: "",
                cell_phone: "",               
-              /*  image: req.file ? req.file.filename : "default-image-perfil.png" */  //hasta que se haga espacio en el login para cargar la foto
+               image: req.file ? [req.file.filename] : ["default-image-perfil.png"]  //hasta que se haga espacio en el login para cargar la foto
 
            }
 
            users.push(newUser)
-           writeJson(users)
+
+           writeUsersJSON(users)
 
            res.redirect('/users/login')
 
         }else{
             res.render('users/register', {
-               errors: errors.mapped()
+               errors: errors.mapped(),
+               old: req.body
+
             })
 
         }   
@@ -63,8 +56,8 @@ let controller = {
     },
     login: (req, res) => {
         res.render('users/login', { title: 'Iniciar Sesión', img: 'src="../images/logo.svg"', img2: 'src="../images/logo2.svg"'});
-    },
-    processLogin: (req, res)
+    }
+    
    
 }
 

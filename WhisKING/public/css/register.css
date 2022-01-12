@@ -31,8 +31,8 @@ body.body-register {
     border: none;
 } 
 /*errors messages :  de los input del form y span Debes aceptar los terminos y codiciones*/
-.register-main .form-register .input-container-register .error-message-register, 
-.register-main .form-register .error-message-terms
+.register-main .form-register .input-container-register .error-register, 
+.register-main .form-register .error-terms
  {
     display: block;
     color: red;

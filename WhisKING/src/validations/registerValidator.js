@@ -1,12 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { check, body } = require('express-validator');
+const { check , body } = require('express-validator');
 
-const usersFilePath = path.join(__dirname, '../database/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-const writeJson = dataBase => {
-	fs.writeFileSync(usersFilePath, JSON.stringify(dataBase), 'utf-8')
-}
+let { users } = require('../database/dataBase')
 	
 	
 	module.exports = [
@@ -23,15 +17,15 @@ const writeJson = dataBase => {
 	    .withMessage('la fecha es requerida')
         .isDate(),
 	
-	    check('mail')
+	    check('email')
 	    .isEmail()
 	    .withMessage('Debes ingresar un email válido'),
 	
-	    body('mail').custom(value => {
-	       let user = users.find(user=>{ 
-	            return user.mail == value 
+	    body('email').custom(value => {
+	       let user = users.find(user=>{  //valida que un mismo usuario existe dentro de bdedatos, no pueden loguearse 2 personas con el mismo email
+	            return user.email == value 
 	        })
-            if(user){
+            if(user){  // usuario existe
                 return false
             }else{
                 return true
@@ -42,9 +36,9 @@ const writeJson = dataBase => {
 	    .notEmpty()
 	    .withMessage('Debes escribir tu contraseña')
 	    .isLength({
-	        min: 6,
-	        max: 12
-	    })
+			min: 6,
+			max: 12
+		})
 	    .withMessage('La contraseña debe tener entre 6 y 12 caracteres'),
 	
 	    body('pass2').custom((value, {req}) => value !== req.body.pass ? false : true)
