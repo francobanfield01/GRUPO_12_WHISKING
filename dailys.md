@@ -189,7 +189,6 @@ Ausentes: Exequiel
 - Daily realizada del día anterior.
 - Pendiente la implementación de registro de usuarios.
 
-
 **Gisela**
 - El punto de establecer la estructura de archivos y directorios de usuarios: de las rutas, controladores, vistas, directorios para imágenes y colección de datos ya está realizado, se fundamentó en esta daily.
 - Pendiente la función de recordar usuario.
@@ -203,4 +202,32 @@ Ausentes: Exequiel
 
 
 >  Se decide una nueva daily para el dia lunes 10-01-2022 en el horario de las 15.30hs para continuar con las tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
+
+
+### Acta 07-01-2022 15.30 am. ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Exequiel
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+- Se inicia esta daily comentando que cuando armamos el html de login y register, en este estadio del proyecto al realizar la implementación en el registro de usuarios no sabíamos que se iba a tener que utilizar multer, por eso se tuvo que cambiar y acomodar la estética del mismo, aunque en el futuro multer tenga que ver más con el pérfil del usuario que se tiene en cuenta, aunque por el momento no se pueda realizar y,  se necesita incorporar el archivo que manejará el dasboard del administrador.
+ 
+Aprovechando el fin de semana pasado, antes de entrar a trabajar con el tema de registración, se eagregó middlewares a nivel de la aplicación que sirven para ver las entradas de los usuarios a los distintas secciones del sitio, un middlewares de fuera del servicio o mantenimiento del mismo, y uno que chequea si el usuario es o no administrador.
+
+Con respecto al registro no se logró que cuando se ingresa a registrar, se vean los errores, se realizó todas las pruebas test para el mismo.
+
+Tambien comenté que es necesario, la incorporación de un archivo base, dónde se guarden las bases de datos json, porque es tedioso tener que escribir y asi consumimos todos esos pasos innecesarios, está funcional para utilizarlo, y se puede incorporar al controlador o en dónde se requiera a través de destructuring.
+
+Además se tomó el trabajo de modificar la base de json de productos, incorporando una base adicional de categorías, puesto a evaluación...
+
+Se Habló del desarrollo de mi actividad a realizar con la incorporacion de las validaciones.
+
+Mi gran inconveniente en el registro, era maquetar y que quede bien con la incorporación de multer, la foto de perfil del usuario que se esta registrando o de avatar, ya que siento dificultades y desarmar todo lo maquetado anteriormente y que todos estabamos de acuerdo.
+
+**Gisela**
+- Me invitó a tener un meeting en el día de hoy para lograr ayudarme a superar este bloqueo para avanzar y resolverlo.
+
+**Franco**
+- Alentó que pruebe tirar un input dentro del formulario e intente resolver mi bloqueo de remaquetar el sitio.
+
 
