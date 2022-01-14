@@ -2,18 +2,19 @@
 let express = require('express')
 let router = express.Router();
 let upload = require('../middlewares/uploadProductFiles') //requerimos el multer, upload tiene que ver con la carga, requiriendo el middleware que acabamos de crear
+let userAdminCheck = require('../middlewares/userAdminCheck');
+
 
 
 // ************ Controller Require ************
-//let controller = require('../controllers/productsController'); // esta linea estaba repitiendo la de abajo, modifique todos donde decia controller x productsController
-const controller = require('../controllers/productsController')
+let controller = require('../controllers/productsController')
 
 /*** GET ALL PRODUCTS ***/
 router.get('/', controller.list);
 
 
-/*** CREATE ONE PRODUCT ***/ 
-router.get('/create', controller.create); //devolverm el formulario para que lo vea el usuario
+/*** CREATE ONE PRODUCT ***/ //prueba con la pag de create si puede acceder usuario y no es administ SOLO EN LAS RUTAS GETS userAdminCheck 
+router.get('/create', userAdminCheck, controller.create); //devolverm el formulario para que lo vea el usuario
 router.post('/', upload.single('image'), controller.store); //  recibir datos,esto recibe los datos del formulario de creacion del producto, habilitar el upload.single cuando este el create completo y funcional
 
 /*** GET ONE PRODUCT ***/ 

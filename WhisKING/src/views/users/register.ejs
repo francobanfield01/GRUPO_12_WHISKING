@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('../partials/head.ejs', {title:'Registración - The WhisKING Argentina'})  %> 
+    <%- include('../partials/head.ejs', {title:'Registración - The WhisKING Argentina'})%> 
 <body class="body-register"> 
     <%- include('../partials/header.ejs')  %>
     
     <main class="register-main">        
-            <h2>Registrate</h2>
-            <hr>
-            <form action="">
-                <div class="form-register">                    
-                    <div class="input-container-register">                       
-                        <input class="input-style-register" type="text" name="user_first_name" placeholder="Ingrese su nombre" id="nombre">
-                        <span class="error-message-register">Debes ingresar tu nombre</span>
-                    </div>
-                    <div class="input-container-register">                       
-                        <input class="input-style-register" type="text" name="user_last_name" placeholder="Ingrese su apellido" id="apellido">
-                        <span class="error-message-register">Debes ingresar tu nombre</span>
-                    </div>
+        <h2>Registrate</h2>       
+        <hr>
+        <form action="/users/register" method="POST" enctype="multipart/form-data">                
+            <div class="form-register">                    
+                <div class="input-container-register">                       
+                    <input class="input-style-register" type="text" name="user_first_name" placeholder="nombre" id="nombre" value="<%= locals.old && old.user_first_name  %>">
+                    <% if (locals.errors && errors.user_first_name) { %>
+                        <span class="error-register"><%= errors.user_first_name.msg  %></span>       <!-- Debes ingresar tu nombre -->                  
+                    <% } %>
+                </div>
+                <div class="input-container-register">                       
+                    <input class="input-style-register" type="text" name="user_last_name" placeholder=" apellido" id="apellido" value="<%= locals.old && old.user_last_name  %>">
+                    <% if (locals.errors && errors.user_last_name) { %>
+                        <span class="error-register"><%= errors.user_last_name.msg  %></span>    <!-- Debes ingresar tu apellido -->                         
+                    <% } %>
+                </div>
+                <div class="input-container-register">                        
+                    <input class="input-style-register" type="date" name="date_of_birth" placeholder="Fecha de Nacimiento" min="1900-01-01" max="2050-12-31" id="f_nacimiento" value="<%= locals.old && old.date_of_birth  %>">
+                    <% if (locals.errors && errors.date_of_birth) { %>
+                        <span class="error-register"><%= errors.date_of_birth.msg  %></span>   <!-- Debes ingresar tu fecha de Nacimiento -->                         
+                    <% } %>
                     <div class="input-container-register">                        
-                        <input class="input-style-register" type="date" name="date_of_birth" placeholder="Ingrese su Fecha de Nacimiento" min="1900-01-01" max="2050-12-31" id="f_nacimiento">
-                        <span class="error-message-register">Debes ingresar tu fecha de Nacimiento</span>
-                    </div>
-                    <div class="input-container-register">                        
-                        <input class="input-style-register" type="email" name="mail" placeholder="Ingrese su email" id="email">
-                        <span class="error-message-register">Debes ingresar tu email</span>
+                        <input class="input-style-register" type="email" name="email" placeholder="Ingrese su email" id="email" value="<%= locals.old && old.mail  %>">
+                        <% if (locals.errors && errors.mail){%>
+                            <span class="error-register"><%= errors.mail.msg  %></span>           <!-- Debes ingresar tu email -->              
+                        <% } %>
                     </div>
                     <div class="input-container-register">                       
                         <input class="input-style-register" type="password" name="pass" placeholder="Ingrese su contraseña" id="contrasenia">
-                        <span class="error-message-register">Debes ingresar tu contraseña</span>
+                        <% if (locals.errors && errors.pass){%>
+                            <span class="error-register"><%= errors.pass.msg  %></span>   <!-- Debes ingresar tu contraseña -->                        
+                        <% } %>
                     </div>
                    
                     <div class="input-container-register">
                         <input class="input-style-register" type="password" name="pass2" placeholder="Confirma su contraseña" id="contrasenia2">
-                        <span class="error-message-register">Debes confirmar tu contraseña</span>
+                        <% if (locals.errors && errors.pass2){%>
+                            <span class="error-register"><%= errors.pass2.msg  %></span>   <!-- Debes confirmar tu contraseña -->                        
+                        <% } %>
                     </div>
-                   <div class="check-register">
-                       <label class="label-terms-register" for="terminos_cond">Acepto los <a href="">términos y condiciones</a></label>
-                       <input class="checkbox-terms-register" type="checkbox" name="terms" id="terminos-cond">              <br>
-                       
-                   </div>
+                    <div class="register-image">
+                        <p>Agregar foto</p>
+                        <input type="file" name="image"> <!-- usamos el name del input=file para  -->   
+                        <% if (locals.errors && errors.image) { %>
+                            <span class="error-register"><%= errors.image.msg  %></span>                  
+                        <% } %>
+                    </div>
+                    <div class="check-register">
+                       <label class="label-terms-register" for="terminos_cond">Acepto los <a href="terms.ejs">términos y condiciones</a></label>
+                       <input class="checkbox-terms-register" type="checkbox" name="terms" id="terminos-cond">              
+                       <br>                       
+                    </div>
                    <br>
-                   <span class="error-message-terms">Debes aceptar los términos y condiciones</span>
+                   <% if (locals.errors && errors.terms) { %>
+                    <span class="error-terms"><%= errors.terms.msg  %></span>    <!-- Debes aceptar los términos y condiciones -->                
+                   <% } %>
                    
                    <div class="button-container-register">
                         <button  class="btn-whisking" type="submit">Registrarse</button>
                        
                    </div>
                    
-                   <span class="span-cuenta"><a href="/users/login">Ya tienes cuenta</a></span>
+                   <span class="span-cuenta"><a href="login.html">Ya tienes cuenta</a></span>
                  
                 </div>
             </form>

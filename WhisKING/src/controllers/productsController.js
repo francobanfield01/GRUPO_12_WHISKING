@@ -1,23 +1,17 @@
+let { products , writeProductsJSON } = require('../database/dataBase')
 const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../database/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const writeJson = dataBase => {
-	fs.writeFileSync(productsFilePath, JSON.stringify(dataBase), 'utf-8')
-}
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 	
 let controller = {
 	// Root - Show all products NO FUNCIONA
-	index: (req, res) =>{
+	index: (req, res) =>{    //iria en admin/adminIndex
 		res.render('index', {
 			products,
 			toThousand
 			
 		})
 	},
-	list: (req, res) =>{
+	list: (req, res) =>{     //iria admin/products/admintProducts
 		res.render('products/productsList', {
 			products,
 			toThousand
@@ -37,12 +31,11 @@ let controller = {
 		})
 	},
 	// Create - Form to create
-    create:(req, res) =>{
+    create:(req, res) =>{     //iria a admin/products/adminProducts
         res.render('products/productCreate');
     },
    // Create -  Method to store
-    store: (req, res) => {		
-		const { name, price, discount, category, description } = req.body;
+    store: (req, res) => {		//admin/products/admintProductsCreateForm
 		let lastId = 1;
 		products.forEach(product => {
 			if(product.id > lastId) {
@@ -50,22 +43,24 @@ let controller = {
 			}
 		});
 
+		const { name, price, discount, category, description } = req.body;
+		
 		let newProduct = {
-			id: lastId +1,
+			id: lastId + 1,
 			name,
 			price: +price,
 			discount: +discount,
 			category,
-			description,
-			image: req.file ? req.file.filename : "default-image.png"
+			description: description.trim(),
+			image: req.file ? [req.file.filename] : ["default-image.png"]
 		}
 		
 		products.push(newProduct)  // Agrega el objeto al final del array(JSON)
 
-		writeJson(products)   // Sobreescribe el JSON modificado
+		writeProductsJSON(products)   // Sobreescribe el JSON modificado
 
-		//res.redirect('/products/productsList') // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
-		res.redirect(`/products/detail/${lastId + 1}`) // PREGUNTAR A DONDE LO REENVIAMOS SI ES A PRODUCTSlIST (donde estan todos los productos)Redirecciona al index---//¿no deberia reenviar dónde estan todos los productos res.redirect('/products)? 
+		
+		res.redirect(`/products/detail/${lastId + 1}`)  //
 	},
 
      // Update - Form to edit 
@@ -89,6 +84,7 @@ let controller = {
 		const {name, price, discount, category, description} = req.body;
 
 		products.forEach(product => { // recorremos cada uno de los elementos
+			
 			if (product.id === productId){
 				product.id = product.id, // al product.id le decimos que se mantenga el mismo
 				product.name = name.trim(), // elimina los espacios en blanco
@@ -101,7 +97,7 @@ let controller = {
 						
 						fs.unlinkSync(`./public/images/products/${product.image}`)
 					}else{
-						console.log('No encontró el archivo');
+						console.log('No encontró el archivo');  //
 					}
 					product.image = req.file.filename
 				}else{
@@ -111,12 +107,11 @@ let controller = {
 			} //aca ya esta modificado el array de productos sobre el producto que queria editar  
 
 		})
-		writeJson(products); //y ahora directamente usamos el writeJson le vamos a decir que le vamos a pasar el array de productos 
 
-		/* res.redirect(`/products/detail/${productId}`)   y un res.redirect que redireccione al detalle del producto que acabo de editar para ver que editó, utilizando el template string `` de js, de esta forma le vamos a pasar el productId la variable que me esta guardando el id params*/
-		res.render(`/products/edit/${product.id}`/* ,{
-			title:`Actualizar Producto: ${product.name}`
-		} */) //no funciona para edit
+		writeProductsJSON(products); //y ahora directamente usamos el writeJson le vamos a decir que le vamos a pasar el array de productos 
+
+		
+		res.redirect(`/products/${productId}/edit/`) //res.redirect('/products')
 
 	
 
@@ -129,8 +124,8 @@ let controller = {
 
 		products.forEach(product => { /* recorremos el array para preguntar si el product.id si coincide con el req.params.id */
 			if(product.id === productId){ /* bloque de eliminacion de imagenes en products */
-				if(fs.existsSync('./public/images/products/', product.image) && (product.image !== "default-image.png")){
-					fs.unlinkSync(`./public/images/products/${product.image}`)
+				if(fs.existsSync('../public/images/products/', product.image) && (product.image !== "default-image.png")){
+					fs.unlinkSync(`../public/images/products/${product.image}`)
 
 				}else{
 					console.log('No encontró el archivo');
@@ -146,7 +141,7 @@ let controller = {
 			}
 		})
 
-		writeJson(products);
+		writeProductsJSON(products);
 	/* 	res.send(`has elimindo el producto con id ${productId}`) */
 	res.redirect('/products')
 
