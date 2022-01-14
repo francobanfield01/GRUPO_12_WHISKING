@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('/partials/head.ejs', {title:'Términos y condiciones - The WhisKING Argentina'})%> 
+    <%- include('./partials/head.ejs', {title:'Términos y condiciones - The WhisKING Argentina'})%> 
 <body>
-    <%- include('/partials/header.ejs')  %> 
+    <%- include('./partials/header.ejs')  %> 
     <main class="terms">
         <h2>Consideraciones</h2>
         <section class="paragraph"> 
@@ -181,21 +181,7 @@
 
 
     </main>
-    <footer>
-        <div class="logo2">
-            <img src="images/logo2.svg" alt="logo">
-        </div>
-
-        <div class="redesSociales">
-            <a href="">contacto</a> <!-- link a formulario -->
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-whatsapp"></i>
-        </div>
-        <div class="copyright">
-            <p>Copyright ©️ WhisKING 2021 | Todos los derechos reservados</p>
-        </div>
-    </footer>
+    <%- include('./partials/footer.ejs') %>    
 </body>
 
 </html>

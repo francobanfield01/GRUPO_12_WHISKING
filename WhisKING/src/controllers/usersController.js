@@ -8,7 +8,7 @@ let controller = {
     },
     processRegister: (req, res) => {
         let errors = validationResult(req);  
-        console.log(errors);
+      /*   console.log(errors); */
        /*  res.send(errors.mapped()) me toma 2 mails no funciona ya registrado */ 
         if(errors.isEmpty()){   // se pregunta si los errores estan vacios
            let lastId = 1;
