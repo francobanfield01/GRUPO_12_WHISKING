@@ -204,7 +204,7 @@ Ausentes: Exequiel
 >  Se decide una nueva daily para el dia lunes 10-01-2022 en el horario de las 15.30hs para continuar con las tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
 
 
-### Acta 07-01-2022 15.30 am. ###
+### Acta 10-01-2022 15.30 am. ###
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Exequiel
 
@@ -224,10 +224,36 @@ Se Habló del desarrollo de mi actividad a realizar con la incorporacion de las 
 
 Mi gran inconveniente en el registro, era maquetar y que quede bien con la incorporación de multer, la foto de perfil del usuario que se esta registrando o de avatar, ya que siento dificultades y desarmar todo lo maquetado anteriormente y que todos estabamos de acuerdo.
 
+Se creó en el app.js el adminRouter que se encuentra comentado, el admin.js vacio, y el adminControllers vacio.
+
 **Gisela**
 - Me invitó a tener un meeting en el día de hoy para lograr ayudarme a superar este bloqueo para avanzar y resolverlo.
 
 **Franco**
 - Alentó que pruebe tirar un input dentro del formulario e intente resolver mi bloqueo de remaquetar el sitio.
+
+
+### Acta 13-01-2022 18.40 am. ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Exequiel
+
+**Franco**
+- Habla sobre el archivo dataBase.js que es el modulo que se utiliza para refactorizar las bases de datos json, que anduvo viendo acerca de ese tema. Queda en bajar las actualizaciones y realizar los cambios si los hubiera pertienentes, y trabajar sobre ellos en su consignas a cumplir.
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+- Comenta que ese módulo ya esta subido al github y que esta probado para ser usado cuando se requiera, y habla sobre la importancia de su implementación, dado  que se consume menos código de esta manera y se logra entender un poco mejor su desarrollo. 
+- Están los campos mínimos del sprint anterior.
+- Está implementado la subida con multer de las imágenes.
+- Está encriptada las contraseñas que se ingresan por el usuario con lam incorporacion de bcrypt.js. 
+- Se persisten los datos enviados en el archivo json de usuarios.
+- Sólo tiene los problemas mencionados en la daily anterior acerca de los errores y algunos detalles más.
+
+**Gisela**
+- Escucha atentamente, tomando nota de las tareas realizadas y por realizar, aguardando el momento para trabajar sobre su porción de sprint elegido.
+
+
+
+> Se decide una nueva daily para el día de mañana 14-01-2022 en el horario de las 15.40hs para continuar con las tareas. 
 
 

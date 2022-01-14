@@ -51,7 +51,7 @@ app.use('/users', usersRouter);   //middleware a nivel aplicación
 
 
 //*********** * ERROR 404  * *********** siempre al final de las rutas  nuevo
-app.use((req, res) => {    //status es un metodo dentro del objeto respuesta, le envia al cliente el status de la peticion
+app.use((req, res) => {     //status es un metodo dentro del objeto respuesta, le envia al cliente el status de la peticion
     res.status(404).render('404-page');
 })
 
