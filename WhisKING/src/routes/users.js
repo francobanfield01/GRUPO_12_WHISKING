@@ -17,7 +17,9 @@ router.get('/register', controller.register);
 router.post('/register', uploadFile.single('image') , registerValidator, controller.processRegister);
 
 //*GET - Show login form -Formulario de login-
-router.get('/login', controller.login);
+/* router.get('/login', controller.login); */
+
+router.get('/terms', controller.terms);
 
 //*POST - Login Data -Formulario de login ---Procesar el login.
 /* router.post('/login', controller.processLogin); */

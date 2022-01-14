@@ -107,7 +107,7 @@ ___
 
 # DAILY SPRINT 4
 *** 
-### Acta 7-12-2021 ###
+### Acta 07-12-2021 ###
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Joel.
 
@@ -115,7 +115,7 @@ Ausentes: Joel.
 - Se actualizó el tablero de Trello y se asignaron las dificultades de las tareas al mismo.
 - Reorganizamos los horarios para sincronizar las reuniones.
 
-### Acta 9-12-2021 ###
+### Acta 09-12-2021 ###
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Joel.
 
@@ -204,7 +204,7 @@ Ausentes: Exequiel
 >  Se decide una nueva daily para el dia lunes 10-01-2022 en el horario de las 15.30hs para continuar con las tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
 
 
-### Acta 10-01-2022 15.30 am. ###
+### Acta 10-01-2022 03.30 pm. ###
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Exequiel
 
@@ -233,7 +233,7 @@ Se creó en el app.js el adminRouter que se encuentra comentado, el admin.js vac
 - Alentó que pruebe tirar un input dentro del formulario e intente resolver mi bloqueo de remaquetar el sitio.
 
 
-### Acta 13-01-2022 18.40 am. ###
+### Acta 13-01-2022 06.40 pm. ###
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Exequiel
 
@@ -257,3 +257,8 @@ Ausentes: Exequiel
 > Se decide una nueva daily para el día de mañana 14-01-2022 en el horario de las 15.40hs para continuar con las tareas. 
 
 
+### Acta 14-01-2022 03.40 pm. ###
+Presentes: Gisela, Franco, Fernanda.
+Ausentes: Exequiel
+
+>Se suspende el meeting por problemas técnicos.

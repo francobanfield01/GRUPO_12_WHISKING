@@ -8,8 +8,9 @@ let controller = {
     },
     processRegister: (req, res) => {
         let errors = validationResult(req);  
+        console.log(errors);
        /*  res.send(errors.mapped()) me toma 2 mails no funciona ya registrado */ 
-        if(errors.isEmpty){   // se pregunta si los errores estan vacios
+        if(errors.isEmpty()){   // se pregunta si los errores estan vacios
            let lastId = 1;
 
            users.forEach(user => {
@@ -54,8 +55,8 @@ let controller = {
         }   
 
     },
-    login: (req, res) => {
-        res.render('users/login', { title: 'Iniciar Sesión', img: 'src="../images/logo.svg"', img2: 'src="../images/logo2.svg"'});
+    terms: (req, res) => {
+        res.render('terms');
     }
     
    

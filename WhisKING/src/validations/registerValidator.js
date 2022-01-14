@@ -19,7 +19,7 @@ let { users } = require('../database/dataBase')
 	
 	    check('email')
 	    .isEmail()
-	    .withMessage('Debes ingresar un email válido'),
+	    .withMessage('Debes ingresar un email válido').bail(),
 	
 	    body('email').custom(value => {
 	       let user = users.find(user=>{  //valida que un mismo usuario existe dentro de bdedatos, no pueden loguearse 2 personas con el mismo email
