@@ -25,9 +25,10 @@ Ausentes: Joel.
 Presentes: Jeanette, Gisela, Franco, Fernanda.
 Ausentes: Joel.
 
-Se decidió a partir de las consultas realizadas y de la invitación a reunirnos en el dia de la fecha por la mañana con Jeanette.
-Franco realizó la consulta sobre el inconveniente de no poder ver las vistas y Jeanette nos logra dar cuenta el error cometido, se solucionó el problema.
-Fernanda, también solicita ver ese mismo problema pero ya con la incorporación de la carpeta partials, era un problema de ruta.
+
+>Se decidió a partir de las consultas realizadas y de la invitación a reunirnos en el dia de la fecha por la mañana con Jeanette.
+>Franco realizó la consulta sobre el inconveniente de no poder ver las vistas y Jeanette nos logra dar cuenta el error cometido, se solucionó el problema.
+>Fernanda, también solicita ver ese mismo problema pero ya con la incorporación de la carpeta partials, era un problema de ruta.
 
 
 ### Acta 29-11-2021 02.00 pm ###
@@ -45,6 +46,7 @@ Ausentes: Joel.
 - Nos muestra como queda productCreate con un header diferente a las vistas que se verá de parte del usuario final, esta visual corresponderá a la visual administrador.  
 - Se decide que tanto productCreate y productEdit tengan los mismos head,header y footer  
 
+
 > Se decide una nueva daily en el horario de las 20.00hs para continuar con los ajustes y que las vistas mencionadas queden perfectamente visualizadas.
 
 
@@ -52,7 +54,8 @@ Ausentes: Joel.
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Joel.
 
-Trabajamos sobre la posición de las etiquetas inputs, placeholders y @media queries de las vistas habladas en la anterior cita, se pacta nueva daily para el día de mañana a las 02.30 pm para ultimar detalles, y hacer una revisión general del proyecto para su posterior entrega estimada a las 06.00 pm.
+
+>Trabajamos sobre la posición de las etiquetas inputs, placeholders y @media queries de las vistas habladas en la anterior cita, se pacta nueva daily para el día de mañana a las 02.30 pm para ultimar detalles, y hacer una revisión general del proyecto para su posterior entrega estimada a las 06.00 pm.
 
 ### Acta 30-11-2021  02:30 pm. ###
 Presentes: Gisela, Franco, Fernanda.
@@ -65,7 +68,6 @@ Ausentes: Joel.
 - No había subido la vista de productEdit ya que lo manejo con extensión html.
 - Se verificó que funcione el responsive.
 
-
 **Fernanda**
 - Comenta que tuvo problemas para ubicar los logos del header, ya que index.ejs y productCart sen encuentran fuera de carpetas, mientras que las demás vistas ejs se encuentran en carpetas users y products respectivamente.
 - Pudo fijar los titles en cada una de las vistas en inglés.
@@ -75,14 +77,13 @@ Ausentes: Joel.
 **Franco**
 - Atento confirma que los titles van español.
 
-- Franco y Fernanda ubican el error de Gisela, se soluciona satisfactoriamente.
-- Trabajamos sobre productEdit en la vista mobile.
-- Se pacta nueva reunión para las 08.45 pm.
+> Franco y Fernanda ubican el error de Gisela, se soluciona satisfactoriamente.
+> Trabajamos sobre productEdit en la vista mobile.
+> Se pacta nueva reunión para las 08.45 pm.
 
 ### Acta 30-11-2021  08:45 pm. ###
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Joel.
-
 
 **Fernanda**
 - Tuvo problemas con git, hizo git pull sobre los cambios subidos de Gisela en productCreate y se encontró con diferencias en productControllers.
@@ -96,11 +97,11 @@ Ausentes: Joel.
 - Agregó el controlador y la ruta a productEdit
  
 
-- Resolvimos el problema del footer en el tema de los logos, ya resueltos más temprano con el header.
-- Se agregó el footer a productCreate con algunos cambios estéticos para diferenciarlo del footer que va a ver finalmente el usuario.
-- Se decide cambiar productCreate y productEdit por create y edit y detail
-- Se cierra la cita y con el compromiso de realizar más cambios y ser subidos en el día de mañana.
-- Quedan pendientes algunas correcciones del sprint2
+> Resolvimos el problema del footer en el tema de los logos, ya resueltos más temprano con el header.
+> Se agregó el footer a productCreate con algunos cambios estéticos para diferenciarlo del footer que va a ver finalmente el usuario.
+> Se decide cambiar productCreate y productEdit por create y edit y detail
+> Se cierra la cita y con el compromiso de realizar más cambios y ser subidos en el día de mañana.
+> Quedan pendientes algunas correcciones del sprint2
 
 ___
 ___
@@ -111,9 +112,10 @@ ___
 Presentes: Gisela, Franco, Fernanda.
 Ausentes: Joel.
 
-- Realizamos la distribución de tareas.
-- Se actualizó el tablero de Trello y se asignaron las dificultades de las tareas al mismo.
-- Reorganizamos los horarios para sincronizar las reuniones.
+
+> Realizamos la distribución de tareas.
+> Se actualizó el tablero de Trello y se asignaron las dificultades de las tareas al mismo.
+> Reorganizamos los horarios para sincronizar las reuniones.
 
 ### Acta 09-12-2021 ###
 Presentes: Gisela, Franco, Fernanda.
@@ -145,8 +147,6 @@ Ausentes: Joel.
 **Gisela**
 - Se puso a trabajar en la retro.md y las dailys y subió los archivos a GitHub.
 
-
-
 ___
 ___
 
@@ -173,13 +173,11 @@ Ausentes: Exequiel
 - Implementación del login de usuarios, poner en práctica middlewares, sesiones y cookies incluyendo los campos de email y password, verificar la información enviada por el usuario y según el caso: redireccionar a la home o a la página de perfil en caso de éxito y muestre los datos del usuario en algún lugar del sitio, como el header, redireccionar nuevamente al login en caso de error (formulario funcional de login) 
  
  
-
 > Se dividen las tareas del presente sprint.
 > Se deberá ver el tema del select para elegir categoría que deberá ser consumida desde la base de datos, no hardcodeado.
 > Se acuerda realizar la implementación de rutas de huéspedes y de usuarios entre Gisela, Franco y Fernanda una vez completos los puntos anteriores, y tengamos un login funcionando será nuestro próximo desafío separar las rutas que se pueden acceder en cualquier momento, de las que se puede acceder solo si uno no está logueado y, por último, de las que requieren estar logueado. En cada caso deberemos implementar el comportamiento que corresponda: rutas accesibles por cualquiera (huéspedes), rutas accesibles solo sin login, rutas accesibles solo con login.
 > Se toma la decisión de posponer la realización de la retrospectiva, por el horario de la reunión en el día de la fecha para la próxima daily, con la participación de todos sus integrantes.
 >  Se decide una nueva daily para el dia de mañana 07-01-2022 en el horario de las 11.00hs para continuar con los detalles de la división de tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
-
 
 ### Acta 07-01-2022 11.00 am. ###
 Presentes: Gisela, Franco, Fernanda.
@@ -200,9 +198,7 @@ Ausentes: Exequiel
 - Pendiente la implementación de login.
 
 
-
 >  Se decide una nueva daily para el dia lunes 10-01-2022 en el horario de las 15.30hs para continuar con las tareas y con la incorporación de Exequiel para explicar el desarrollo de nuestro e-commerce.
-
 
 ### Acta 10-01-2022 03.30 pm. ###
 Presentes: Gisela, Franco, Fernanda.
@@ -212,26 +208,25 @@ Ausentes: Exequiel
 - Daily realizada del meeting anterior.
 - Se inicia esta daily comentando que cuando armamos el html de login y register, en este estadio del proyecto al realizar la implementación en el registro de usuarios no sabíamos que se iba a tener que utilizar multer, por eso se tuvo que cambiar y acomodar la estética del mismo, aunque en el futuro multer tenga que ver más con el pérfil del usuario que se tiene en cuenta, aunque por el momento no se pueda realizar y,  se necesita incorporar el archivo que manejará el dasboard del administrador.
  
-Aprovechando el fin de semana pasado, antes de entrar a trabajar con el tema de registración, se eagregó middlewares a nivel de la aplicación que sirven para ver las entradas de los usuarios a los distintas secciones del sitio, un middlewares de fuera del servicio o mantenimiento del mismo, y uno que chequea si el usuario es o no administrador.
+- Aprovechando el fin de semana pasado, antes de entrar a trabajar con el tema de registración, se agregó middlewares a nivel de la aplicación que sirven para ver las entradas de los usuarios a los distintas secciones del sitio, un middlewares de fuera del servicio o mantenimiento del mismo, y uno que chequea si el usuario es o no administrador.
 
-Con respecto al registro no se logró que cuando se ingresa a registrar, se vean los errores, se realizó todas las pruebas test para el mismo.
+- Con respecto al registro no se logró que cuando se ingresa a registrar, se vean los errores, se realizó todas las pruebas test para el mismo.
 
-Tambien comenté que es necesario, la incorporación de un archivo base, dónde se guarden las bases de datos json, porque es tedioso tener que escribir y asi consumimos todos esos pasos innecesarios, está funcional para utilizarlo, y se puede incorporar al controlador o en dónde se requiera a través de destructuring.
+- Tambien comenté que es necesario, la incorporación de un archivo base, dónde se guarden las bases de datos json, porque es tedioso tener que escribir y asi consumimos todos esos pasos innecesarios, está funcional para utilizarlo, y se puede incorporar al controlador o en dónde se requiera a través de destructuring.
 
-Además se tomó el trabajo de modificar la base de json de productos, incorporando una base adicional de categorías, puesto a evaluación...
+- Además se tomó el trabajo de modificar la base de json de productos, incorporando una base adicional de categorías, puesto a evaluación...
 
-Se Habló del desarrollo de mi actividad a realizar con la incorporacion de las validaciones.
+- Se Habló del desarrollo de mi actividad a realizar con la incorporacion de las validaciones.
 
-Mi gran inconveniente en el registro, era maquetar y que quede bien con la incorporación de multer, la foto de perfil del usuario que se esta registrando o de avatar, ya que siento dificultades y desarmar todo lo maquetado anteriormente y que todos estabamos de acuerdo.
+- Mi gran inconveniente en el registro, era maquetar y que quede bien con la incorporación de multer, la foto de perfil del usuario que se esta registrando o de avatar, ya que siento dificultades y desarmar todo lo maquetado anteriormente y que todos estabamos de acuerdo.
 
-Se creó en el app.js el adminRouter que se encuentra comentado, el admin.js vacio, y el adminControllers vacio.
+- Se creó en el app.js el adminRouter que se encuentra comentado, el admin.js vacio, y el adminControllers vacio.
 
 **Gisela**
 - Me invitó a tener un meeting en el día de hoy para lograr ayudarme a superar este bloqueo para avanzar y resolverlo.
 
 **Franco**
 - Alentó que pruebe tirar un input dentro del formulario e intente resolver mi bloqueo de remaquetar el sitio.
-
 
 ### Acta 13-01-2022 06.40 pm. ###
 Presentes: Gisela, Franco, Fernanda.
@@ -253,12 +248,47 @@ Ausentes: Exequiel
 - Escucha atentamente, tomando nota de las tareas realizadas y por realizar, aguardando el momento para trabajar sobre su porción de sprint elegido.
 
 
-
 > Se decide una nueva daily para el día de mañana 14-01-2022 en el horario de las 15.40hs para continuar con las tareas. 
 
-
 ### Acta 14-01-2022 03.40 pm. ###
-Presentes: Gisela, Franco, Fernanda.
-Ausentes: Exequiel
+Presentes: -, -, -.
+Ausentes: Gisela, Franco, Fernanda,Exequiel.
+
 
 >Se suspende el meeting por problemas técnicos.
+
+### Acta 20-01-2022 02.49 pm. ###
+Presentes: Gisela, Fernanda.
+Ausentes: Franco, Exequiel.
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+
+**Gisela**
+- Muestra su tarea acerca de recordar contraseña la cual no pudo terminar de realizar y hacerlo funcional.
+
+
+> Por problemas técnicos Franco no participa de esta daily.
+> Se realiza un seguimiento del código
+> Se decide una nueva daily para el día 21-01-2022 a las 07.00 pm, esperando la colaboración de Franco.
+
+### Acta 21-01-2022 07.00 pm. ###
+Presentes: Gisela, Franco y Fernanda.
+Ausentes: Exequiel.
+
+**Franco**
+- Decide que sigamos viendo las tareas, en base a los cambios propuestos en su ausencia.
+- Hizo funcional el menú del home, para poder acceder rápidamente a Registrate, Productos, Carrito e Ingresar.
+
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+- Propone ver los inconvenientes que tiene login en conjunto.
+
+**Gisela**
+- Realiza los procesos de login y process-login para poder implementar recordar contraseña, aún no esta funcional.
+- No funciona el middleware cookieSession.js
+
+
+> Se realiza un seguimiento del código, intentando ubicar el error.
+> Se decide una nueva daily para el día 22-01-2022 a las 03.00 pm.

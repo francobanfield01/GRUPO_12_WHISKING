@@ -57,6 +57,9 @@ let controller = {
     },
     terms: (req, res) => {
         res.render('terms');
+    },
+    login: (req, res) => {
+        res.render('users/login')
     }
     
    
