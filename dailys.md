@@ -292,3 +292,19 @@ Ausentes: Exequiel.
 
 > Se realiza un seguimiento del código, intentando ubicar el error.
 > Se decide una nueva daily para el día 22-01-2022 a las 03.00 pm.
+
+### Acta 22-01-2022 03.00 pm. ###
+Presentes: Gisela y Fernanda.
+Ausentes: Franco,Exequiel.
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+
+**Gisela**
+- No funciona el middleware cookieSession.js.
+- Se compromete ver los errores a partir del login funcional, y luego a subir y si fuera necesario a solicitar ayuda si se mantienen los errores que no se lograron resolver.
+
+
+> Se realiza un seguimiento del código, se logra registrar y loguear, falta ver porqué no se puede implementar las cookies y session.
+
+> No se pacta nueva daily.
