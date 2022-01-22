@@ -27,9 +27,9 @@
                         <span class="error-register"><%= errors.date_of_birth.msg  %></span>   <!-- Debes ingresar tu fecha de Nacimiento -->                         
                     <% } %>
                     <div class="input-container-register">                        
-                        <input class="input-style-register" type="email" name="email" placeholder="Ingrese su email" id="email" value="<%= locals.old && old.mail  %>">
-                        <% if (locals.errors && errors.mail){%>
-                            <span class="error-register"><%= errors.mail.msg  %></span>           <!-- Debes ingresar tu email -->              
+                        <input class="input-style-register" type="email" name="email" placeholder="Ingrese su email" id="email" value="<%= locals.old && old.email  %>">
+                        <% if (locals.errors && errors.email){%>
+                            <span class="error-register"><%= errors.email.msg  %></span>           <!-- Debes ingresar tu email -->              
                         <% } %>
                     </div>
                     <div class="input-container-register">                       
