@@ -189,3 +189,11 @@ El usuario ingresó a la ruta: /products
 El usuario ingresó a la ruta: /css/terms.css
 El usuario ingresó a la ruta: /users/login
 El usuario ingresó a la ruta: /css/terms.css
+El usuario ingresó a la ruta: /
+El usuario ingresó a la ruta: /css/terms.css
+El usuario ingresó a la ruta: /favicon.ico
+El usuario ingresó a la ruta: /users/register
+El usuario ingresó a la ruta: /css/terms.css
+El usuario ingresó a la ruta: /users/register
+El usuario ingresó a la ruta: /users/login
+El usuario ingresó a la ruta: /css/terms.css

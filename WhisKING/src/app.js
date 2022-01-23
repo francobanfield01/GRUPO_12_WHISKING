@@ -5,6 +5,8 @@ const PORT = 3001;// defino la variable PORT en 3001
 let path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const cookieSession = require('./middlewares/cookieSession')
 
 
 //************ Middlewares  ************ Usamos el método use de app (aplicación de express), x ej intentando acceder a un archivo estático
@@ -18,7 +20,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: true }
 }))
-
+app.use(cookieParser())
+app.use(cookieSession)
 
 // ************ Template Engine  ************
 app.set('view engine', 'ejs'); // Setea el template engine

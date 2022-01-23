@@ -6,17 +6,20 @@
     <main class="login-main">        
         <h2>Iniciar Sesión</h2>
         <hr>
-        <form action="">
+        <form action="/users/login" method="POST">
             <div class="form-login">
                 <div class="input-container-login">
                     <input class="input-style-login" type="email" name="email" placeholder="Ingrese su email" id="email">
-                    <span class="error-message-login">Debes ingresar tu email</span>
+                   <% if (locals.errors && errors.email ) { %>
+                    <span class="error-message-login"><%= errors.email.msg  %> </span>       <!-- deja de ser estatico "Debes ingresar tu email" este es el objeto errors.mail pero debo mostrar el mensaje de error -->             
+                   <% } %>
                 </div>
 
                 <div class="input-container-login">
-                    <input class="input-style-login" type="password" name="pass" placeholder="Ingrese su contraseña"
-                        id="contrasenia">
-                    <span class="error-message-login">Debes ingresar tu contraseña</span>
+                    <input class="input-style-login" type="password" name="pass" placeholder="Ingrese su contraseña" id="contrasenia">
+                    <% if (locals.errors && errors.pass ) { %>
+                            <span class="error-message-login"><%= errors.pass.msg  %> </span>       <!-- deja de ser estatico "Debes ingresar tu contraseña" -->             
+                    <% } %>                    
                 </div>
 
                 <div class="check-login">

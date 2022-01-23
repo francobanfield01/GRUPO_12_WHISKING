@@ -24,7 +24,7 @@ router.get('/login', controller.login);
 router.get('/terms', controller.terms);
 
 //*POST - Login Data -Formulario de login ---Procesar el login.
-/* router.post('/login', controller.processLogin); */
+router.post('/login',loginValidator, controller.processLogin);
 
 
 
