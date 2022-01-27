@@ -339,3 +339,29 @@ Ausentes: Exequiel.
 > Se resuelve que si necesitamos ayuda de parte de los coordinadores y de apoyo solicitarlos.
 > Se pacta nueva daily para el día de mañana sin horario definido, posiblemente después de la clase de programación.
 
+
+### Acta 25-01-2022 06.45 pm. ###
+Presentes: Gisela,Fernanda y Franco.
+Ausentes: Exequiel.
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+-  
+
+**Gisela**
+- Toma nota de las consideraciones.
+
+**Franco**
+- Se  muestra una prueba piloto en el header, con la inclusión de un contenedor (div) que muestra la logica del perfil de usuario ubicándolo fuera de la etiqueta nav(navegacion).
+- En el controlador mainController se le agrega session: req.session(index)
+- En el userController ya estaba el código que requiere el session y se lo prueba en el navegador y se constata que aparezca la silueta de usuario de perfil.
+
+
+> Se hace la prueba con register y se utiliza ese registro para hacer login  que se va conectar utilizando email y contraseña.
+> Revisamos el logout, pero aun había inconsistencias de datos, se sigue revisando las sesiones y termina la daily con el compromiso de Franco de revisar qué falta para terminar de funcionar el login, recordar contraseña, la función de logout, etc.
+> Se diáloga sobre los errores con la participación del equipo en forma integral. 
+> No se pacta nueva daily.
+
+
+
+
