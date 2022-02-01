@@ -18,7 +18,7 @@ app.use(session({
     secret: "thewisking",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    //cookie: { secure: true }
 }))
 app.use(cookieParser())
 app.use(cookieSession)
@@ -34,7 +34,7 @@ let mainRouter = require('./routes/main');  //middleware a nivel aplicación
 let productsRouter = require('./routes/products');  //middleware a nivel aplicación
 let usersRouter = require('./routes/users')  //middleware a nivel aplicación
 /* let adminRouter = require('./routes/admin');  */ // middleware a nivel aplicación,  nuevo --> controllers/adminController.js, routes/admin.js
-let userLogs = require('./middlewares/userLogs')  // middleware a nivel de aplicación  nuevo para saber donde ingreso
+//let userLogs = require('./middlewares/userLogs')  // middleware a nivel de aplicación  nuevo para saber donde ingreso
 
 
 /* //*********** * ERROR 503 -servicio no disponible  * *********** siempre va al principio de las app.use y cambiar el valor a true para que funcione
@@ -46,7 +46,7 @@ app.use((req, res) => {
 
 
 //************ Routes  ************
-app.use(userLogs); //nuevo para saber a donde ingreso
+//app.use(userLogs); //nuevo para saber a donde ingreso
 app.use('/', mainRouter);  //middleware a nivel aplicación
 app.use('/products', productsRouter);  //middleware a nivel aplicación
 app.use('/users', usersRouter);   //middleware a nivel aplicación

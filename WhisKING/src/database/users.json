@@ -1,1 +1,398 @@
-[{"id":1,"name":"Gisela","last_name":"Puente","email":"giselapuente@gmail.com","pass":"FxC@nI&MUEcg@#zXl3wEA$QNtG$b@o","rol":"ROL_ADMIN","date_of_birth":"12/12/85","address":"Pichincha 123","province":"Buenos Aires","city":"Mar del Plata","postal_code":"B7604FJE","phone":" (+54 9)223 123-4567","cell_phone":"(+54 223)787-923398","image":["photo-1_avatar.png"]},{"id":2,"name":"Franco","last_name":"Ojeda","email":"franco_ojeda@gmail.com","pass":"yM%X*^rwUqTr%nX$YbmL1p0OC3tYAV","rol":"ROL_ADMIN","date_of_birth":"31/12/84","address":"La Luz del equipo 123","province":"Buenos Aires","city":"Lomas de Zamora","postal_code":"B1832CNJ","phone":" (+54 11)4247-8915","cell_phone":"(+54 11)5751-7246","image":["photo-2_avatar.png"]},{"id":3,"name":" M. Fernanda","last_name":"Miranda","email":"mfmir1974@gmail.com","pass":"k5&SD2&QO^ix6KRIau8B9jp&3^0uH2","rol":"ROL_ADMIN","date_of_birth":"01/01/74","address":"Mosoconi 559","province":"Buenos Aires","city":"Quilmes","postal_code":"B1879AVA","phone":" (+54 11)4250-9155","cell_phone":"(+54 11)3091-0011","image":["photo-3_avatar.png"]},{"id":4,"name":"Nicolás","last_name":"Alonso","email":"nico_idolo@formar.com.ar","pass":"$OpvzOoMpBoV%JpB*wOr$f60HmIty7","rol":"ROL_USER","date_of_birth":" 04/10/91","address":"Ayacucho 15","province":"Buenos Aires","city":"San Antonio de Padúa","postal_code":"B1718CGA","phone":" (+54 0220)542-5685","cell_phone":"(+54 11)2408-5900","image":["photo-4_avatar.png"]},{"id":5,"name":"Jonatan","last_name":"Cespedes","email":"jonatan_masterTeam_Manager@formar.com.ar","pass":"3RC5iD%0T8UF^Bdx6JWPwipdIfxZ*!","rol":"ROL_ADMIN","date_of_birth":"23/10/83","address":"De la Serna 1200","province":"Buenos Aires","city":"Wilde","postal_code":"B1875CVV","phone":" (+54 11) 4206-1235","cell_phone":"(+54 11)6753-1330","image":["photo-5_avatar.png"]},{"id":6,"name":"Jeanette","last_name":"Barrera","email":"JeanetteBarreraScrumMaster@formar.com.ar","pass":"1W%Q1nmj$&KCHye9%Pj9KtlPYuNn&@","rol":"ROL_ADMIN","date_of_birth":"06/10/97","address":"San José 124","province":"Buenos Aires","city":"Almagro","postal_code":"B1978FDA","phone":"(+54 11) 4981-4587","cell_phone":"(+54 11)3091-0011","image":["photo-6_avatar.jpeg"]},{"id":7,"name":"Victoria","last_name":"Lacroze","email":"VickyLacrozeCoordinadora@formar.com.ar","pass":"G$*BHOHEI!uZvGw8&d$Eqw38dCeJns","rol":"ROL_USER","date_of_birth":" 21/03/92","address":"AV.Santa Fé 1456","province":"Buenos Aires","city":"CABA","postal_code":"C1405APB","phone":"(+54 11) 4394-8457","cell_phone":"(+54 11)3091-0011","image":["photo-7_avatar.jpg"]},{"id":8,"name":"El Chavo","last_name":"Del 8","email":"que_bonita_vecindad@gmail.com","pass":"PDLEPXRKiQw#rgj73&imLVLX$bHlqu","rol":"ROL_USER","date_of_birth":" 18/12/43","address":"Barril 8","province":"Buenos Aires","city":"CABA","postal_code":"C1041AAJ","phone":"(+54 11) 1234-5487","cell_phone":"(+54 11)3091-0011","image":["photo-8_avatar.jpg"]},{"id":9,"name":"Doña Clotilde","last_name":"La Bruja del 71","email":"laBrujita71@yahoo.com","pass":"aSCHqHUfVc#w3RTL$kf&9y*ku!Gw^a","rol":"ROL_USER","date_of_birth":"05/11/50","address":"Casa 71","province":"Buenos Aires","city":"CABA","postal_code":"C1041AAJ","phone":"(+54 11) 4952-7587","cell_phone":"(+54 11)3091-0011","image":["photo-9_avatar.jpeg"]},{"id":10,"name":"Guido","last_name":"Kazcka","email":"guidoDelTrece@gmail.com","pass":"NwAYZGeb8ml5av%HSR*WIvMF&e*16g","rol":"ROL_USER","date_of_birth":" 02/02/78","address":"Cochabamba 1153","province":"Buenos Aires","city":"CABA","postal_code":"C1248AAT","phone":"(+54 11) 4344-5487","cell_phone":"(+54 11)5487-4450","image":["photo-10_avatar.jpeg"]},{"id":11,"user_first_name":"manuela","user_last_name":"fernanez","date_of_birth":"1943-11-25","email":"mail5@gmail.com","pass":"$2a$10$vDBlpK6povqCiF5FqT1K6.vZOuPs6MaptIbGai3ZucrgslonFl1pq","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["1642180386374_img_.jpg"]},{"id":12,"user_first_name":"juana","user_last_name":"","date_of_birth":"","email":"","pass":"$2a$10$K.V4FTAljAd6kNha/u1nbOcmJeVjbDMGjxOnIO742x4tK0PcD4S7i","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":13,"user_first_name":"alfredo","user_last_name":"","date_of_birth":"","email":"","pass":"$2a$10$23EjGqFpXN.QV5IjCAk5kuhmUejBDhBAWECfVNGNbwnKIjBpQTyea","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":14,"user_first_name":"","user_last_name":"","date_of_birth":"","email":"","pass":"$2a$10$pAy8i53ity8anQ0ads5P8ug89.eNfBtN9cmklckaaAys6q54HgjYq","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":15,"user_first_name":"mongo","user_last_name":"aurelio","date_of_birth":"2000-12-23","email":"mongo@gmail.com","pass":"$2a$10$58OPVqa6wzl6cFwEO5iecush8tHyJRrwV5noeQFSJA2esckCZ2Sli","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":16,"user_first_name":"hola","user_last_name":"chau","date_of_birth":"2010-01-12","email":"hola@gmail.com","pass":"$2a$10$FqWfkmifc7txThi6.R5CSu2fN9sYDmnzeZKP/MA/oLigKeGCEKdtK","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":17,"user_first_name":"laura","user_last_name":"diaz","date_of_birth":"2000-12-01","email":"laura@gmail.com","pass":"$2a$10$PF0RocusmPDYHqAbgOCal.2Kvycl7FivHpr/5zFqPM1LnhrHTeDb6","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":18,"user_first_name":"sofia","user_last_name":"diaz","date_of_birth":"2000-12-01","email":"sofia@gmail.com","pass":"$2a$10$nGFekWuHq6y6DiURpvv4RunI31DEz59VkrQh.ONjwuaD.XmJi43Vy","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]},{"id":19,"user_first_name":"gi","user_last_name":"q","date_of_birth":"2002-02-10","email":"ho@gmail.com","pass":"$2a$10$PHwGb3iBa6YpFczywAiGg.67yE3tjqYRcDBgudrdsQeLbcLa7VzWW","rol":"ROL_USER","address":"","province":"","city":"","postal_code":"","phone":"","cell_phone":"","image":["default-image-perfil.png"]}]
+[
+    {
+        "id": 1,
+        "name": "Gisela",
+        "last_name": "Puente",
+        "email": "giselapuente@gmail.com",
+        "pass": "FxC@nI&MUEcg@#zXl3wEA$QNtG$b@o",
+        "rol": "ROL_ADMIN",
+        "date_of_birth": "12/12/85",
+        "address": "Pichincha 123",
+        "province": "Buenos Aires",
+        "city": "Mar del Plata",
+        "postal_code": "B7604FJE",
+        "phone": " (+54 9)223 123-4567",
+        "cell_phone": "(+54 223)787-923398",
+        "image": [
+            "photo-1_avatar.png"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Franco",
+        "last_name": "Ojeda",
+        "email": "franco_ojeda@gmail.com",
+        "pass": "yM%X*^rwUqTr%nX$YbmL1p0OC3tYAV",
+        "rol": "ROL_ADMIN",
+        "date_of_birth": "31/12/84",
+        "address": "La Luz del equipo 123",
+        "province": "Buenos Aires",
+        "city": "Lomas de Zamora",
+        "postal_code": "B1832CNJ",
+        "phone": " (+54 11)4247-8915",
+        "cell_phone": "(+54 11)5751-7246",
+        "image": [
+            "photo-2_avatar.png"
+        ]
+    },
+    {
+        "id": 3,
+        "name": " M. Fernanda",
+        "last_name": "Miranda",
+        "email": "mfmir1974@gmail.com",
+        "pass": "k5&SD2&QO^ix6KRIau8B9jp&3^0uH2",
+        "rol": "ROL_ADMIN",
+        "date_of_birth": "01/01/74",
+        "address": "Mosoconi 559",
+        "province": "Buenos Aires",
+        "city": "Quilmes",
+        "postal_code": "B1879AVA",
+        "phone": " (+54 11)4250-9155",
+        "cell_phone": "(+54 11)3091-0011",
+        "image": [
+            "photo-3_avatar.png"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Nicolás",
+        "last_name": "Alonso",
+        "email": "nico_idolo@formar.com.ar",
+        "pass": "$OpvzOoMpBoV%JpB*wOr$f60HmIty7",
+        "rol": "ROL_USER",
+        "date_of_birth": " 04/10/91",
+        "address": "Ayacucho 15",
+        "province": "Buenos Aires",
+        "city": "San Antonio de Padúa",
+        "postal_code": "B1718CGA",
+        "phone": " (+54 0220)542-5685",
+        "cell_phone": "(+54 11)2408-5900",
+        "image": [
+            "photo-4_avatar.png"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Jonatan",
+        "last_name": "Cespedes",
+        "email": "jonatan_masterTeam_Manager@formar.com.ar",
+        "pass": "3RC5iD%0T8UF^Bdx6JWPwipdIfxZ*!",
+        "rol": "ROL_ADMIN",
+        "date_of_birth": "23/10/83",
+        "address": "De la Serna 1200",
+        "province": "Buenos Aires",
+        "city": "Wilde",
+        "postal_code": "B1875CVV",
+        "phone": " (+54 11) 4206-1235",
+        "cell_phone": "(+54 11)6753-1330",
+        "image": [
+            "photo-5_avatar.png"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Jeanette",
+        "last_name": "Barrera",
+        "email": "JeanetteBarreraScrumMaster@formar.com.ar",
+        "pass": "1W%Q1nmj$&KCHye9%Pj9KtlPYuNn&@",
+        "rol": "ROL_ADMIN",
+        "date_of_birth": "06/10/97",
+        "address": "San José 124",
+        "province": "Buenos Aires",
+        "city": "Almagro",
+        "postal_code": "B1978FDA",
+        "phone": "(+54 11) 4981-4587",
+        "cell_phone": "(+54 11)3091-0011",
+        "image": [
+            "photo-6_avatar.jpeg"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Victoria",
+        "last_name": "Lacroze",
+        "email": "VickyLacrozeCoordinadora@formar.com.ar",
+        "pass": "G$*BHOHEI!uZvGw8&d$Eqw38dCeJns",
+        "rol": "ROL_USER",
+        "date_of_birth": " 21/03/92",
+        "address": "AV.Santa Fé 1456",
+        "province": "Buenos Aires",
+        "city": "CABA",
+        "postal_code": "C1405APB",
+        "phone": "(+54 11) 4394-8457",
+        "cell_phone": "(+54 11)3091-0011",
+        "image": [
+            "photo-7_avatar.jpg"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "El Chavo",
+        "last_name": "Del 8",
+        "email": "que_bonita_vecindad@gmail.com",
+        "pass": "PDLEPXRKiQw#rgj73&imLVLX$bHlqu",
+        "rol": "ROL_USER",
+        "date_of_birth": " 18/12/43",
+        "address": "Barril 8",
+        "province": "Buenos Aires",
+        "city": "CABA",
+        "postal_code": "C1041AAJ",
+        "phone": "(+54 11) 1234-5487",
+        "cell_phone": "(+54 11)3091-0011",
+        "image": [
+            "photo-8_avatar.jpg"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Doña Clotilde",
+        "last_name": "La Bruja del 71",
+        "email": "laBrujita71@yahoo.com",
+        "pass": "aSCHqHUfVc#w3RTL$kf&9y*ku!Gw^a",
+        "rol": "ROL_USER",
+        "date_of_birth": "05/11/50",
+        "address": "Casa 71",
+        "province": "Buenos Aires",
+        "city": "CABA",
+        "postal_code": "C1041AAJ",
+        "phone": "(+54 11) 4952-7587",
+        "cell_phone": "(+54 11)3091-0011",
+        "image": [
+            "photo-9_avatar.jpeg"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Guido",
+        "last_name": "Kazcka",
+        "email": "guidoDelTrece@gmail.com",
+        "pass": "NwAYZGeb8ml5av%HSR*WIvMF&e*16g",
+        "rol": "ROL_USER",
+        "date_of_birth": " 02/02/78",
+        "address": "Cochabamba 1153",
+        "province": "Buenos Aires",
+        "city": "CABA",
+        "postal_code": "C1248AAT",
+        "phone": "(+54 11) 4344-5487",
+        "cell_phone": "(+54 11)5487-4450",
+        "image": [
+            "photo-10_avatar.jpeg"
+        ]
+    },
+    {
+        "id": 11,
+        "user_first_name": "manuela",
+        "user_last_name": "fernanez",
+        "date_of_birth": "1943-11-25",
+        "email": "mail5@gmail.com",
+        "pass": "$2a$10$vDBlpK6povqCiF5FqT1K6.vZOuPs6MaptIbGai3ZucrgslonFl1pq",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "1642180386374_img_.jpg"
+        ]
+    },
+    {
+        "id": 12,
+        "user_first_name": "juana",
+        "user_last_name": "",
+        "date_of_birth": "",
+        "email": "",
+        "pass": "$2a$10$K.V4FTAljAd6kNha/u1nbOcmJeVjbDMGjxOnIO742x4tK0PcD4S7i",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 13,
+        "user_first_name": "alfredo",
+        "user_last_name": "",
+        "date_of_birth": "",
+        "email": "",
+        "pass": "$2a$10$23EjGqFpXN.QV5IjCAk5kuhmUejBDhBAWECfVNGNbwnKIjBpQTyea",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 14,
+        "user_first_name": "",
+        "user_last_name": "",
+        "date_of_birth": "",
+        "email": "",
+        "pass": "$2a$10$pAy8i53ity8anQ0ads5P8ug89.eNfBtN9cmklckaaAys6q54HgjYq",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 15,
+        "user_first_name": "mongo",
+        "user_last_name": "aurelio",
+        "date_of_birth": "2000-12-23",
+        "email": "mongo@gmail.com",
+        "pass": "$2a$10$58OPVqa6wzl6cFwEO5iecush8tHyJRrwV5noeQFSJA2esckCZ2Sli",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 16,
+        "user_first_name": "hola",
+        "user_last_name": "chau",
+        "date_of_birth": "2010-01-12",
+        "email": "hola@gmail.com",
+        "pass": "$2a$10$FqWfkmifc7txThi6.R5CSu2fN9sYDmnzeZKP/MA/oLigKeGCEKdtK",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 17,
+        "user_first_name": "laura",
+        "user_last_name": "diaz",
+        "date_of_birth": "2000-12-01",
+        "email": "laura@gmail.com",
+        "pass": "$2a$10$PF0RocusmPDYHqAbgOCal.2Kvycl7FivHpr/5zFqPM1LnhrHTeDb6",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 18,
+        "user_first_name": "sofia",
+        "user_last_name": "diaz",
+        "date_of_birth": "2000-12-01",
+        "email": "sofia@gmail.com",
+        "pass": "$2a$10$nGFekWuHq6y6DiURpvv4RunI31DEz59VkrQh.ONjwuaD.XmJi43Vy",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 19,
+        "user_first_name": "gi",
+        "user_last_name": "q",
+        "date_of_birth": "2002-02-10",
+        "email": "ho@gmail.com",
+        "pass": "$2a$10$PHwGb3iBa6YpFczywAiGg.67yE3tjqYRcDBgudrdsQeLbcLa7VzWW",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 20,
+        "user_first_name": "prueba",
+        "user_last_name": "prueba",
+        "date_of_birth": "2000-01-01",
+        "email": "prueba@gmail.com",
+        "pass": "$2a$10$fVvOKrt9dln66edVUuxpruLTIw4ByGgZ41kagvGrrhDSujTbTQrqG",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 21,
+        "user_first_name": "prueba",
+        "user_last_name": "prueba",
+        "date_of_birth": "2000-01-01",
+        "email": "prueba2@gmail.com",
+        "pass": "$2a$10$Kb9fSudZ4sgnPhNS1UU5seKD/gdSi71..1kh/PQoF5UBd5h6bY4LK",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    },
+    {
+        "id": 22,
+        "user_first_name": "prueba",
+        "user_last_name": "prueba",
+        "date_of_birth": "2000-01-01",
+        "email": "prueba3@gmail.com",
+        "pass": "$2a$10$Nh.i8..ePW4s0EV8v4wn8uwy1.U9a2WOpKQ57gaQr5VD7cSkuuNOK",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "default-image-perfil.png"
+        ]
+    }
+]

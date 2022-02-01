@@ -4,7 +4,9 @@ const bcrypt = require('bcryptjs'); // para hasheo
 
 let controller = {
     register: (req, res) => {
-        res.render('users/register')
+        res.render('users/register', {
+            session: req.session
+        })
     },
     processRegister: (req, res) => {
         let errors = validationResult(req);  
@@ -48,18 +50,22 @@ let controller = {
         }else{
             res.render('users/register', {
                errors: errors.mapped(),
-               old: req.body
-
+               old: req.body,
+               session: req.session
             })
 
         }   
 
     },
     terms: (req, res) => {
-        res.render('terms');
+        res.render('terms', {
+            session: req.session
+        });
     },
     login: (req, res) => {
-        res.render('users/login')
+        res.render('users/login', {
+            session: req.session
+        })
     },
     processLogin: (req, res) => {
         let errors = validationResult(req);
@@ -88,12 +94,14 @@ let controller = {
 
             res.locals.user = req.session.user;
 
+
             res.redirect('/');
 
         }else{
             res.render('users/login', {
                 errors: errors.mapped(),
-                session: req.session
+                session: req.session,
+                old: req.body
             })
         }
     } ,

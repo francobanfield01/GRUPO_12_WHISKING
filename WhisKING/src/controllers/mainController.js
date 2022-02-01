@@ -12,12 +12,13 @@ let controller = {
             productsInsale,
             productsStandOut,
             toThousand,
-            title: 'Home - The  WhisKING Argentina' 
+            title: 'Home - The  WhisKING Argentina',
+            session: req.session
 
 });
     },
     cart: (req, res) => {
-        res.render('productCart', { title: 'Carrito de Compras', img: 'src="images/logo.svg"', img2: 'src="images/logo2.svg"' });
+        res.render('productCart', { title: 'Carrito de Compras', img: 'src="images/logo.svg"', img2: 'src="images/logo2.svg"', session: req.session });
     }
 }
 

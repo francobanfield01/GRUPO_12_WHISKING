@@ -30,4 +30,14 @@
             <li><a href="/users/login">Ingresar</a></li>
         </ul>
     </nav>
+    <div class="user-icons-desktop">
+        <div class="user">
+            
+        </div>
+        <a href="/"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+    
 </header>
+<% if(typeof session.user !== "undefined" ) { %> 
+    <h1><%= session.user.name  %> </h1>
+<% } %> 

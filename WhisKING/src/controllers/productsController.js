@@ -7,15 +7,15 @@ let controller = {
 	index: (req, res) =>{    //iria en admin/adminIndex
 		res.render('index', {
 			products,
-			toThousand
-			
+			toThousand, 
+			session: req.session
 		})
 	},
 	list: (req, res) =>{     //iria admin/products/admintProducts
 		res.render('products/productsList', {
 			products,
-			toThousand
-			
+			toThousand,
+			session: req.session
 		})
 	},
 
@@ -26,13 +26,16 @@ let controller = {
 
 		res.render('products/productDetail', {
 			product,
-			toThousand/* , 
+			toThousand,
+			session: req.session/* , 
 			title: `Detalle Producto: ${product.name}` */ // no funciona para edit
 		})
 	},
 	// Create - Form to create
     create:(req, res) =>{     //iria a admin/products/adminProducts
-        res.render('products/productCreate');
+        res.render('products/productCreate', {
+			session: req.session
+		});
     },
    // Create -  Method to store
     store: (req, res) => {		//admin/products/admintProductsCreateForm
@@ -70,7 +73,8 @@ let controller = {
 
         res.render('products/productEdit', {  // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
 			 product : productToEdit,
-			 toThousand /* , 
+			 toThousand,
+			 session: req.session /* , 
 			 title:`Editar Producto: ${product.name}`  */ // no funciona para edit
 		});
 			
