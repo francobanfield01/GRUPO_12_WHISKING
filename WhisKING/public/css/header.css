@@ -123,6 +123,48 @@ header.headerCreate a img {
     width: 150px;
 }
 
+.main-header .user-icons-desktop {
+    display: flex;
+    font-size: 24px;
+    order: 4;
+}
+
+.main-header .user-icons-desktop i {
+    margin-left: 10px;
+}
+
+.user {
+    position: relative;
+}
+
+.menu-user {
+    display: none;
+    position: absolute;
+    font-size: 1rem;
+    width: 9rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-left: -3rem;
+}
+
+.user:hover .menu-user{
+   display: block;
+
+}
+
+.session {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #00d900;
+    border-radius: 50px;
+    position: relative;
+    top: -10px;
+    right: 0px;
+}
+
+
 /* == RESPONSIVE == */
 @media(min-width:480px) {
     .buscar:hover > .search-bar{

@@ -84,7 +84,7 @@ let controller = {
             }
 
            if(req.body.remember){
-               const TIME_IN_MILISECONDS = 60000
+               const TIME_IN_MILISECONDS = 600000
                res.cookie("userWhisking", req.session.user, {
                    expires: new Date(Date.now() + TIME_IN_MILISECONDS),
                    httpOnly: true,
@@ -106,16 +106,16 @@ let controller = {
         }
     } ,
     logout: (req,res) => {
-       req.session.destroy();
+       req.session.destroy(); //borra todas las variables que estan dentro de session
        if(req.cookies.userWhisking){
-        res.cookie('userWhisking', "",{maxAge:-1})   
+        res.cookie('userWhisking', "",{maxAge:-1})   //Pregunta si existe la cookie, si existe, la vacia y despues la borra
        }
        res.redirect('/')
    }, 
 
    profile:(req, res) => {
-       let user = users.find(user => user.id ===req.session.user.id)
-       res.render('user.profile', {
+       let user = users.find(user => user.id === req.session.user.id)
+       res.render('users/userProfile', {
            user,
            session: req.session
        }) 

@@ -26,10 +26,13 @@ router.get('/terms', controller.terms);
 //*POST - Login Data -Formulario de login ---Procesar el login.
 router.post('/login',loginValidator, controller.processLogin);
 
+//*GET - Log-out - Cerrar sesion.
+router.get('/logout', controller.logout)
+
 
 
 //Perfil de usuario ***a definir***
-/* router.get('/profile/:userId', usersController.profile); */
+router.get('/profile', controller.profile);
 
 
 

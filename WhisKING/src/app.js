@@ -15,9 +15,9 @@ app.use(express.json());  //middleware a nivel aplicación
 app.use(express.urlencoded({ extended: false }));  //middleware a nivel aplicación
 app.use(methodOverride('_method'));  //middleware a nivel aplicación
 app.use(session({
-    secret: "thewisking",
+    secret: "theWhisking",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: true
     //cookie: { secure: true }
 }))
 app.use(cookieParser())
