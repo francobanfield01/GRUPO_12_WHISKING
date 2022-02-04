@@ -18,7 +18,11 @@ let controller = {
 });
     },
     cart: (req, res) => {
-        res.render('productCart', { title: 'Carrito de Compras', img: 'src="images/logo.svg"', img2: 'src="images/logo2.svg"', session: req.session });
+        res.render('productCart', 
+        { title: 'Carrito de Compras', 
+        img: 'src="images/logo.svg"', 
+        img2: 'src="images/logo2.svg"', 
+        session: req.session });
     }
 }
 

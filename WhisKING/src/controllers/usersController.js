@@ -115,6 +115,7 @@ let controller = {
 
    profile:(req, res) => {
        let user = users.find(user => user.id === req.session.user.id)
+       console.log(user)
        res.render('users/userProfile', {
            user,
            session: req.session

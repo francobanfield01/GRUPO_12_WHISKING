@@ -30,8 +30,7 @@ router.post('/login',loginValidator, controller.processLogin);
 router.get('/logout', controller.logout)
 
 
-
-//Perfil de usuario ***a definir***
+//*GET - Perfil de usuario 
 router.get('/profile', controller.profile);
 
 
