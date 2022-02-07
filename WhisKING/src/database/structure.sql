@@ -130,13 +130,13 @@ LOCK TABLES `order_carts` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `personal_informations`
+-- Table structure for table `personal_information`
 --
 
-DROP TABLE IF EXISTS `personal_informations`;
+DROP TABLE IF EXISTS `personal_information`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `personal_informations` (
+CREATE TABLE `personal_information` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `address` varchar(100) NOT NULL,
   `province` varchar(30) NOT NULL,
@@ -146,18 +146,18 @@ CREATE TABLE `personal_informations` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `personal_informations_FK` (`user_id`),
-  CONSTRAINT `personal_informations_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  KEY `personal_information_FK` (`user_id`),
+  CONSTRAINT `personal_information_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `personal_informations`
+-- Dumping data for table `personal_information`
 --
 
-LOCK TABLES `personal_informations` WRITE;
-/*!40000 ALTER TABLE `personal_informations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `personal_informations` ENABLE KEYS */;
+LOCK TABLES `personal_information` WRITE;
+/*!40000 ALTER TABLE `personal_information` DISABLE KEYS */;
+/*!40000 ALTER TABLE `personal_information` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
