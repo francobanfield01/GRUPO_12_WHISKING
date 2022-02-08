@@ -339,14 +339,12 @@ Ausentes: Exequiel.
 > Se resuelve que si necesitamos ayuda de parte de los coordinadores y de apoyo solicitarlos.
 > Se pacta nueva daily para el día de mañana sin horario definido, posiblemente después de la clase de programación.
 
-
 ### Acta 25-01-2022 06.45 pm. ###
 Presentes: Gisela,Fernanda y Franco.
 Ausentes: Exequiel.
 
 **Fernanda** 
-- Daily realizada del meeting anterior.
--  
+- Daily realizada del meeting anterior.  
 
 **Gisela**
 - Toma nota de las consideraciones.
@@ -362,6 +360,118 @@ Ausentes: Exequiel.
 > Se diáloga sobre los errores con la participación del equipo en forma integral. 
 > No se pacta nueva daily.
 
+### Acta 02-02-2022 08.45 pm. ###
+Presentes: Gisela, Fernanda.
+Ausentes: Franco, Exequiel.
+
+**Fernanda** 
+- Daily realizada del meeting anterior.
+- Habla de empezar a diseñar el html o ejs de los pérfil de usuario y  de dasboard de administrador. 
+- Se habla de las tablas para el próximo sprint, quedando finalmente categorias y dejando afuera las subcategorias.
+
+**Gisela**
+- Toma nota de las consideraciones.
+- Se lleva la información para empezar a maquetar el dasboard.
+
+> Hablamos de empezar a diseñar el html o ejs de los perfil de usuario y dasboard de administrador .
+> Franco avisa por chat que tiene problemas de conexión, que se comprometia a realizar la vista de pérfil de usuario.
+> La vista de dasboard la van a hacer Gisela y Fernanda, tomando como referencia el proyecto coffee-shop, myrproyectolife y artistica-dali. . 
+> Se pacta continuar con la daily a las 11.11 pm.
+
+### Acta 02-02-2022 11.11 pm. ###
+Presentes: Gisela, Fernanda.
+Ausentes: Franco, Exequiel.
+
+> Se vieron los tres proyectos anteriormente mencionados para tomarlos como referencia en la maquetación del dasboard, Franco estaba validando la sesión de usuario y cookies.
+
+### Acta 03-02-2022 06.18 pm. ###
+Presentes: Gisela, Fernanda y Jeannette.
+Ausentes: Franco, Exequiel.
+
+**Jeannette**
+- Explica como hacer correr su proyecto y vemos con claridad como debe ser el dasboard, la vista de listado de productos: para crear, editar, actualizar y 
+  eliminar un productos, sugeriendo que sea responsive...para poder verlo en tablets y celulares y que no se rompa la visualizacion.
+- Muestra el pérfil del usuario, y la vista de create product.
+- Explica el porqué de tener la vista del dasboard y de pérfil de usuario que son necesarios. 
+- Se aconseja un panel de administrador.  
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+- Muestra a través de diagram.net las tablas que podrían conformar las tablas de la base de datos. 
+
+**Gisela**
+- Consulta sobre la importancia en el sprint 5 la creación del dasboard.
+
+___
+___
+
+***
+# DAILY SPRINT 6
+*** 
+
+### Acta 04-02-2022 04.00 pm. ###
+Presentes: Fernanda, Franco y Jeannette.
+Ausentes: Gisela, Exequiel.
+
+**Franco**
+- Se crean en trello las tareas a realizar en dicho sprint.	
+- Se realiza una daily para avanzar con la entrega del sprint 6 durante la clase.
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+- Muestra la estructura de la base en diagram.net
+
+**Jeannette**
+- Participa de la daily para ver en qué instancia estamos con el proyecto.
+- Nos asesora en los scripts que debemos entregar: script 1: structure.sql y script 2: dump.sql    
 
 
+### Acta 05-02-2022 11.00 am. ###
+Presentes: Fernanda y Franco.
+Ausentes: Gisela, Exequiel.
 
+**Fernanda**
+- Daily realizada del meeting anterior.
+- Acompaña en el diseño de la estructura en Worbench.
+- Solicita la creación de carpeta Sequelize y archivos de modelos.
+
+
+**Franco**
+- Toma la decisión de llevar el diseño de las tablas en Diagram.ent a la herramienta Workbench.
+- Solicta realizar el punto 4: "Diagrama de base de datos" y el punto 5: "Script de estructura".
+
+
+> Armado de tablas en workbench tomando la herramienta diagram.net que se modificó con las sugerencias de jeannette sobre las tablas.
+> Se lee el sprint 6 para considerar los detalles de los puntos a realizar.
+> Se dividen las tareas del presente sprint.
+
+### Acta 05-02-2022 13.30 pm. ###
+Presentes: Fernanda y Franco.
+Ausentes: Gisela, Exequiel.
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+
+
+> Se realiza esta reunión para poder terminar de cargar las tablas y podamos obtener los scripts y luego podamos correr el que será la base de datos de nuestro poryecto.
+
+### Acta 07-02-2022 7.00 pm. ###
+Presentes: Fernanda y Franco.
+Ausentes: Gisela, Exequiel.
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+- Cambia a Dbeaver para desarrollar el diseño de las bases de datos y agrega dos tablas adicionales, que son stocks y roles. 
+- Finalmente las tablas en la actualidad para desarrollar son:
+                                                                categories
+                                                                images
+                                                                order_carts
+                                                                personal_informations
+                                                                products
+                                                                roles
+                                                                stocks
+                                                                users
+- 
+- Solicita realizar la configuración de sequelize, la creación de los modelos.
+
+> Se pacta una daily para las 3.30 pm. que se desplaza para las 06.00 pm.
