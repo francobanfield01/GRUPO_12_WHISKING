@@ -1,0 +1,14 @@
+const path = require('path')  // se usa path para poder utulizar resolve luego
+
+module.exports = {
+    'config': path.resolve('./src/database/config', 'config.js'),  //aca se crea un archivo js
+    'models-path': path.resolve('./src/database/models'),
+    'seeders-path': path.resolve('./src/database/seeders'),
+    'migrations-path': path.resolve('./src/database/migrations')
+}
+// correr npm install sequelize-cli -g
+// npm install sequelize
+// npm install mysql2, luego decidir dónde se crea el archivo .sequelizerc que es quien luego crea la carpeta database con sus subcarpetas config, models, seeders, y migrations
+//MUY IMPORTANTE CREAR ESTE ARCHIVO Y TENER EN CUENTA SI SE CREA POR FUERA COMO ESTA ESTE O POR DENTRO DE "src" SI ES POR DENTRO LAS RUTAS SON SIN /src
+// luego se coloca en consola sequelize init, inicializa y crea las carpetas nuevas
+// luego al crearse el config.js debemos ir a ./src/database/config y en config.js tenemos que modificar poniendole module.exports = porque js no interpreta jsom, solo objetos
