@@ -471,7 +471,20 @@ Ausentes: Gisela, Exequiel.
                                                                 roles
                                                                 stocks
                                                                 users
-- 
+
 - Solicita realizar la configuración de sequelize, la creación de los modelos.
 
 > Se pacta una daily para las 3.30 pm. que se desplaza para las 06.00 pm.
+
+### Acta 08-02-2022 7.00 pm. ###
+Presentes: Fernanda y Franco.
+Ausentes: Gisela, Exequiel.
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+- Se solicita trabajar sobre el modelo de Product.js
+
+**Franco**
+- Se solicita trabajar sobre el modelo de User.js
+
+> Se pacta una daily para el día de mañana a las 07.30 pm. aprox.
