@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.62, for Win64 (AMD64)
 --
--- Host: localhost    Database: the_whisking
+-- Host: localhost    Database: the_whisking_argentina
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.22-MariaDB
 
@@ -173,7 +173,7 @@ CREATE TABLE `products` (
   `price` decimal(3,2) unsigned NOT NULL,
   `discount` decimal(3,2) unsigned NOT NULL,
   `description` text DEFAULT NULL,
-  `cata` text DEFAULT NULL,
+  `tasting` text DEFAULT NULL,
   `origen` char(20) DEFAULT NULL,
   `stock` int(10) unsigned NOT NULL,
   `image_id` int(11) unsigned NOT NULL,
@@ -202,7 +202,7 @@ DROP TABLE IF EXISTS `roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `roles` (
-  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `id` tinyint(1) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `user_id` int(11) unsigned NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -284,7 +284,7 @@ LOCK TABLES `users` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'the_whisking'
+-- Dumping routines for database 'the_whisking_argentina'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -296,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-07 12:34:23
+-- Dump completed on 2022-02-09 15:26:17
