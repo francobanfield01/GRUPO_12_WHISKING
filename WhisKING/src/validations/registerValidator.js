@@ -4,11 +4,11 @@ let { users } = require('../database/dataBase')
 	
 	
 	module.exports = [
-	    check('user_first_name')
+	    check('name')
 	    .notEmpty()
 	    .withMessage('El nombre es requerido'),
 	
-	    check('user_last_name')
+	    check('last_name')
 	    .notEmpty()
 	    .withMessage('El apellido es requerido'),
 

@@ -10,13 +10,13 @@
         <form action="/users/register" method="POST" enctype="multipart/form-data">                
             <div class="form-register">                    
                 <div class="input-container-register">                       
-                    <input class="input-style-register" type="text" name="user_first_name" placeholder="nombre" id="nombre" value="<%= locals.old && old.user_first_name  %>">
+                    <input class="input-style-register" type="text" name="name" placeholder="nombre" id="nombre" value="<%= locals.old && old.user_first_name  %>">
                     <% if (locals.errors && errors.user_first_name) { %>
                         <span class="error-register"><%= errors.user_first_name.msg  %></span>       <!-- Debes ingresar tu nombre -->                  
                     <% } %>
                 </div>
                 <div class="input-container-register">                       
-                    <input class="input-style-register" type="text" name="user_last_name" placeholder=" apellido" id="apellido" value="<%= locals.old && old.user_last_name  %>">
+                    <input class="input-style-register" type="text" name="last_name" placeholder=" apellido" id="apellido" value="<%= locals.old && old.user_last_name  %>">
                     <% if (locals.errors && errors.user_last_name) { %>
                         <span class="error-register"><%= errors.user_last_name.msg  %></span>    <!-- Debes ingresar tu apellido -->                         
                     <% } %>

@@ -30,9 +30,10 @@
                 <div class="button-container-login">
                     <button type="submit" class="btn-whisking">Iniciar sesión</button>
                 </div>
-
-                <span class="error-message-login">Credenciales inválidas</span>
-
+                
+                <% if(locals.errors && errors.custom) { %>
+                     <span class="error-message-login"><%= errors.custom.msg %></span>
+                <% } %> 
                 <div class="links-login">
                     <br>
                     <a href="">¿Olvidaste tu contraseña?</a>
