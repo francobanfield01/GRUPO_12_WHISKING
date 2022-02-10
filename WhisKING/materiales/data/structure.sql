@@ -16,6 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `addresses`
+--
+
+DROP TABLE IF EXISTS `addresses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `addresses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(100) NOT NULL,
+  `province` varchar(30) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `postal_code` varchar(15) NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `personal_information_FK` (`user_id`),
+  CONSTRAINT `personal_information_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `addresses`
+--
+
+LOCK TABLES `addresses` WRITE;
+/*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categories`
 --
 
@@ -70,13 +101,13 @@ LOCK TABLES `images` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `order-item`
+-- Table structure for table `order-items`
 --
 
-DROP TABLE IF EXISTS `order-item`;
+DROP TABLE IF EXISTS `order-items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `order-item` (
+CREATE TABLE `order-items` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `quantity` int(11) unsigned NOT NULL,
   `date_time` datetime NOT NULL,
@@ -93,12 +124,12 @@ CREATE TABLE `order-item` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `order-item`
+-- Dumping data for table `order-items`
 --
 
-LOCK TABLES `order-item` WRITE;
-/*!40000 ALTER TABLE `order-item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order-item` ENABLE KEYS */;
+LOCK TABLES `order-items` WRITE;
+/*!40000 ALTER TABLE `order-items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order-items` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -127,37 +158,6 @@ CREATE TABLE `order_carts` (
 LOCK TABLES `order_carts` WRITE;
 /*!40000 ALTER TABLE `order_carts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `order_carts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `personal_information`
---
-
-DROP TABLE IF EXISTS `personal_information`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `personal_information` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `address` varchar(100) NOT NULL,
-  `province` varchar(30) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `postal_code` varchar(15) NOT NULL,
-  `user_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `personal_information_FK` (`user_id`),
-  CONSTRAINT `personal_information_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `personal_information`
---
-
-LOCK TABLES `personal_information` WRITE;
-/*!40000 ALTER TABLE `personal_information` DISABLE KEYS */;
-/*!40000 ALTER TABLE `personal_information` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -257,20 +257,20 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
   `email` varchar(70) NOT NULL,
   `pass` varchar(70) NOT NULL,
   `date_of_birth` date NOT NULL,
-  `phone` varchar(30) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `cell_phone` varchar(30) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `phone` varchar(30) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `cell_phone` varchar(30) DEFAULT NULL,
+  `rol` tinyint(1) NOT NULL DEFAULT 0,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `phone` (`phone`),
-  UNIQUE KEY `cell_phone` (`cell_phone`)
+  UNIQUE KEY `phone` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -296,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-09 15:26:17
+-- Dump completed on 2022-02-10 12:45:06
