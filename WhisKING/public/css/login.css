@@ -1,5 +1,7 @@
 .body-login {
-    background-color: var(--beige);
+    /* background-color: var(--beige); */
+    background-image: linear-gradient(white, #e4dbca)
+
 }
 
 .login-main {

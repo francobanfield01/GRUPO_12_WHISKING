@@ -8,7 +8,7 @@ header{
 }
 header a img {
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
     width: 150px;
     
   
@@ -17,29 +17,27 @@ header a img {
 header .container{
     position: relative;
     margin: auto;
+    padding-right: 5rem;
     
 }
 header .buscar{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    transform: translate(-50%,-50%);
     background: var(--beige);
     padding: 20px;
     height: 30px;
     padding-left: 50px;
     border-radius: 20px;
 }
-header .search-bar{
+header input.search-bar{
 border: none;
 background: none;
 outline: none;
 color: var(--grisOscuro);
-font-size: 20px;
+font-size: 15px;
 float: left;
 line-height: 60px;
-transition: .3s;
 width: 0;
 
 }
@@ -72,13 +70,13 @@ header nav{
      height: 0vh;
      top: 0px;
      background: rgba(53,53, 52, .95);
-     transition: all .5s;
+     
  }
  header .nav-menu li{
      display: none;
      line-height: 20px;
      margin: 20px 10px;
-     transition: all .5s;
+     
  }
  
  header .nav-menu li a {
@@ -94,12 +92,19 @@ header nav{
      transition: .3s;
  }
  
+ header .user-icons-desktop {
+    height: 100px;
+    margin-right: 1rem;
+    align-items: center;
+    display: flex;
+ }
+
  header #check {
      display: none;
  }
  
  header #check:checked ~.nav-menu{
-     height: 250px;
+     height: 180px;
      position: absolute;
      top: 100px;
      right: 0;
@@ -166,21 +171,77 @@ header.headerCreate a img {
 
 
 /* == RESPONSIVE == */
-@media(min-width:480px) {
-    .buscar:hover > .search-bar{
-width: 150px;
-height: 10px;
+@media(max-width:479px){
+   
+header .user-icons-desktop{
+    display: none;
     }
+header .container{
+    padding-right: 0rem;
 }
+header .buscar{
+    width: 125px;
+} 
+header input.search-bar{
+    margin-left: 5px;
+    width: 70px;
+}  
+header .lupa_buscar{
+    
+    padding-right: 60px;
+} 
+}
+@media(min-width:480px) {
+header nav label.bar-btn{
+    display: none;
+            }
+header .container{
+    padding-right: 0rem;
+    margin-right: 0.5rem;
+            }
 
+header .user-icons-desktop li{
+    margin: 0.5rem;
+}
+header .user-icons-desktop a{
+    text-decoration: none;
+    color: var(--cobre);
+}
+header .buscar{
+    width: 125px;
+} 
+header input.search-bar{
+    margin-left: 5px;
+    width: 70px;
+}  
+header .lupa_buscar{
+    
+    padding-right: 60px;
+} 
+}
+@media(min-width:550px){
+header .user-icons-desktop ul{
+    display: flex;
+                    }
+}
 @media(min-width:768px) {
-    .buscar:hover > .search-bar{
+/* .buscar:hover  .search-bar{
 width: 200px;
-    }
+    } */
+header nav label.bar-btn{
+    display: none;
+            }
+header .user-icons-desktop ul{
+    display: flex;
+                }
 }
 
 @media(min-width:1024px) {
-    .buscar:hover > .search-bar{
+/* .buscar:hover  .search-bar{
 width: 300px;
+    } */
+header nav label.bar-btn{
+display: none;
     }
+
 }

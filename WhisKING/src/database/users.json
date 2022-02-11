@@ -178,23 +178,6 @@
         "image": [
             "photo-10_avatar.jpeg"
         ]
-    },
-    {
-        "id": 11,
-        "name": "Francisco",
-        "last_name": "Freire",
-        "date_of_birth": "2000-01-01",
-        "email": "francisco@mail.com",
-        "pass": "$2a$10$OjEgsRtwEUBHrtXnY45u6.62T.s/pXDfJJwuMnhj3e8maUsNCgIGa",
-        "rol": "ROL_USER",
-        "address": "",
-        "province": "",
-        "city": "",
-        "postal_code": "",
-        "phone": "",
-        "cell_phone": "",
-        "image": [
-            "1644503793614_img_.jpg"
-        ]
     }
+    
 ]
