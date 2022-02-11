@@ -178,6 +178,23 @@
         "image": [
             "photo-10_avatar.jpeg"
         ]
+    },
+    {
+        "id": 11,
+        "name": "usuario",
+        "last_name": "apellido",
+        "date_of_birth": "2000-01-01",
+        "email": "usuario@mail.com",
+        "pass": "$2a$10$wHONhSNAv7nCW7MSuqkTlu5Nd6Kh1j7c18sBZa7AVNLK.bKJkp0bi",
+        "rol": "ROL_USER",
+        "address": "",
+        "province": "",
+        "city": "",
+        "postal_code": "",
+        "phone": "",
+        "cell_phone": "",
+        "image": [
+            "1644606331273_img_.jpg"
+        ]
     }
-    
 ]
