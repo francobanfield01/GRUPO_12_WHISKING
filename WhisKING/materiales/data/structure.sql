@@ -23,17 +23,18 @@ DROP TABLE IF EXISTS `addresses`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `addresses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `address` varchar(100) NOT NULL,
-  `province` varchar(30) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `postal_code` varchar(15) NOT NULL,
-  `user_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `street` varchar(70) NOT NULL,
+  `number` int(10) unsigned NOT NULL,
+  `city` varchar(45) NOT NULL,
+  `province` varchar(45) NOT NULL,
+  `postal_code` varchar(30) DEFAULT NULL,
+  `userId` int(10) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `personal_information_FK` (`user_id`),
-  CONSTRAINT `personal_information_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  KEY `addresses_FK` (`userId`),
+  CONSTRAINT `addresses_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,15 +55,12 @@ DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `banner` varchar(60) NOT NULL,
-  `product_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `categories_FK` (`product_id`),
-  CONSTRAINT `categories_FK` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) NOT NULL,
+  `image` text NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,11 +81,14 @@ DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `images` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`)
+  `productId` int(10) unsigned NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `images_FK` (`productId`),
+  CONSTRAINT `images_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -108,18 +109,17 @@ DROP TABLE IF EXISTS `order-items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order-items` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `quantity` int(11) unsigned NOT NULL,
-  `date_time` datetime NOT NULL,
-  `order_cart_id` int(11) unsigned NOT NULL,
-  `product_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `quantity` int(10) unsigned DEFAULT NULL,
+  `orderCartId` int(10) unsigned NOT NULL,
+  `productId` int(10) unsigned NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `Column1` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `order_item_FK` (`order_cart_id`),
-  KEY `order_item_FK_1` (`product_id`),
-  CONSTRAINT `order_item_FK` FOREIGN KEY (`order_cart_id`) REFERENCES `order_carts` (`id`),
-  CONSTRAINT `order_item_FK_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+  KEY `order_items_FK` (`productId`),
+  KEY `order_items_FK_1` (`orderCartId`),
+  CONSTRAINT `order_items_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
+  CONSTRAINT `order_items_FK_1` FOREIGN KEY (`orderCartId`) REFERENCES `order_carts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,14 +140,14 @@ DROP TABLE IF EXISTS `order_carts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order_carts` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `state` varchar(45) NOT NULL,
-  `user_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `state` tinyint(1) unsigned NOT NULL,
+  `userId` int(10) NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `order_carts_FK` (`user_id`),
-  CONSTRAINT `order_carts_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  KEY `order_carts_FK` (`userId`),
+  CONSTRAINT `order_carts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -168,20 +168,20 @@ DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `products` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(70) NOT NULL,
   `price` decimal(3,2) unsigned NOT NULL,
-  `discount` decimal(3,2) unsigned NOT NULL,
-  `description` text DEFAULT NULL,
+  `discount` int(10) unsigned NOT NULL,
+  `description` text NOT NULL,
   `tasting` text DEFAULT NULL,
-  `origen` char(20) DEFAULT NULL,
-  `stock` int(10) unsigned NOT NULL,
-  `image_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `origin` varchar(45) DEFAULT NULL,
+  `stock` int(10) unsigned NOT NULL DEFAULT 0,
+  `categoryId` int(10) unsigned NOT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `products_FK` (`image_id`),
-  CONSTRAINT `products_FK` FOREIGN KEY (`image_id`) REFERENCES `images` (`id`)
+  KEY `categoryId` (`categoryId`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -195,60 +195,6 @@ LOCK TABLES `products` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `roles`
---
-
-DROP TABLE IF EXISTS `roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `roles` (
-  `id` tinyint(1) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `user_id` int(11) unsigned NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `roles_FK` (`user_id`),
-  CONSTRAINT `roles_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `roles`
---
-
-LOCK TABLES `roles` WRITE;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `stocks`
---
-
-DROP TABLE IF EXISTS `stocks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stocks` (
-  `id` int(11) unsigned NOT NULL,
-  `quantity` int(11) unsigned NOT NULL,
-  `product_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `stocks_FK` (`product_id`),
-  CONSTRAINT `stocks_FK` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `stocks`
---
-
-LOCK TABLES `stocks` WRITE;
-/*!40000 ALTER TABLE `stocks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `stocks` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -256,21 +202,18 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
+  `lastName` varchar(45) NOT NULL,
   `email` varchar(70) NOT NULL,
   `pass` varchar(70) NOT NULL,
-  `date_of_birth` date NOT NULL,
-  `phone` varchar(30) DEFAULT NULL,
-  `image` varchar(100) DEFAULT NULL,
-  `cell_phone` varchar(30) DEFAULT NULL,
-  `rol` tinyint(1) NOT NULL DEFAULT 0,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
+  `dateOfBirth` date NOT NULL,
+  `rol` tinyint(1) unsigned DEFAULT NULL,
+  `avatar` varchar(100) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `phone` (`phone`)
+  UNIQUE KEY `users_un` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -296,4 +239,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-10 12:45:06
+-- Dump completed on 2022-02-11 15:46:32
