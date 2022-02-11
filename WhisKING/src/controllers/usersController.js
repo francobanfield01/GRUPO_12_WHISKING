@@ -21,12 +21,12 @@ let controller = {
                }               
            });
 
-           let { user_first_name, user_last_name, date_of_birth, email, pass } = req.body
+           let { name, last_name, date_of_birth, email, pass } = req.body
 
            let newUser = {
                id: lastId + 1,
-               user_first_name: user_first_name.trim(),
-               user_last_name: user_last_name.trim(),
+               name: name.trim(),
+               last_name: last_name.trim(),
                date_of_birth,
                email: email.trim(),
                pass: bcrypt.hashSync(pass, 10),
@@ -70,7 +70,7 @@ let controller = {
     processLogin: (req, res) => {
         let errors = validationResult(req);
 
-        if(errors.isEmpty){    // se pregunta si los errores estan vacios
+        if(errors.isEmpty()){    // se pregunta si los errores estan vacios
             
             let user = users.find(user => user.email === req.body.email);
            

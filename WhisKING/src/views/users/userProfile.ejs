@@ -5,9 +5,17 @@
         <%- include('../partials/header.ejs')%>
             <main class="profile-main">
                 
-                <div>
-                    <h1>Prueba</h1>
-                    <h2>Nombre de usuario:<%- user.user_first_name  %>...</h2>
+                <div class="profile-avatar">
+                    <img src="/images/usuarios/<%- user.avatar %>" alt="">
+                </div>
+                <div class="profile-info">
+                    <div class="profile1-info">
+                        <h3>Datos personales</h3>
+                        <p class="profile-name">Nombre: <%= user.user_first_name %></p>
+                    </div>
+                    <div class="profile2-info">
+                        
+                    </div>
                 </div>
             </main>
             <%- include('../partials/footer.ejs') %>
