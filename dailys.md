@@ -488,3 +488,25 @@ Ausentes: Gisela, Exequiel.
 - Se solicita trabajar sobre el modelo de User.js
 
 > Se pacta una daily para el día de mañana a las 07.30 pm. aprox.
+
+### Acta 09-02-2022 7.30 pm. ###
+Presentes: Gisela, Fernanda y Franco.
+Ausentes:  Exequiel.
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+- Se habla sobre las dudas sobre la base de datos de Franco.
+- Está de acuerdo con las modificaciones a realizar el proyecto para la presentación
+
+**Franco**
+- Se consultan dudas sobre la base de datos, para poder empezar a trabajar con los modelos.
+- Se comunica al grupo su ausencia de los pròximos dìas.
+- Se habla de hacer modificaciones en el proyecto para que el día viernes 11-02-2022 se pueda mostrar funcional cumplimentando los requerimientos bàsicos del sprint 5.
+
+**Gisela**
+- Se le encomienda la tarea de trabajar sobre el header que sea responsive para las vistas de desktop y mobile, que el menú hamburguesa desaparezca después de los 360px. 
+- Que se pueda mejorar la maquetación y sea estético el iniciar sesión y estar conectado. 
+
+> El día viernes habrá una presentaciòn con Los profersores Jonatan, Erick y Jeannette, Nicolás coordinador de habilidades blandas es el comienzo de las presentaciones hacia la presentación final en la entrega del proyecto the WhisKING.
+> Se habla de la necesidad de panel de Administrador.
+> No se define nueva daily.
