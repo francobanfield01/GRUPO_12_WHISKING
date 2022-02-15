@@ -510,3 +510,22 @@ Ausentes:  Exequiel.
 > El día viernes habrá una presentaciòn con Los profersores Jonatan, Erick y Jeannette, Nicolás coordinador de habilidades blandas es el comienzo de las presentaciones hacia la presentación final en la entrega del proyecto the WhisKING.
 > Se habla de la necesidad de panel de Administrador.
 > No se define nueva daily.
+
+### Acta 10-02-2022 11.45 am. ###
+Presentes: Jeannette, Fernanda y Franco.
+Ausentes:  Gisela, Exequiel.
+
+**Fernanda**
+- Daily realizada del meeting anterior.
+
+
+**Franco**
+- Se consultan dudas sobre la base de datos, para poder empezar a trabajar con los modelos.
+- Se hacen ajustes en las tablas.
+
+**Jeannette**
+- Nos hace la devolución sobre lo que creíamos que eran nuestras tablas de la base de datos.
+
+
+> Se prueba el proyecto para la presentación de las 04.00 pm.
+> No se define nueva daily.
