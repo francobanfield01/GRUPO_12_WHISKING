@@ -1,59 +1,68 @@
-module.exports = (sequelize, datatypes) => {
+module.exports = (sequelize, dataTypes) => {
     const alias = "User";
     const cols = {
         id: {
-            type: datatypes.INTEGER(10).UNSIGNED,
+            type: dataTypes.INTEGER(10).UNSIGNED,   // no le puso unsigned en la tabla mysql
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
-        first_name: {
-            type: datatypes.STRING(45),
+        name: {
+            type: dataTypes.STRING(45),
             allowNull: false,
         },
-        last_name: {
-            type: datatypes.STRING(45),
+        lastName: {
+            type: dataTypes.STRING(45),
             allowNull: false
         },
         email: {
-            type: datatypes.STRING(70).UNSIGNED,
+            type: dataTypes.STRING(70),
             allowNull: false,
             unique: true
         },
         pass: {
-            type: datatypes.STRING(70),
+            type: dataTypes.STRING(70),
             allowNull: false
         },
-        date_of_birth: {
-            type: datatypes.DATEONLY,
+        dateOfBirth: {
+            type: dataTypes.DATEONLY,
             allowNull: false
         },
         phone: {
-            type: datatypes.STRING(30).UNSIGNED,
+            type: dataTypes.STRING(30),
             allowNull: false
         },
-        image: {
-            type: datatypes.STRING(100)
-        },
-        cellphone: {
-            type: datatypes.STRING(30).UNSIGNED,
+        cellPhone: {
+            type: dataTypes.STRING(30),
             allowNull: false
         },
-        createdAt: {
-
+        avatar: {
+            type: dataTypes.STRING(100)
         },
-        updatedAt: {
-
+        rol: {
+            type: dataTypes.BOOLEAN,
+            allowNull: false
         }
     }
     
     const config = {
         tableName: "users",
+        timestamps: true
         
     };
 
     const User = sequelize.define(alias, cols, config)
     
+    User.associate = models => {
+        User.hasMany(models.Address, {
+            as: "addresses",
+            foreignkey: "userId"
+        })
+        User.hasMany(models.OrderCart, {
+            as: "ordercarts",
+            foreignKey: "userId"
+        })
+    }
     
     return User;
 }

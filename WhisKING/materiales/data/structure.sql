@@ -28,13 +28,13 @@ CREATE TABLE `addresses` (
   `number` int(10) unsigned NOT NULL,
   `city` varchar(45) NOT NULL,
   `province` varchar(45) NOT NULL,
-  `postal_code` varchar(30) DEFAULT NULL,
-  `userId` int(10) NOT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL,
+  `postalCode` varchar(30) DEFAULT NULL,
+  `userId` int(10) unsigned NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `addresses_FK` (`userId`),
-  CONSTRAINT `addresses_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+  KEY `userId` (`userId`),
+  CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,8 +58,8 @@ CREATE TABLE `categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   `image` text NOT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -84,8 +84,8 @@ CREATE TABLE `images` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `productId` int(10) unsigned NOT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `images_FK` (`productId`),
   CONSTRAINT `images_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
@@ -113,8 +113,8 @@ CREATE TABLE `order-items` (
   `quantity` int(10) unsigned DEFAULT NULL,
   `orderCartId` int(10) unsigned NOT NULL,
   `productId` int(10) unsigned NOT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `Column1` datetime DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `order_items_FK` (`productId`),
   KEY `order_items_FK_1` (`orderCartId`),
@@ -142,9 +142,9 @@ DROP TABLE IF EXISTS `order_carts`;
 CREATE TABLE `order_carts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `state` tinyint(1) unsigned NOT NULL,
-  `userId` int(10) NOT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL,
+  `userId` int(10) unsigned NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `order_carts_FK` (`userId`),
   CONSTRAINT `order_carts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
@@ -177,8 +177,8 @@ CREATE TABLE `products` (
   `origin` varchar(45) DEFAULT NULL,
   `stock` int(10) unsigned NOT NULL DEFAULT 0,
   `categoryId` int(10) unsigned NOT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `categoryId` (`categoryId`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
@@ -202,16 +202,18 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `lastName` varchar(45) NOT NULL,
   `email` varchar(70) NOT NULL,
   `pass` varchar(70) NOT NULL,
   `dateOfBirth` date NOT NULL,
-  `rol` tinyint(1) unsigned DEFAULT NULL,
+  `phone` varchar(30) NOT NULL,
+  `cellPhone` varchar(30) NOT NULL,
   `avatar` varchar(100) DEFAULT NULL,
-  `createdAt` datetime DEFAULT NULL,
-  `updatedAt` datetime DEFAULT NULL,
+  `rol` tinyint(1) unsigned NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_un` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -239,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-11 15:46:32
+-- Dump completed on 2022-02-21 10:45:39
