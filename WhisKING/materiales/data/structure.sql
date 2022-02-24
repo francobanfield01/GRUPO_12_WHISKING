@@ -33,8 +33,8 @@ CREATE TABLE `addresses` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `userId` (`userId`),
-  CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+  KEY `addresses_ibfk_1` (`userId`),
+  CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,7 +61,7 @@ CREATE TABLE `categories` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,8 +88,8 @@ CREATE TABLE `images` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `images_FK` (`productId`),
-  CONSTRAINT `images_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `images_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,8 +118,8 @@ CREATE TABLE `order-items` (
   PRIMARY KEY (`id`),
   KEY `order_items_FK` (`productId`),
   KEY `order_items_FK_1` (`orderCartId`),
-  CONSTRAINT `order_items_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`),
-  CONSTRAINT `order_items_FK_1` FOREIGN KEY (`orderCartId`) REFERENCES `order_carts` (`id`)
+  CONSTRAINT `order_items_FK` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `order_items_FK_1` FOREIGN KEY (`orderCartId`) REFERENCES `order_carts` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -147,7 +147,7 @@ CREATE TABLE `order_carts` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `order_carts_FK` (`userId`),
-  CONSTRAINT `order_carts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+  CONSTRAINT `order_carts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -170,7 +170,7 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(70) NOT NULL,
-  `price` decimal(3,2) unsigned NOT NULL,
+  `price` decimal(10,2) unsigned NOT NULL,
   `discount` int(10) unsigned NOT NULL,
   `description` text NOT NULL,
   `tasting` text DEFAULT NULL,
@@ -182,7 +182,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `categoryId` (`categoryId`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +216,7 @@ CREATE TABLE `users` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_un` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,4 +241,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-21 10:45:39
+-- Dump completed on 2022-02-24 11:25:12
