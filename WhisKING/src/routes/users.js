@@ -2,12 +2,13 @@
 let express = require('express')
 let router = express.Router();
 // ************ Validations ************
-let registerValidator = require('../validations/registerValidator')
+let registerValidator = require('../validations/registerValidator');
+let loginValidator = require('../validations/loginValidator');
 // ************ Middlewares ************
 let uploadFile = require('../middlewares/uploadUserFiles')    //requerimos el multer, upload tiene que ver con la carga, requiriendo el middleware que acabamos de crear
 // ************ Controller Require ************
 let controller = require('../controllers/usersController');
-const loginValidator = require('../validations/loginValidator');
+
 
 
 
@@ -21,10 +22,13 @@ router.post('/register', uploadFile.single('image') , registerValidator, control
 //*GET - Show login form -Formulario de login-
 router.get('/login', controller.login);
 
-router.get('/terms', controller.terms);
-
 //*POST - Login Data -Formulario de login ---Procesar el login.
 router.post('/login',loginValidator, controller.processLogin);
+
+//*GET - Terms
+router.get('/terms', controller.terms);
+
+
 
 //*GET - Log-out - Cerrar sesion.
 router.get('/logout', controller.logout)

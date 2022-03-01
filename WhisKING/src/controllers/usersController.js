@@ -69,6 +69,7 @@ let controller = {
     },
     processLogin: (req, res) => {
         let errors = validationResult(req);
+       /*  res.send(errors) */ //con esto enviamos los errores 
 
         if(errors.isEmpty()){    // se pregunta si los errores estan vacios
             

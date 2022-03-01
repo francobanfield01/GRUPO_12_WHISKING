@@ -19,7 +19,7 @@ let { users } = require('../database/dataBase')
 	
 	    check('email')
 	    .isEmail()
-	    .withMessage('Debes ingresar un email válido').bail(),
+	    .withMessage('Debes ingresar un email válido').bail(),  //para cortar la validacion
 	
 	    body('email').custom(value => {
 	       let user = users.find(user=>{  //valida que un mismo usuario existe dentro de bdedatos, no pueden loguearse 2 personas con el mismo email
@@ -48,3 +48,7 @@ let { users } = require('../database/dataBase')
 	    .isString('on')
 	    .withMessage('Debes aceptar las bases y condiciones')
 	]
+
+
+
+	////minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1,  como pongo eso?
