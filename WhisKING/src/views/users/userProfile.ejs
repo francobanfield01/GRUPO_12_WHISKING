@@ -11,10 +11,66 @@
                 <div class="profile-info">
                     <div class="profile1-info">
                         <h3>Datos personales</h3>
-                        <p class="profile-name">Nombre: <%= user.user_first_name %></p>
-                    </div>
-                    <div class="profile2-info">
-                        
+                        <p class="profile-datos">Nombre: <%= user.name %></p>
+                        <p class="profile-datos">Apellido: <%= user.last_name %></p>
+                        <p class="profile-datos">Fecha de Nacimiento: <%= user.date_of_birth %></p>
+                        <p class="profile-datos">Correo Electrónico: <%= user.email %></p>
+                        <form action="/users/userProfile" method="POST" enctype="multipart/form-data">
+                            <div class="form-userProfile">
+                                <div class="input-container-userProfile">
+                                    <p class="profile-datos">Dirección Envío: <%= user.address %></p>
+                                    <input class="input-style-userProfile" type="text" name="shippingAddress" placeholder="" id="direccion1">
+                                    <span class="error-profile">Debes ingresar una dirección de envío</span>
+                                </div>
+                                <div class="input-container-userProfile">
+                                    <p class="profile-datos">Localidad: <%= user.city %></p>
+                                    <input class="input-style-userProfile" type="text" name="shippingAddress" placeholder="" id="direccion1">
+                                    <span class="error-profile">Debes ingresar una localidad</span>
+                                </div>
+                                <div class="input-container-userProfile">
+                                    <p class="profile-datos">Dirección de Facturación: <%= user.address %></p>
+                                    <input class="input-style-userProfile" type="text" name="billingAddress" placeholder="" id="direccion2">
+                                    <span class="error-profile">Debes ingresar una dirección de facturación</span>
+                                </div>
+                                <div class="input-container-userProfile">
+                                    <p class="profile-datos">Localidad: <%= user.city %></p> <!-- podria usarse una ¿ api ? -->
+                                    <input class="input-style-userProfile" type="text" name="city" placeholder="" id="direccion2">
+                                    <span class="error-profile">Debes ingresar una localidad</span>
+                                </div>
+                                <div class="input-container-userProfile">
+                                    <p class="profile-datos">C. P.: </p> 
+                                    <input class="input-style-userProfile" type="text" name="postal_code" placeholder="" id="direccion2">
+                                    <span class="error-profile">Debes ingresar un código postal</span>
+                                </div>
+                                
+                            <br>    
+                            <hr>
+                            <h3>Cambio de contraseña</h3>
+                                <div class="profile2-info">
+                                    <div class="input-container-profile2-info">
+                                        <p class="profile-datos">Contraseña Actual:</p> 
+                                        <input class="input-style-userProfile" type="password" name="pass" placeholder="" id="contrasenia">
+                                        <span class="error-profile">Debes ingresar la contraseña actual</span>
+                                    </div>
+                                    <div class="input-container-profile2-info">
+                                        <p class="profile-datos">Contraseña Nueva:</p> 
+                                        <input class="input-style-userProfile" type="password" name="pass" placeholder="" id="contrasenia">
+                                        <span class="error-profile">Debes ingresar una Nueva contraseña</span>
+                                    </div>
+                                    <div class="input-container-profile2-info">
+                                        <p class="profile-datos">Confirmar Nueva Contraseña:</p> 
+                                        <input class="input-style-userProfile" type="password" name="pass2" placeholder="" id="contrasenia2">
+                                        <span class="error-profile">Debes ingresar confirmar una Nueva Contraseña</span>
+                                    </div>
+                                    
+                                </div>  
+                            </div>                            
+                            
+                            
+                            
+                           
+                                    
+                        </form>                    
                     </div>
                 </div>
             </main>
