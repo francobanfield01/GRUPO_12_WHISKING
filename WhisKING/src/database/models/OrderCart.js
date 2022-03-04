@@ -11,13 +11,13 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         state: {
-            type: dataTypes.BOOLEAN(1).UNSIGNED,
+            type: dataTypes.BOOLEAN,
             allowNull: false,
 
         },
 
         user_id: {
-            type: dataTypes.INTEGER(10).UNSIGNED,  // ACA NO SE SI VAMOS A TENER PROBLEMAS QUE NO TIENE UNSIGNED EL USERiD QUE ESTA DEFINIDO EN LA TABLA USERS
+            type: dataTypes.INTEGER(10).UNSIGNED,  
             allownull: false,
         }
 
@@ -26,9 +26,22 @@ module.exports = (sequelize, dataTypes) => {
 
     const config = {
         tableName: "order_carts",
+        timestamps: true, 
     };
 
     const OrderCart = sequelize.define(alias, cols, config);
+
+    OrderCart.associate = models => {
+        OrderCart.belongsTo(models.User, {
+            as: "user",
+            foreignKey: "userId"
+        })
+
+        OrderCart.hasMany(models.OrderItem, {
+            as: "orderItems",
+            foreignKey: "orderCartId"
+        })
+    }
 
     return OrderCart;
 }

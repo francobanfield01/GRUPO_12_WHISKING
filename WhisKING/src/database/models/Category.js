@@ -19,21 +19,12 @@ module.exports = (sequelize, dataTypes) => {
         image: {
             type: dataTypes.TEXT,
             allowNull: false
-        },
-
-        createdAt: {
-            type: dataTypes.Date,
-            allowNull: true            
-        },  
-
-        updatedAt: {
-            type: dataTypes.Date,
-            allowNull: true
         }
     };
 
     const config = {
-        tableName: "categories"   
+        tableName: "categories",
+        timestamps: true   
     };
 
     const Category = sequelize.define(alias, cols, config);

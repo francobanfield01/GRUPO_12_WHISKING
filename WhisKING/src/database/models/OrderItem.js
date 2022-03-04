@@ -23,25 +23,28 @@ module.exports = (sequelize, dataTypes) => {
         productId: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allownull: false,
-        },
-
-        createdAt: {
-            type: dataTypes.Date,
-            allowNull: true            
-        },
-
-        updatedAt: {
-            type: dataTypes.Date,
-            allowNull: true
-        } 
+        }
     };
 
     const config = {
-        tableName: "order-items",   // tabla pivot
+        tableName: "order-items",
+        timestamps: true,     // tabla pivot
         
     };
 
     const OrderItem = sequelize.define(alias, cols, config);
+
+    OrderItem.associate = models => {
+        OrderItem.belongsTo(models.OrderCart, {
+            as: "orderCart",
+            foreingKey: "orderCartId"
+        })
+
+        OrderItem.belongsTo(models.Product, {
+            as: "product",
+            foreingKey: "productId"
+        })
+    }
 
     return OrderItem;
 

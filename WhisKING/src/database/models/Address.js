@@ -47,6 +47,15 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     const Address = sequelize.define(alias, cols, config);
+    
+    Address.associate = models => {
+        Address.belongsTo(models.User, {
+            as: "user",
+            foreingKey: "userId"
+        })
+
         
+    }
+    
     return Address;
 }

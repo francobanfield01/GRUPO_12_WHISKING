@@ -33,14 +33,14 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         cellPhone: {
-            type: dataTypes.STRING(30).UNSIGNED,
+            type: dataTypes.STRING(30),
             allowNull: false
         },
         avatar: {
             type: dataTypes.STRING(100)
         },
         rol: {
-            type: dataTypes.BOOLEAN(1).UNSIGNED,
+            type: dataTypes.BOOLEAN,
             allowNull: false
         }
     }
@@ -53,6 +53,16 @@ module.exports = (sequelize, dataTypes) => {
 
     const User = sequelize.define(alias, cols, config)
     
+    User.associate = models => {
+        User.hasMany(models.Address, {
+            as: "addresses",
+            foreignkey: "userId"
+        })
+        User.hasMany(models.OrderCart, {
+            as: "ordercarts",
+            foreignKey: "userId"
+        })
+    }
     
     return User;
 }
