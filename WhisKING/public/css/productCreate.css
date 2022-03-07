@@ -157,24 +157,24 @@ footer.create{
     main.create-main{
         max-width: 550px;
     }
-    form .price-stock{
+    form .price-discount, .origin-stock{
         display: flex;
         justify-content: space-between;
     }
-    form .price-stock input{
+    form .price-discount input, .origin-stock input{
     width: 95%;
     }
-    form .price-stock .input-stock{
+    form .price-discount .input-discount, .origin-stock .input-stock{
         align-self: end;
     }
-    form .price-stock .stock p{
-        margin-left: 0.5rem;
+    form .price-discount .discount p, .origin-stock .stock p, .origin-stock span{
+        margin-left: 0.8rem;
     }
-    .body-create .price-stock .section-create {
+    .body-create .price-discount .section-create, .origin-stock .section-create {
         width: 50%;
     }
 
-    .price-stock .section-create .stock p {
+    .price-discount .section-create .discount p {
         padding-left: 1rem;
     }
 
