@@ -1,17 +1,22 @@
-let { products , writeProductsJSON } = require('../database/dataBase')
+//let { products , writeProductsJSON } = require('../database/dataBase')
 const fs = require('fs');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
-	
+let db = require('../database/models')
+const { validationResult } = require("express-validator")
+
+
+
+
 let controller = {
 	// Root - Show all products NO FUNCIONA
-	index: (req, res) =>{    //iria en admin/adminIndex
+	index: (req, res) => {    //iria en admin/adminIndex
 		res.render('index', {
 			products,
-			toThousand, 
+			toThousand,
 			session: req.session
 		})
 	},
-	list: (req, res) =>{     //iria admin/products/admintProducts
+	list: (req, res) => {     //iria admin/products/admintProducts
 		res.render('products/productsList', {
 			products,
 			toThousand,
@@ -20,8 +25,8 @@ let controller = {
 	},
 
 	// Detail - Detail from one product
-    detail: (req, res) => {
-		let productId  = +req.params.id; // id parametro
+	detail: (req, res) => {
+		let productId = +req.params.id; // id parametro
 		let product = products.find(product => product.id === productId)
 
 		res.render('products/productDetail', {
@@ -32,13 +37,82 @@ let controller = {
 		})
 	},
 	// Create - Form to create
-    create:(req, res) =>{     //iria a admin/products/adminProducts
-        res.render('products/productCreate', {
-			session: req.session
-		});
-    },
-   // Create -  Method to store
-    store: (req, res) => {		//admin/products/admintProductsCreateForm
+	create: (req, res) => {     //iria a admin/products/adminProducts
+		db.Category.findAll()
+			.then(categories => {
+				console.log(categories)
+				res.render("products/productCreate", {
+					session: req.session,
+					categories
+				});
+			})
+			.catch(err => console.log(err))
+		//res.render('products/productCreate', {
+		//session: req.session
+		//});
+	},
+	// Create -  Method to store
+	store: (req, res) => {		//admin/products/admintProductsCreateForm
+		console.log(req.body)
+		let errors = validationResult(req)
+		let arrayImages = []
+		if (req.files) {
+			req.files.forEach(image => {
+				arrayImages.push(image.filename)
+			})
+		}
+		const { name, price, discount, description, tasting, origin, stock, category } = req.body
+		if (errors.isEmpty()) {
+
+			db.Product.create({
+				name,
+				price,
+				discount,
+				description,
+				tasting,
+				origin,
+				stock,
+				categoryId: +category
+
+			})
+				.then(result => {
+					if (result) {
+						if (arrayImages.length > 0) {
+							let images = arrayImages.map(image => {
+								return {
+									name: image,
+									productId: result.id
+								}
+							})
+							db.Image.bulkCreate(images)
+								.then(() => {
+									res.redirect('/')
+								})
+								.catch(err => console.log(err))
+						} else {
+							db.Image.create({
+								name: "default-image.png",
+								productId: result.id
+							})
+						}
+					}
+				})
+				.catch(err => console.log(err))
+		} else {
+			db.Category.findAll()
+				.then(categories => {
+					console.log(categories)
+					res.render("products/productCreate", {
+						session: req.session,
+						categories,
+						errors: errors.mapped(),
+						old: req.body
+					});
+				})
+				.catch(err => console.log(err))
+		}
+
+		/*
 		let lastId = 1;
 		products.forEach(product => {
 			if(product.id > lastId) {
@@ -63,48 +137,147 @@ let controller = {
 		writeProductsJSON(products)   // Sobreescribe el JSON modificado
 
 		
-		res.redirect(`/products/detail/${lastId + 1}`)  //
+		res.redirect(`/products/detail/${lastId + 1}`)  */
 	},
 
-     // Update - Form to edit 
-    edit: (req, res) => {
+	// Update - Form to edit 
+	edit: (req, res) => {
+
+		let product = db.Product.findByPk(req.params.id)
+		let categories = db.Category.findAll()
+		Promise.all([product, categories])
+			.then(([product, categories]) => {
+				res.render("products/productEdit", {
+					product,
+					categories,
+					toThousand,
+					session: req.session,
+					title: `Editar producto: ${product.name}`
+				})
+			})
+
+		/*
 		let productId = +req.params.id; // Capturo el id desde la url y la almaceno en una variable
 		let productToEdit = products.find(product => product.id === productId); // Busco el producto que tenga el mismo id que el parametro del url.
 
-        res.render('products/productEdit', {  // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
-			 product : productToEdit,
-			 toThousand,
-			 session: req.session /* , 
-			 title:`Editar Producto: ${product.name}`  */ // no funciona para edit
-		});
-			
-    },
+		res.render('products/productEdit', {  // hacemos render del formulario y como 2do parámetro que es el que acabamos de encontrar
+			product: productToEdit,
+			toThousand,
+			session: req.session /* , 
+			 title:`Editar Producto: ${product.name}`   // no funciona para edit
+		}); */
+
+	},
 
 
-    // Update - Method to update 
-    update: (req, res) => {
-		let productId = +req.params.id; // asi capturamos todos los datos del body, lo traemos del edit al codigo. Ahi tenemos el id de producto
+	// Update - Method to update 
+	update: (req, res) => {
+		console.log(req.body);
+		console.log(req.files);
+		//let productId = +req.params.id; // asi capturamos todos los datos del body, lo traemos del edit al codigo. Ahi tenemos el id de producto
 
-		const {name, price, discount, category, description} = req.body;
+		const { name, price, discount, description, tasting, origin, stock, category } = req.body
+		let errors = validationResult(req);
 
-		products.forEach(product => { // recorremos cada uno de los elementos
-			
-			if (product.id === productId){
+		if (errors.isEmpty()) {
+			let arrayImages = []
+			if (req.files) {
+				req.files.forEach(image => {
+					arrayImages.push(image.filename)
+				})
+			}
+			db.Product.update({
+				name,
+				price,
+				discount,
+				description,
+				tasting,
+				origin,
+				stock,
+				categoryId: +category
+			}, {
+				where: {
+					id: +req.params.id
+				}
+			})
+				.then(() => {
+					
+					if (arrayImages.length > 0) {
+						db.Image.findAll({
+							where: {
+								productId : +req.params.id
+							}
+						})
+						.then(images => {
+							images.forEach(image => {
+								/*if (fs.existsSync('./public/images/products', image.name) && (image.name !== "default-image.png")) {
+									fs.unlinkSync(`./public/images/products/${product.image}`)
+								} else {
+									console.log('No encontró el archivo');  
+								}*/
+								fs.existsSync('../public/images/products', image.image)
+								? fs.unlinkSync(`../public/images/products/${image.image}`)
+								: console.log('No se encontró el archivo')
+							})
+							db.Image.destroy({
+								where: {
+									productId: +req.params.id
+								}
+							})
+								.then(() => {
+									let images = arrayImages.map(image => {
+										return {
+											name: image,
+											productId: +req.params.id
+										}
+									})
+									db.Image.bulkCreate(images)
+										.then(() => {
+											res.redirect('/')
+										})
+										.catch(err => console.log(err))
+								})
+
+						})
+
+					} else {
+						res.redirect("/")
+					}
+				})
+		} else {
+			let product = db.Product.findByPk(req.params.id)
+			let categories = db.Category.findAll()
+			Promise.all([product, categories])
+				.then(([product, categories]) => {
+					res.render("products/productEdit", {
+						product,
+						categories,
+						toThousand,
+						session: req.session,
+						errors: errors.mapped(),
+						old: req.body,
+						title: `Editar producto: ${product.name}`
+					})
+				})
+		}
+		/*products.forEach(product => { // recorremos cada uno de los elementos
+
+			if (product.id === productId) {
 				product.id = product.id, // al product.id le decimos que se mantenga el mismo
-				product.name = name.trim(), // elimina los espacios en blanco
-				product.price = +price, //metodo number() pero con +
-				product.discount = +discount,
-				product.category = category.trim(),				
-				product.description = description.trim()
-				if(req.file){
-					if(fs.existsSync('./public/images/products', product.image) && (product.image !== "default-image.png")){
-						
+					product.name = name.trim(), // elimina los espacios en blanco
+					product.price = +price, //metodo number() pero con +
+					product.discount = +discount,
+					product.category = category.trim(),
+					product.description = description.trim()
+				if (req.file) {
+					if (fs.existsSync('./public/images/products', product.image) && (product.image !== "default-image.png")) {
+
 						fs.unlinkSync(`./public/images/products/${product.image}`)
-					}else{
+					} else {
 						console.log('No encontró el archivo');  //
 					}
 					product.image = req.file.filename
-				}else{
+				} else {
 					product.image = product.image
 				}
 
@@ -114,40 +287,40 @@ let controller = {
 
 		writeProductsJSON(products); //y ahora directamente usamos el writeJson le vamos a decir que le vamos a pasar el array de productos 
 
-		
+
 		res.redirect(`/products/${productId}/edit/`) //res.redirect('/products')
 
-	
 
-    },
+*/
+	},
 
 	// Delete - Delete one product from DB
-	destroy : (req, res) => { /*  */
-		
+	destroy: (req, res) => { /*  */
+
 		let productId = +req.params.id; /* capturamos el id */
 
 		products.forEach(product => { /* recorremos el array para preguntar si el product.id si coincide con el req.params.id */
-			if(product.id === productId){ /* bloque de eliminacion de imagenes en products */
-				if(fs.existsSync('../public/images/products/', product.image) && (product.image !== "default-image.png")){
-					fs.unlinkSync(`../public/images/products/${product.image}`)
+			if (product.id === productId) { /* bloque de eliminacion de imagenes en products */
+				if (fs.existsSync('../../public/images/products/', product.image) && (product.image !== "default-image.png")) {
+					fs.unlinkSync(`../../public/images/products/${product.image}`)
 
-				}else{
+				} else {
 					console.log('No encontró el archivo');
 
 				}
 
 				let productToDestroyIndex = products.indexOf(product)  /* creamos una variable dónde guardamos el producto a eliminar index porque es el indice lo que se va a guardar, recorror el array de productosy al array de productos le aplicamos el metodo indexOf que me trae el indice dentro de ese array del elemento que yo estoy buscando, que lo voy a pasar por parametro, qué elemento el elemento que estoy recorriendo con el foreach(product), aca lo que voy a obtener es si el indice(posicion dentro del array), si encuentra el elemento dentro del array me va a devolver el indice, sino me devuelve -1.     */
-				if (productToDestroyIndex !== -1){
+				if (productToDestroyIndex !== -1) {
 					products.splice(productToDestroyIndex, 1)
-				}else{  //primer parametro es el indice del elemento a borrar, el  2do la cantidad de elementos
+				} else {  //primer parametro es el indice del elemento a borrar, el  2do la cantidad de elementos
 					console.log('no encontre el producto')
-				}    
+				}
 			}
 		})
 
 		writeProductsJSON(products);
-	/* 	res.send(`has elimindo el producto con id ${productId}`) */
-	res.redirect('/products')
+		/* 	res.send(`has elimindo el producto con id ${productId}`) */
+		res.redirect('/products')
 
 
 	}

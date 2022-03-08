@@ -170,11 +170,11 @@ footer.create{
     form .price-discount .discount p, .origin-stock .stock p, .origin-stock span{
         margin-left: 0.8rem;
     }
-    .body-create .price-discount .section-create, .origin-stock .section-create {
+    .body-edit .price-discount .section-edit, .origin-stock .section-edit {
         width: 50%;
     }
 
-    .price-discount .section-create .discount p {
+    .price-discount .section-edit .discount p {
         padding-left: 1rem;
     }
 

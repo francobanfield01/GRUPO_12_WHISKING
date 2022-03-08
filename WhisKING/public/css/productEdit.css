@@ -145,4 +145,11 @@ main.edit-main{
     width: 50%;
 }
 
+form .price-discount .discount p, .origin-stock .stock p, .origin-stock span{
+    margin-left: 0.8rem;
+}
+.body-create .price-discount .section-create, .origin-stock .section-create {
+    width: 50%;
+}
+
 }

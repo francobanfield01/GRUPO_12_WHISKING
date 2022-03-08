@@ -6,7 +6,7 @@
 <body class="body-create">
     <%- include('../partials/headerAdmin.ejs')%> 
     <main class="create-main">
-        <form action="/products" method="POST" enctype="multipart/form-data">
+        <form action="/products/create" method="POST" enctype="multipart/form-data">
             <div class="form-create">   
                 <section class="mediaCreate1">
                     <h2>Crear Producto</h2>
@@ -18,13 +18,10 @@
                     <div class="section-create">
                         <p>categoria</p>
                         <select name="category" id="">
-                            <option value="" hidden>Elegí</option>
-                            <option value="Single Malt">Single Malt</option>
-                            <option value="Japonés">Japonés</option>
-                            <option value="Blended">Blended</option>
-                            <option value="Bourbon">Bourbon</option>
-                            <option value="Irlandeses">Irlandeses</option>
-                            <option value="Pedorros">Pedorros</option>
+                            <option value="0" hidden></option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%- category.id  %> "><%- category.name %> </option>
+                            <% }) %>
                         </select>
                         <span class="error-message-create">Debes ingresar la categoria del producto</span>
                     </div>                    
@@ -48,7 +45,6 @@
                     <div class="section-create">
                         <p>cata</p>
                         <textarea class="" type="" name="tasting" placeholder="" id="tasting"></textarea>
-                        <span class="error-message-create">Debes ingresar la cata del producto</span>
                     </div>
                     <div class="origin-stock">
                         <div class="section-create">
@@ -64,7 +60,7 @@
                     <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
                         <div class="section-create">
                             <p>Cargar foto</p>
-                            <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
+                            <input type="file" name="image" class="" id="" multiple> <!-- usamos el name del input=file para  -->
                             
                         </div>
                     </div>

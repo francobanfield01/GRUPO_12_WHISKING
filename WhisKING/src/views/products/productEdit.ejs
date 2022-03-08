@@ -10,7 +10,7 @@
     <!-- /Header -->
    
     <main class="edit-main">
-        <form action="/products/<%- product.id  %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
+        <form action="/products/<%- product.id  %>/edit?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
             <div class="form-edit">   <!-- css class="form-create" -->
                 <section class="mediaEdit1"> <!--  css class="mediaCreate1"   -->                         
                         <h2>Estas editando: <i><%= product.name  %></i></h2> <!-- reemplazar PRODUCT NAME con ejs, le ponemos un '=' porque es una variable que esta llegando de la B.de datos del controlador -->
@@ -22,26 +22,24 @@
                     <div class="section-edit"> <!-- css class="section-create" -->
                         <p>categoria</p>
                         <!-- <input class="" type="text" name="category" placeholder="" id="category" value="<%= product.category  %>"> -->
-                        <select name="category" id="category">
-                            <option value="Single Malt"<%- product.category === "Single Malt" && `selected` %> >Single Malt</option>
-                            <option value="Japonés"<%- product.category === "Japonés" && `selected` %>>Japonés</option>
-                            <option value="Blended"<%- product.category === "Blended" && `selected` %>>Blended</option>
-                            <option value="Bourbon"<%- product.category === "Bourbon" && `selected` %>>Bourbon</option>
-                            <option value="Irlandeses"<%- product.category === "Irlandeses" && `selected` %>>Irlandeses</option>
-                            <option value="Pedorros"<%- product.category === "Pedorros" && `selected` %>>Pedorros</option>
+                        <select name="category" id="">
+                            <option value="0" hidden></option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%- category.id  %>" <%- category.id == product.categoryId ? "selected" : ""  %> ><%- category.name %> </option>
+                            <% }) %>
                         </select>
                         <span class="error-message-edit">Debes ingresar la categoria del producto</span>
                     </div>
-                    <div class="price-stock">
+                    <div class="price-discount">
                         <div class="section-edit"> <!-- css class="section-create" -->
                             <p>precio</p>
                             <input class="" type="text" name="price" placeholder="" id="price" value="<%= product.price  %>">
                             <span class="error-message-edit">Debes ingresar el precio</span>
                         </div>
     
-                        <div class="section-edit stock"> <!--  css class="section-create stock"  -->
+                        <div class="section-edit discount"> <!--  css class="section-create stock"  -->
                             <p>Descuento</p>
-                            <input class="input-stock" type="" name="discount" placeholder="" id="stock" value="<%= product.discount  %>">    
+                            <input class="input-discount" type="" name="discount" placeholder="" id="discount" value="<%= product.discount  %>">    
                         </div>
                     </div>
 
@@ -53,11 +51,27 @@
                         <span class="error-message-edit">Debes ingresar una descripción del producto</span>
                     </div>
 
+                    <div class="section-create">
+                        <p>cata</p>
+                        <textarea class="" type="" name="tasting" placeholder="" id="tasting"><%= product.tasting  %></textarea>
+                    </div>
+                    <div class="origin-stock">
+                        <div class="section-create">
+                            <p>origen</p>
+                            <input class="" type="" name="origin" placeholder="" id="origin" value="<%= product.origin  %>">
+                        </div>
+                        <div class="section-create stock">
+                            <p>Stock</p>
+                            <input class="input-stock" type="" name="stock" placeholder="" id="stock" value="<%= product.stock  %>">
+                            <span class="error-message-create">Debes ingresar el stock inicial</span>    
+                        </div>
+                    </div>
+
                     <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
                         
                         <div class="section-edit">
                             <p>Cargar foto</p>
-                            <input type="file" name="image" class="" id="" > <!-- usamos el name del input=file para  -->
+                            <input type="file" name="image" class="" id="" multiple > <!-- usamos el name del input=file para  -->
                             
                         </div>
                     </div>
