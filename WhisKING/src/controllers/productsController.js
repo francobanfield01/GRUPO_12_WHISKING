@@ -17,30 +17,37 @@ let controller = {
 		})
 	},
 	list: (req, res) => {     //iria admin/products/admintProducts
-		res.render('products/productsList', {
-			products,
-			toThousand,
-			session: req.session
+		db.Product.findAll({
+			include: [{association: 'images'}]
+		})
+		.then(products => {
+			//res.send(products)
+			res.render('products/productsList', {
+				products,
+				toThousand,
+				session: req.session
+			})
 		})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		let productId = +req.params.id; // id parametro
-		let product = products.find(product => product.id === productId)
-
-		res.render('products/productDetail', {
-			product,
-			toThousand,
-			session: req.session/* , 
-			title: `Detalle Producto: ${product.name}` */ // no funciona para edit
+		db.Product.findByPk(req.params.id, {
+			include: [{association: 'images' }]
 		})
+		.then(product => {
+			res.render('products/productDetail', {
+				product,
+				session: req.session,
+				toThousand
+			}) 
+		}
+		)
 	},
 	// Create - Form to create
 	create: (req, res) => {     //iria a admin/products/adminProducts
 		db.Category.findAll()
 			.then(categories => {
-				console.log(categories)
 				res.render("products/productCreate", {
 					session: req.session,
 					categories
@@ -53,7 +60,7 @@ let controller = {
 	},
 	// Create -  Method to store
 	store: (req, res) => {		//admin/products/admintProductsCreateForm
-		console.log(req.body)
+		
 		let errors = validationResult(req)
 		let arrayImages = []
 		if (req.files) {
@@ -172,8 +179,6 @@ let controller = {
 
 	// Update - Method to update 
 	update: (req, res) => {
-		console.log(req.body);
-		console.log(req.files);
 		//let productId = +req.params.id; // asi capturamos todos los datos del body, lo traemos del edit al codigo. Ahi tenemos el id de producto
 
 		const { name, price, discount, description, tasting, origin, stock, category } = req.body
@@ -215,8 +220,8 @@ let controller = {
 								} else {
 									console.log('No encontró el archivo');  
 								}*/
-								fs.existsSync('../public/images/products', image.image)
-								? fs.unlinkSync(`../public/images/products/${image.image}`)
+								fs.existsSync('./public/images/products/', image.name)
+								? fs.unlinkSync(`./public/images/products/${image.name}`)
 								: console.log('No se encontró el archivo')
 							})
 							db.Image.destroy({
@@ -233,7 +238,7 @@ let controller = {
 									})
 									db.Image.bulkCreate(images)
 										.then(() => {
-											res.redirect('/')
+											res.redirect(`/products/detail/${req.params.id}`)
 										})
 										.catch(err => console.log(err))
 								})
@@ -295,32 +300,25 @@ let controller = {
 	},
 
 	// Delete - Delete one product from DB
-	destroy: (req, res) => { /*  */
-
-		let productId = +req.params.id; /* capturamos el id */
-
-		products.forEach(product => { /* recorremos el array para preguntar si el product.id si coincide con el req.params.id */
-			if (product.id === productId) { /* bloque de eliminacion de imagenes en products */
-				if (fs.existsSync('../../public/images/products/', product.image) && (product.image !== "default-image.png")) {
-					fs.unlinkSync(`../../public/images/products/${product.image}`)
-
-				} else {
-					console.log('No encontró el archivo');
-
-				}
-
-				let productToDestroyIndex = products.indexOf(product)  /* creamos una variable dónde guardamos el producto a eliminar index porque es el indice lo que se va a guardar, recorror el array de productosy al array de productos le aplicamos el metodo indexOf que me trae el indice dentro de ese array del elemento que yo estoy buscando, que lo voy a pasar por parametro, qué elemento el elemento que estoy recorriendo con el foreach(product), aca lo que voy a obtener es si el indice(posicion dentro del array), si encuentra el elemento dentro del array me va a devolver el indice, sino me devuelve -1.     */
-				if (productToDestroyIndex !== -1) {
-					products.splice(productToDestroyIndex, 1)
-				} else {  //primer parametro es el indice del elemento a borrar, el  2do la cantidad de elementos
-					console.log('no encontre el producto')
-				}
+	destroy: (req, res) => { 
+		db.Image.findAll({
+			where: {
+				productId: +req.params.id
 			}
 		})
+		.then(images => {
 
-		writeProductsJSON(products);
-		/* 	res.send(`has elimindo el producto con id ${productId}`) */
-		res.redirect('/products')
+		})
+		db.Product.destroy({
+			where: {
+				id: +req.params.id
+			}
+		})
+		.then(()=> {
+			res.redirect('/')
+		})
+		.catch((err => console.log(err)))
+
 
 
 	}

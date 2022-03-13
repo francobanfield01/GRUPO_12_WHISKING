@@ -15,8 +15,8 @@
                         <div class="articulos">
                             <a href="/products/detail/<%- product.id %>">
                             <article class="card-home">
-                                <img src="images/products/<%- product.image %>" width="100%"
-                                    alt="<%- products.name %>" />
+                                <img src="images/products/<%= product.images[0].name %>" width="100%"
+                                    alt="<%- product.name %>"/>
                                 <div class="card-content-home">
                                     <h5><%- product.name %></h5>
                                     <p>$<%- toThousand(product.price) %></p>
