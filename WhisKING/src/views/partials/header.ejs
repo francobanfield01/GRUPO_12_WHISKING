@@ -34,24 +34,25 @@
       
     <div class="user-icons-desktop">
         <ul>
-            <li><a href="/users/register">Registrate</a></li>
+            
             <li><a href="/products">Productos</a></li>
         </ul>
         <div class="user">
-            <% if (typeof session.user !="undefined" ) { %>
+            <% if (locals.user ) { %>
                 <i class="fas fa-user"></i><span class="session"></span>
                 <div class="menu-user">
+                    <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
                     <a href="/users/profile">Mis datos</a>
                     <a href="/users/logout">Cerrar sesión</a>
-                    <% if (session.user.rol==="ROL_ADMIN" ) { %>
+                    <% if (locals.user.rol) { %>
                         <a href="/admin/index">ADMIN</a>
                         <% } %>
                 </div>
                 <% } else {%>
+                    <!-- <li><a href="/users/register">Registrate</a></li> --> <!-- no hace falta -->
                     <a href="/users/login"><i class="fas fa-user"></i></a>
                     <% } %>
         </div>
-        <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
     </div>
 
 </header>

@@ -40,9 +40,10 @@ module.exports = [
     check('description')
     .isAlphanumeric()    
     .isLength({ 
-        min: 20       
+        min: 20,
+        max: 800       
     })
-    .withMessage('La descripción es opcional'),
+    .withMessage('La descripción es opcional,'),
 
     check('description')
     .isAlphanumeric()    

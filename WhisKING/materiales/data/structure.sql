@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `addresses`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `addresses` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `street` varchar(70) NOT NULL,
-  `number` int(10) unsigned NOT NULL,
-  `city` varchar(45) NOT NULL,
-  `province` varchar(45) NOT NULL,
+  `street` varchar(70) DEFAULT NULL,
+  `number` int(10) unsigned DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `province` varchar(45) DEFAULT NULL,
   `postalCode` varchar(30) DEFAULT NULL,
   `userId` int(10) unsigned NOT NULL,
   `createdAt` datetime NOT NULL,
@@ -214,8 +214,8 @@ CREATE TABLE `users` (
   `email` varchar(70) NOT NULL,
   `pass` varchar(70) NOT NULL,
   `dateOfBirth` date NOT NULL,
-  `phone` varchar(30) NOT NULL,
-  `cellPhone` varchar(30) NOT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `cellPhone` varchar(30) DEFAULT NULL,
   `avatar` varchar(100) DEFAULT NULL,
   `rol` tinyint(1) unsigned NOT NULL,
   `createdAt` datetime NOT NULL,
@@ -248,4 +248,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-08 22:25:38
+-- Dump completed on 2022-03-13 15:41:41

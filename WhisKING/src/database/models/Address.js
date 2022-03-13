@@ -13,22 +13,22 @@ module.exports = (sequelize, dataTypes) => {
 
         street: { 
             type: dataTypes.STRING(70),
-        allowNull: false
+        
         },
 
         number: {
             type: dataTypes.INTEGER(10).UNSIGNED,
-            allowNull: false
+           
         },
 
         city: {
             type: dataTypes.STRING(45),
-            allowNull: false
+           
         },
 
         province: {
             type: dataTypes.STRING(45),
-            allowNull: false
+           
         },
 
         postalCode: {
@@ -36,14 +36,14 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         userId: {
-            type: dataTypes.INTEGER(10).UNSIGNED,    ///en la base no se puso que es unsigned
+            type: dataTypes.INTEGER(10).UNSIGNED,    
             allowNull: false
         }
     };
     
     const config = {
         tableName: "addresses", 
-        timestamps: false       
+        timestamps: true       
     };
 
     const Address = sequelize.define(alias, cols, config);

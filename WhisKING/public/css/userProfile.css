@@ -1,7 +1,133 @@
+body.body-profile-avatar {
+    background-color: var(--beige);
+}
+.profile-avatar-main {
+    background-color: var(--beige);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    padding: 2rem;
+    min-height:80vh;
+}
+.profile-avatar-main h2 {
+    padding: 10px; 
+    text-align: center;
+    color: var(--cobre);
+    text-transform: uppercase;
+}
+/* .profile-avatar-main (falta form action=" ") */
+.profile-avatar-main .form-profile-avatar {
+    margin-top: 5px;
+}
+.profile-avatar-main .form-profile-avatar .input-container-profile-avatar {
+    padding: 10px 0px;
+}
+.profile-avatar-main .form-profile-avatar .input-container-profile-avatar .input-style-profile-avatar {
+    border-radius: 1rem;
+    height: 2rem;
+    width: 100%;
+    padding: 1rem; 
+    border: none;
+} 
+/*errors messages :  de los input del form y span Debes aceptar los terminos y codiciones*/
+.profile-avatar-main .form-profile-avatar .input-container-profile-avatar .error-profile-avatar, 
+.profile-avatar-main .form-profile-avatar .error-terms
+ {
+    display: block;
+    color: red;
+    padding-left: 1rem;
+}
+/*checkbox de terminos y condiciones*/
+.profile-avatar-main .form-profile-avatar .check-profile-avatar {
+    padding-left: 4rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    display: -webkit-inline-box;
+    cursor: pointer;
+    color: black;
+}
+/*hover de terminos y condiciones*/
+.profile-avatar-main .form-profile-avatar .check-profile-avatar .label-terms-profile-avatar:hover {
+    cursor: pointer;
+    color: var(--cobre);
+}
+.profile-avatar-main .form-profile-avatar .check-profile-avatar .label-terms-profile-avatar {
+    font-size: 0.8rem;
+    color: black;      
+ }
+ .profile-avatar-main .form-profile-avatar .profile-avatar-image p {
+    color: var(--cobre);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+ }   
+/*hover al link de terminos y condiciones*/
+ .profile-avatar-main .form-profile-avatar .check-profile-avatar .label-terms-profile-avatar a:hover {    
+     cursor: pointer;
+     color: var(--cobre);
+ }
+.profile-avatar-main .form-profile-avatar .check-profile-avatar .label-terms-profile-avatar a{
+    font-size: 0.8rem;    
+    color: black;
+    text-decoration: none;    
+}
+/*posicion del checkbox*/
+.profile-avatar-main .form-profile-avatar .check-profile-avatar .checkbox-terms-profile-avatar {
+    position: relative;
+    top: 2px;
+    left: 3px;
+}
+/*button de Whisking y hover*/
+.profile-avatar-main .form-profile-avatar .button-container-profile-avatar {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 0.5rem;
+}
+.profile-avatar-main .button-container-profile-avatar .btn-whisking:hover {
+    color: white;
 
-
-.profile-main {
-    min-height: 80vh;
-    
+}
+.profile-avatar-main .button-container-profile-avatar .btn-whisking {
+    height: 2.5rem;
+    border-radius: 0.5rem ;
+    padding: 0.5rem;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 50%);
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: var(--grisOscuro);
+    color: var(--beige);
+}
+/*hover a links a login.html*/
+.profile-avatar-main .form-profile-avatar .span-cuenta a:hover {
+    cursor: pointer;
+    color: var(--cobre);
+    font-size: 1rem;
+    font-weight: 500;
+}
+/*link a login.html*/
+.profile-avatar-main .form-profile-avatar .span-cuenta a {
+    text-decoration: none;
+    color: black;
 }
 
+
+/*Media Queries*/
+@media(min-width:480px){
+    .body-profile-avatar {
+        background-color: var(--beige);
+      /*  background: linear-gradient(rgb(228,219,202), white);
+       height: 100vh; ¿puedo poner gradient?*/
+
+    }
+    .profile-avatar-main {
+        width: 480px;
+        justify-content: center;
+        margin: 10vh auto;
+        border: 1px solid var(--grisOscuro);
+        border-radius: 1.5rem;
+        min-height: 68vh;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        min-height:600px;
+        
+    }
+}

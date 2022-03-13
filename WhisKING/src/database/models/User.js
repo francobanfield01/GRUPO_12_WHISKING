@@ -2,7 +2,7 @@ module.exports = (sequelize, dataTypes) => {
     const alias = "User";
     const cols = {
         id: {
-            type: dataTypes.INTEGER(10).UNSIGNED,   // no le puso unsigned en la tabla mysql
+            type: dataTypes.INTEGER(10).UNSIGNED,   
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
@@ -30,11 +30,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         phone: {
             type: dataTypes.STRING(30),
-            allowNull: false
+            
         },
         cellPhone: {
             type: dataTypes.STRING(30),
-            allowNull: false
+            
         },
         avatar: {
             type: dataTypes.STRING(100)

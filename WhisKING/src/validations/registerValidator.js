@@ -1,6 +1,6 @@
 const { check , body } = require('express-validator');
 
-let { users } = require('../database/dataBase')
+const db = require('../database/models')
 	
 	
 	module.exports = [
@@ -21,16 +21,19 @@ let { users } = require('../database/dataBase')
 	    .isEmail()
 	    .withMessage('Debes ingresar un email válido').bail(),  //para cortar la validacion
 	
-	    body('email').custom(value => {
-	       let user = users.find(user=>{  //valida que un mismo usuario existe dentro de bdedatos, no pueden loguearse 2 personas con el mismo email
-	            return user.email == value 
-	        })
-            if(user){  // usuario existe
-                return false
-            }else{
-                return true
-            }
-	    }).withMessage('Email Ya registrado'),
+	    body('email')
+		.custom(value =>{
+			return db.User.findOne({
+				where : {
+					email : value
+				}
+			}).then(user => {
+				if(user){
+					return Promise.reject('El email ya está registrado') 
+				}
+			})
+		}),
+		
 	
 	    check('pass')
 	    .notEmpty()

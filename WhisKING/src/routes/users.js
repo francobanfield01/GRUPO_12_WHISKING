@@ -13,7 +13,7 @@ let controller = require('../controllers/usersController');
 
 
 
-//*GET - Show register form -Formulario de registro-
+//*GET - Show register form -Formulario de registro- crear usuario
 router.get('/register', controller.register);
 
 //*POST - Register Data -Formulario de registro ---Procesar el registro

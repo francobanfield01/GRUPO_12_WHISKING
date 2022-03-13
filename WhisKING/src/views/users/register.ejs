@@ -11,18 +11,18 @@
             <div class="form-register">                    
                 <div class="input-container-register">                       
                     <input class="input-style-register" type="text" name="name" placeholder="nombre" id="nombre" value="<%= locals.old && old.user_first_name  %>">
-                    <% if (locals.errors && errors.user_first_name) { %>
-                        <span class="error-register"><%= errors.user_first_name.msg  %></span>       <!-- Debes ingresar tu nombre -->                  
+                    <% if (locals.errors && errors.name) { %>
+                        <span class="error-register"><%= errors.name.msg  %></span>       <!-- Debes ingresar tu nombre -->                  
                     <% } %>
                 </div>
                 <div class="input-container-register">                       
                     <input class="input-style-register" type="text" name="last_name" placeholder=" apellido" id="apellido" value="<%= locals.old && old.user_last_name  %>">
-                    <% if (locals.errors && errors.user_last_name) { %>
-                        <span class="error-register"><%= errors.user_last_name.msg  %></span>    <!-- Debes ingresar tu apellido -->                         
+                    <% if (locals.errors && errors.last_name) { %>
+                        <span class="error-register"><%= errors.last_name.msg  %></span>    <!-- Debes ingresar tu apellido -->                         
                     <% } %>
                 </div>
                 <div class="input-container-register">                        
-                    <input class="input-style-register" type="date" name="date_of_birth" placeholder="Fecha de Nacimiento" min="1900-01-01" max="2050-12-31" id="f_nacimiento" value="<%= locals.old && old.date_of_birth  %>">
+                    <input class="input-style-register" type="date" name="date_of_birth" placeholder="Fecha de Nacimiento" min="1900-01-01" max="3000-12-31" id="f_nacimiento" value="<%= locals.old && old.date_of_birth  %>">
                     <% if (locals.errors && errors.date_of_birth) { %>
                         <span class="error-register"><%= errors.date_of_birth.msg  %></span>   <!-- Debes ingresar tu fecha de Nacimiento -->                         
                     <% } %>
