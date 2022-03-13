@@ -10,7 +10,7 @@
     <!-- /Header -->
    
     <main class="edit-main">
-        <form action="/products/<%- product.id  %>/edit?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
+        <form action="/products/edit/<%- product.id  %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
             <div class="form-edit">   <!-- css class="form-create" -->
                 <section class="mediaEdit1"> <!--  css class="mediaCreate1"   -->                         
                         <h2>Estas editando: <i><%= product.name  %></i></h2> <!-- reemplazar PRODUCT NAME con ejs, le ponemos un '=' porque es una variable que esta llegando de la B.de datos del controlador -->

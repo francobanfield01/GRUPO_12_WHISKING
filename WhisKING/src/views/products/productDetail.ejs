@@ -10,12 +10,12 @@
         <div class="productResponsive">
             <div class="img-container">
                 <div class="second-img">
-                    <img src="/images/products/<%- product.image %>" alt="">
-                    <img src="/images/products/<%- product.image %>" alt="">
-                    <img src="/images/products/<%- product.image %>" alt="">
+                    <% product.images.forEach(image => { %>
+                        <img src="/images/products/<%- image.name %>" alt="">
+                    <% }) %>
                 </div>
                 <div class="main-img">
-                    <img src="/images/products/<%- product.image %>" alt="">
+                    <img src="/images/products/<%- product.images[0].name %>" alt="">
                 </div>
             </div>
             <div class="productResponsive2">
@@ -38,10 +38,13 @@
         <div class="productDescription-text">
             <div class="pais-origen">
                 <p>País de origen: </p>
-                <p><%- product.origen  %></p>
+                <p><%- product.origin  %></p>
             </div>
             <div class="text-description">
                 <b>Descripción: </b><%- product.description %>
+            </div>
+            <div class="text-description">
+                <b>Cata: </b><%- product.tasting %>
             </div>
         </div>
     </main>

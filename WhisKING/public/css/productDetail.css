@@ -1,6 +1,7 @@
 main.productDetail {
     min-height: 80vh;
     padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 main.productDetail .img-container{
     display: flex;
@@ -70,6 +71,9 @@ main.productDetail .pais-origen {
     padding-bottom: 0.5rem;
 }
 
+.productDescription-text .text-description {
+    padding-bottom: 0.5rem;
+}
 
 /* Media Queries */
 

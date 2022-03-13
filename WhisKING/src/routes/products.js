@@ -21,8 +21,8 @@ router.post('/create', upload.array('image'), controller.store); //  recibir dat
 router.get('/detail/:id', controller.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/:id/edit', controller.edit); /* ponemos por get xq es la que va a renderizar el formulario router.???, '/:id/???' y aca me esta pidiendo que le ponga edit */
-router.put('/:id/edit', upload.array('image'), controller.update); // y la 2da es por put que es la que va a modificar, a donde el usuario va a poder editar el producto
+router.get('/edit/:id', controller.edit); /* ponemos por get xq es la que va a renderizar el formulario router.???, '/:id/???' y aca me esta pidiendo que le ponga edit */
+router.put('/edit/:id', upload.array('image'), controller.update); // y la 2da es por put que es la que va a modificar, a donde el usuario va a poder editar el producto
 
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/:id', controller.destroy);
