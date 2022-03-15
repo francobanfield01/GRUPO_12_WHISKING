@@ -34,6 +34,10 @@ module.exports = (sequelize, dataTypes) => {
         postalCode: {
             type: dataTypes.STRING(30)
         },
+        
+        type: {
+            type: dataTypes.STRING(45)
+        },
 
         userId: {
             type: dataTypes.INTEGER(10).UNSIGNED,    

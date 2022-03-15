@@ -30,12 +30,13 @@ CREATE TABLE `addresses` (
   `province` varchar(45) DEFAULT NULL,
   `postalCode` varchar(30) DEFAULT NULL,
   `userId` int(10) unsigned NOT NULL,
+  `type` varchar(45) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `addresses_ibfk_1` (`userId`),
   CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +45,7 @@ CREATE TABLE `addresses` (
 
 LOCK TABLES `addresses` WRITE;
 /*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
+INSERT INTO `addresses` VALUES (6,'republica del libano',1485,'wilde','Buenos Aires','1824',6,'facturacion','2022-03-15 16:38:59','2022-03-15 18:53:03'),(7,'suipacha',1225,'Avellaneda','Buenos Aires','1425',6,'envio','2022-03-15 16:38:59','2022-03-15 18:53:03');
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +221,7 @@ CREATE TABLE `users` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_un` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,6 +230,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (6,'maria','miranda','mfmir@yahoo.com.ar','$2a$10$eyGR6n4J/pc0dhtDInogpONV10vfgFOyJf.idGE8ogRlyQzPoX1YW','1974-01-01',NULL,NULL,'default-image-perfil.png',0,'2022-03-15 16:38:59','2022-03-15 18:53:03');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,4 +247,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-13 18:10:28
+-- Dump completed on 2022-03-15 15:55:18

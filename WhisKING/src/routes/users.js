@@ -36,6 +36,7 @@ router.get('/logout', controller.logout)
 
 //*GET - Perfil de usuario 
 router.get('/profile', controller.profile);
+router.put('/profile/:id' , controller.update);
 
 
 

@@ -11,31 +11,42 @@ let controller = {
     let errors = validationResult(req);
     /*  return res.send(req.body)  *//* para saber como me llega al body */
     /* return res.send(req.file) */ /* para ver si carga la imagen en el registro */
-    if (errors.isEmpty()) {   
+    if (errors.isEmpty()) {
       let { name, last_name, date_of_birth, email, pass } = req.body;
-      
+
       db.User.create({
         name: name.trim(),
         lastName: last_name.trim(),
         dateOfBirth: date_of_birth,
         email: email.trim(),
         pass: bcrypt.hashSync(pass, 10),
-        rol: false, /* se guarda en la bddatos como un cero */       
+        rol: false, /* se guarda en la bddatos como un cero */
         avatar: req.file ? req.file.filename : "default-image-perfil.png"
-      }).then(user => { /* recomendable que levante sesion, lo muestro por consola el obj que me devuelve user */
+      }).then(async (user) => { /* recomendable que levante sesion, lo muestro por consola el obj que me devuelve user */
 
-          db.Address.create({
-            userId : user.id
-          }).then(address => {
-            return res.redirect('/users/login')  
-          }).catch(error => console.log(error))
-         /*  console.log(user); *//* muestro el objeto user por consola */
+        try {
+          await db.Address.create({
+            userId: user.id,
+            type: 'facturacion'
+          })
+
+          await db.Address.create({
+            userId: user.id,
+            type: 'envio'
+          })
+
+          return res.redirect('/users/login')
+        } catch (error) {
+          console.log(error)
+        }
+
+        /*  console.log(user); *//* muestro el objeto user por consola */
       }).catch(error => console.log(error))
 
     } else {
       res.render("users/register", {
         errors: errors.mapped(),
-        old: req.body,        
+        old: req.body,
       })
     }
   },
@@ -51,8 +62,8 @@ let controller = {
 
     if (errors.isEmpty()) {
       db.User.findOne({
-        where : {
-          email : req.body.email
+        where: {
+          email: req.body.email
         }
       }).then(user => {
         req.session.user = {
@@ -73,11 +84,11 @@ let controller = {
           });
         }
         res.locals.user = req.session.user;
-        
+
         return res.redirect("/");
       }).catch(error => console.log(error))
 
-    
+
 
 
 
@@ -85,7 +96,7 @@ let controller = {
 
     } else {
       res.render("users/login", {
-        errors: errors.mapped(),       
+        errors: errors.mapped(),
         old: req.body,
       });
     }
@@ -99,16 +110,81 @@ let controller = {
   },
 
   profile: (req, res) => {
-   
+
     db.User.findByPk(req.session.user.id, {
-      include : ['addresses']
+      include: ['addresses']
     }).then(user => {
-       return res.render("users/userProfile", {
-        user,     
+      return res.render("users/userProfile", {
+        user,
       })
 
     })
   },
+  update: async (req, res) => {
+
+    const { name, lastName, dateOfBirth, street, number, city, province, postalCode, street2, number2, city2, province2, postalCode2 } = req.body;
+
+    const { id } = req.params;
+
+    try {
+      await db.User.update(
+        {
+          name: name.trim(),
+          lastName: lastName.trim(),
+          dateOfBirth
+        },
+        {
+          where: {
+            id
+          }
+        }
+      )
+    } catch (error) {
+      console.log(error)
+    }
+    try{
+      await db.Address.update(
+        {
+          street : street.trim(),
+          number : +number,
+          city : city.trim(), 
+          province : province.trim(), 
+          postalCode : postalCode.trim(),
+        },
+        {
+          where : {
+            userId : id,
+            type : 'facturacion'
+          }
+        }
+      )
+    } catch (error) {
+      console.log(error)
+    }
+
+    try {
+
+      await db.Address.update(
+        {
+          street : street2.trim(),
+          number : +number2,
+          city : city2.trim(), 
+          province : province2.trim(), 
+          postalCode : postalCode2.trim(),
+        },
+        {
+          where : {
+            userId : id,
+            type : 'envio'
+          }
+        }
+      )
+  
+    } catch (error) {
+      console.log(error)
+    }
+    return res.redirect("/users/profile")
+  }
 };
 
 module.exports = controller;

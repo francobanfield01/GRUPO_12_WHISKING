@@ -1,117 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head.ejs', {title: 'The WhisKING Argentina' })%>
-    <body class="container"> <!-- class="body-userProfile" <--antes, existe el css de userProfile.css habria que ver si se puede adaptar o dejarlo como lo explico Eric con bootstrap -->
+
+    <body class="container">        
         <%- include('../partials/header.ejs')%>
-            <main class="profile-main">
-                
-                <div class="profile-avatar"> 
-                    <img src="/images/usuarios/<%- user.avatar %>" alt="">
+            <main class="register-main"> <!--  -->
+               
+                <div style="display: flex; justify-content: center; padding: 20px 0;">
+                     <img width="150" src="/images/users/<%= user.avatar %>" alt="" >
                 </div>
-                <div class="profile-info">
-                    <div class="profile1-info">
-                        
-                        <form action="/users/userProfile" method="POST" enctype="multipart/form-data">
-                            
-                            <div class="form-userProfile">
-                                <div class="row">
-                                    <div class="col-12 col-md-4">
-                                        <h4>Datos personales</h4>
-                                        <div class="mb-3">
-                                            <label class="">Nombre:</label>
-                                            <input class="form-control" type="text" name="name" placeholder="" id="name" value=" <%= user.name %>">
-                                            <span class="error-profile"></span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="">Apellido:</label>
-                                            <input class="form-control" type="text" name="last_name" placeholder="" id="last_name" value=" <%= user.lastName %>">
-                                            <span class="error-profile"></span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="">Fecha de Nacimiento:</label>
-                                            <input class="form-control" type="date" name="date_of_birth" placeholder=""  min="1900-01-01" max="3000-12-31" id="date_of_birth" value=" <%= user.dateOfBirth %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Correo Electrónico|:</label>
-                                            <input class="form-control" type="email" name="email" placeholder="" id="email" value=" <%= user.email %>">
-                                            <span class="error-profile"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <h4>Dirección de Envío</h4>
-                                        <div class="mb-3">
-                                            <label class="">Calle:</label>
-                                            <input class="form-control" type="text" name="street" placeholder="" id="street" value=" <%= user.addresses.street %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Número:</label>
-                                            <input class="form-control" type="text" name="city" placeholder="" id="number" value=" <%= user.addresses.number %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Ciudad:</label>
-                                            <input class="form-control" type="text" name="city" placeholder="" id="city" value=" <%= user.addresses.city %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Provincia:</label>
-                                            <input class="form-control" type="text" name="province" placeholder="" id="province" value=" <%= user.addresses.province %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Código Postal:</label>
-                                            <input class="form-control" type="text" name="postalCode" placeholder="" id="postalCode" value=" <%= user.addresses.postalCode %>">
-                                            <span class="error-profile"></span>
-                                        </div>  
-                                    </div>
-                                    <div class="col-12 col-md-4">
-                                        <h4>Dirección de facturación</h4>
-                                        <div class="mb-3">
-                                            <label class="">Calle:</label>
-                                            <input class="form-control" type="text" name="street2" placeholder="" id="street2" value=" <%= user.addresses.street %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Número:</label>
-                                            <input class="form-control" type="text" name="city" placeholder="" id="number" value=" <%= user.addresses.number %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Ciudad:</label>
-                                            <input class="form-control" type="text" name="city" placeholder="" id="city" value=" <%= user.addresses.city %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Provincia:</label>
-                                            <input class="form-control" type="text" name="province" placeholder="" id="province" value=" <%= user.addresses.province %>">
-                                            <span class="error-profile"></span>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label class="">Código Postal:</label>
-                                            <input class="form-control" type="text" name="postalCode" placeholder="" id="postalCode" value=" <%= user.addresses.postalCode %>">
-                                            <span class="error-profile"></span>
-                                        </div>  
-                                    </div>
-                                    
-                                    
-                                </div>
 
-                                
-                                    
-                                
+                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST">
+                    <h2>Datos personales</h2>
+                    <hr>
+                    <div class="form-register"> <!--  -->
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="name" placeholder="" id="name" value="<%= user.name %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="lastName" placeholder="" id="lastName" value="<%= user.lastName %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="date" name="dateOfBirth" placeholder="" min="1900-01-01" max="3000-12-31" id="dateOfBirth" value="<%= user.dateOfBirth %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="email" name="email" placeholder="" id="email" value="<%= user.email %>" readonly>
+                            <span class="error-profile"></span>
+                        </div>
+                        <h2>Dirección de Facturación</h2>
+                        <hr>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="street" placeholder="Calle" id="street2" value="<%= user.addresses[0].street %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="number" name="number" placeholder="Número" id="number" value="<%= user.addresses[0].number %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<%= user.addresses[0].city %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="province" placeholder="Provincia" id="province" value="<%= user.addresses[0].province %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="postalCode" placeholder="Código Postal" id="postalCode" value="<%= user.addresses[0].postalCode %>">
+                            <span class="error-profile"></span>
+                        </div>
+                      
 
-                               
+                        <h2>Dirección de Envío</h2>
+                        <hr>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="street2" placeholder="Calle" id="street" value="<%= user.addresses[1].street %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="number" name="number2" placeholder="Número" id="number" value="<%= user.addresses[1].number %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="city2" placeholder="Ciudad" id="city" value="<%= user.addresses[1].city %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="province2" placeholder="Provincia" id="province" value="<%= user.addresses[1].province %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="postalCode2" placeholder="Código Postal" id="postalCode" value="<%= user.addresses[1].postalCode %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="button-container-register">
+                            <button  class="btn-whisking" type="submit">Guardar cambios</button>
+                           
+                       </div>
+                    </div>
+                </form>
+            </main>
+            <%- include('../partials/footer.ejs') %>
+    </body>
+
+</html>
 
 
-                                
-                                
-                                
-                                
-                            <br>    
-                            <hr>
-                            <!-- <h3>Cambio de contraseña</h3>
+   <!-- <h3>Cambio de contraseña</h3>
                                 <div class="profile2-info">
                                     <div class="input-container-profile2-info">
                                         <p class="profile-datos">Contraseña Actual:</p> 
@@ -130,16 +108,4 @@
                                     </div>
                                     
                                 </div>  
-                            </div>        -->                     
-                            
-                            
-                            
-                           
-                                    
-                        </form>                    
-                    </div>
-                </div>
-            </main>
-            <%- include('../partials/footer.ejs') %>
-    </body>
-</html>
+                            </div>        -->
