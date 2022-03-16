@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 // ************ Require's ************
 let express = require('express'); // requiero express
 let app = express(); //ejecuto express
