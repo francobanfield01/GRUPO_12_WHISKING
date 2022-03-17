@@ -6,11 +6,14 @@
         <%- include('../partials/header.ejs')%>
             <main class="register-main"> <!--  -->
                
-                <div style="display: flex; justify-content: center; padding: 20px 0;">
-                     <img width="150" src="/images/users/<%= user.avatar %>" alt="" >
-                </div>
+                
 
-                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST">
+                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div style="display: flex; justify-content: center; padding: 20px 0;">
+                        <img width="150" src="/images/users/<%= user.avatar %>" alt="" >
+                        <input type="file" id="avatar" name="image" hidden>
+                        <label style="cursor:pointer" for="avatar">Cambiar imágen</label>
+                   </div>
                     <h2>Datos personales</h2>
                     <hr>
                     <div class="form-register"> <!--  -->
@@ -28,6 +31,14 @@
                         </div>
                         <div class="input-container-register">
                             <input class="input-style-register" type="email" name="email" placeholder="" id="email" value="<%= user.email %>" readonly>
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="phone" placeholder="teléfono" id="phone" value="<%= user.phone %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="cellPhone" placeholder="celular" id="cellPhone" value="<%= user.cellPhone %>">
                             <span class="error-profile"></span>
                         </div>
                         <h2>Dirección de Facturación</h2>
@@ -87,6 +98,20 @@
     </body>
 
 </html>
+
+<!-- API del gobierno que lista las provincias y localidades de Argentina(select) -->
+<!-- <label class="label-select" for="">Provincia</label><br>
+<select name="province" id="select-provincias"> 
+    <option value="<%= locals.old ? old.province : user.province %>" selected hidden>Seleccione...</option>
+</select>
+<br>
+<br> 
+
+<label class="label-select" for="">Localidad</label><br>
+<select name="locality" id="select-localidades">  
+    <option value="<%= locals.old ? old.locality : user.locality %>" selected hidden>Seleccione...</option>
+</select> -->
+
 
 
    <!-- <h3>Cambio de contraseña</h3>

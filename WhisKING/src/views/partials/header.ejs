@@ -35,7 +35,13 @@
     <div class="user-icons-desktop">
         <ul>
             
-            <li><a href="/products">Productos</a></li>
+           
+            <% if (locals.user && locals.user.rol) { %>
+                <li><a>Bienvenido <%= locals.user.name %>  </a></li>
+                <% }else { %>
+                <li><a href="/products">Productos</a></li>
+                <% } %>
+
         </ul>
         <div class="user">
             <% if (locals.user ) { %>
