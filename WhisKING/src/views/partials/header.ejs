@@ -30,13 +30,9 @@
             <li><a href="/users/login">Ingresar</a></li>
         </ul>
     </nav>
-    
-      
+
+
     <div class="user-icons-desktop">
-        <ul>
-            
-            <li><a href="/products">Productos</a></li>
-        </ul>
         <div class="user">
             <% if (locals.user ) { %>
                 <i class="fas fa-user"></i><span class="session"></span>
@@ -49,10 +45,15 @@
                         <% } %>
                 </div>
                 <% } else {%>
-                    <!-- <li><a href="/users/register">Registrate</a></li> --> <!-- no hace falta -->
+                    <!-- <li><a href="/users/register">Registrate</a></li> -->
+                    <!-- no hace falta -->
                     <a href="/users/login"><i class="fas fa-user"></i></a>
                     <% } %>
         </div>
+        <ul>
+
+            <li><a href="/products">Productos</a></li>
+        </ul>
     </div>
 
 </header>
