@@ -117,32 +117,20 @@ let controller = {
     })
   },
   update: async (req, res) => {
-   /*  let errors = validationResult(req); */
+    let errors = validationResult(req);
 
     const { name, lastName, dateOfBirth, phone, cellPhone, street, number, city, province, postalCode, street2, number2, city2, province2, postalCode2 } = req.body;
 
-    const { id } = req.params;
-
-    /* if (errors.isEmpty()) {
-      let { phone, cellPhone } = req.body;
-    try {
-      await db.User.create({
-        phone,
-        cellPhone
-
-      })
-    } catch (error) {
-      
-    } */
-
-    try { /* yo se que aca primero tendria que crear los datos de phone y cellphone antes de actualizar??? */
+    const { id } = req.params;   
+   
+    try { 
       await db.User.update(
         {
           name: name.trim(),
           lastName: lastName.trim(),
           dateOfBirth,
-         /*  phone: req.params.trim(), */ /* no me guarda, ni phone ni cellphone */
-         /*  cellPhone: req.user.body.trim(), */
+          phone: req.body.phone.trim(), 
+          cellPhone: req.body.cellPhone.trim(),
           avatar: req.file ? req.file.filename : req.session.user.image
         },
         {

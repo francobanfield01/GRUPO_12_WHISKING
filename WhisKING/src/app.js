@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser')
 const cookieSession = require('./middlewares/cookieSession')
 
 const localsUserCheck = require('./middlewares/localsUserCheck')
-const guest = require('./middlewares/guest') //invitado
+/* const guest = require('./middlewares/guest') //invitado */
 
 
 //************ Middlewares  ************ Usamos el método use de app (aplicación de express), x ej intentando acceder a un archivo estático
@@ -25,7 +25,7 @@ app.use(session({
     saveUninitialized: true
     //cookie: { secure: true }
 }))
-app.use(guest);
+/* app.use(guest); */
 app.use(localsUserCheck);
 app.use(cookieParser());
 app.use(cookieSession);

@@ -6,7 +6,7 @@ let registerValidator = require('../validations/registerValidator');
 let loginValidator = require('../validations/loginValidator');
 // ************ Middlewares ************
 let uploadFile = require('../middlewares/uploadUserFiles')    //requerimos el multer, upload tiene que ver con la carga, requiriendo el middleware que acabamos de crear
-let guestMiddlewares = require('../middlewares/guest')
+/* let guestMiddlewares = require('../middlewares/guest') */
 // ************ Controller Require ************
 let controller = require('../controllers/usersController');
 
@@ -15,13 +15,13 @@ let controller = require('../controllers/usersController');
 
 
 //*GET - Show register form -Formulario de registro- crear usuario
-router.get('/register', guestMiddlewares, controller.register);
+router.get('/register', /* guestMiddlewares, */ controller.register);
 
 //*POST - Register Data -Formulario de registro ---Procesar el registro
 router.post('/register', uploadFile.single('image') , registerValidator, controller.processRegister);
 
 //*GET - Show login form -Formulario de login-
-router.get('/login', guestMiddlewares, controller.login);
+router.get('/login',/*  guestMiddlewares, */ controller.login);
 
 //*POST - Login Data -Formulario de login ---Procesar el login.
 router.post('/login',loginValidator, controller.processLogin);

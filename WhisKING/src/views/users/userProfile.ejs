@@ -52,11 +52,17 @@
                             <span class="error-profile"></span>
                         </div>
                         <div class="input-container-register">
-                            <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<%= user.addresses[0].city %>">
+                            <select name="city" id="city">
+
+                            </select>
+                           <!--  <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<= user.addresses[0].city %>"> -->
                             <span class="error-profile"></span>
                         </div>
                         <div class="input-container-register">
-                            <input class="input-style-register" type="text" name="province" placeholder="Provincia" id="province" value="<%= user.addresses[0].province %>">
+                            <select name="province" id="province">
+
+                            </select>
+                            <!-- <input class="input-style-register" type="text" name="province" placeholder="Provincia" id="province" value="<= user.addresses[0].province %>"> -->
                             <span class="error-profile"></span>
                         </div>
                         <div class="input-container-register">
@@ -95,42 +101,8 @@
                 </form>
             </main>
             <%- include('../partials/footer.ejs') %>
+            <script src="/js/apiProvinceslocalities.js"></script>
     </body>
 
 </html>
 
-<!-- API del gobierno que lista las provincias y localidades de Argentina(select) -->
-<!-- <label class="label-select" for="">Provincia</label><br>
-<select name="province" id="select-provincias"> 
-    <option value="<%= locals.old ? old.province : user.province %>" selected hidden>Seleccione...</option>
-</select>
-<br>
-<br> 
-
-<label class="label-select" for="">Localidad</label><br>
-<select name="locality" id="select-localidades">  
-    <option value="<%= locals.old ? old.locality : user.locality %>" selected hidden>Seleccione...</option>
-</select> -->
-
-
-
-   <!-- <h3>Cambio de contraseña</h3>
-                                <div class="profile2-info">
-                                    <div class="input-container-profile2-info">
-                                        <p class="profile-datos">Contraseña Actual:</p> 
-                                        <input class="input-style-userProfile" type="password" name="pass" placeholder="" id="contrasenia">
-                                        <span class="error-profile">Debes ingresar la contraseña actual</span>
-                                    </div>
-                                    <div class="input-container-profile2-info">
-                                        <p class="profile-datos">Contraseña Nueva:</p> 
-                                        <input class="input-style-userProfile" type="password" name="pass" placeholder="" id="contrasenia">
-                                        <span class="error-profile">Debes ingresar una Nueva contraseña</span>
-                                    </div>
-                                    <div class="input-container-profile2-info">
-                                        <p class="profile-datos">Confirmar Nueva Contraseña:</p> 
-                                        <input class="input-style-userProfile" type="password" name="pass2" placeholder="" id="contrasenia2">
-                                        <span class="error-profile">Debes ingresar confirmar una Nueva Contraseña</span>
-                                    </div>
-                                    
-                                </div>  
-                            </div>        -->
