@@ -1,4 +1,3 @@
-<!-- views/index.ejs, productCart.ejs, login.ejs, register.ejs, productDetails.ejs-->
 <header>
     <div>
         <a href="/">
@@ -53,6 +52,13 @@
                     <a href="/users/login"><i class="fas fa-user"></i></a>
                     <% } %>
         </div>
+        <ul>
+            <% if (locals.user && locals.user.rol) { %>
+                <li><a>Bienvenido <%= locals.user.name %> </a></li>
+                <% }else { %>
+                    <li><a href="/products">Productos</a></li>
+                    <% } %>
+        </ul>
     </div>
 
 </header>
