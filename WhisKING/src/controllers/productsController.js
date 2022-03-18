@@ -18,31 +18,31 @@ let controller = {
 	},
 	list: (req, res) => {     //iria admin/products/admintProducts
 		db.Product.findAll({
-			include: [{association: 'images'}]
+			include: [{ association: 'images' }]
 		})
-		.then(products => {
-			//res.send(products)
-			res.render('products/productsList', {
-				products,
-				toThousand,
-				session: req.session
+			.then(products => {
+				//res.send(products)
+				res.render('products/productsList', {
+					products,
+					toThousand,
+					session: req.session
+				})
 			})
-		})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		db.Product.findByPk(req.params.id, {
-			include: [{association: 'images' }]
+			include: [{ association: 'images' }]
 		})
-		.then(product => {
-			res.render('products/productDetail', {
-				product,
-				session: req.session,
-				toThousand
-			}) 
-		}
-		)
+			.then(product => {
+				res.render('products/productDetail', {
+					product,
+					session: req.session,
+					toThousand
+				})
+			}
+			)
 	},
 	// Create - Form to create
 	create: (req, res) => {     //iria a admin/products/adminProducts
@@ -60,7 +60,7 @@ let controller = {
 	},
 	// Create -  Method to store
 	store: (req, res) => {		//admin/products/admintProductsCreateForm
-		
+
 		let errors = validationResult(req)
 		let arrayImages = []
 		if (req.files) {
@@ -206,44 +206,39 @@ let controller = {
 				}
 			})
 				.then(() => {
-					
+
 					if (arrayImages.length > 0) {
 						db.Image.findAll({
 							where: {
-								productId : +req.params.id
+								productId: +req.params.id
 							}
 						})
-						.then(images => {
-							images.forEach(image => {
-								/*if (fs.existsSync('./public/images/products', image.name) && (image.name !== "default-image.png")) {
-									fs.unlinkSync(`./public/images/products/${product.image}`)
-								} else {
-									console.log('No encontró el archivo');  
-								}*/
-								fs.existsSync('./public/images/products/', image.name)
-								? fs.unlinkSync(`./public/images/products/${image.name}`)
-								: console.log('No se encontró el archivo')
-							})
-							db.Image.destroy({
-								where: {
-									productId: +req.params.id
-								}
-							})
-								.then(() => {
-									let images = arrayImages.map(image => {
-										return {
-											name: image,
-											productId: +req.params.id
-										}
-									})
-									db.Image.bulkCreate(images)
-										.then(() => {
-											res.redirect(`/products/detail/${req.params.id}`)
-										})
-										.catch(err => console.log(err))
+							.then(images => {
+								images.forEach(image => {
+									fs.existsSync('./public/images/products/', image.name)
+										? fs.unlinkSync(`./public/images/products/${image.name}`)
+										: console.log('No se encontró el archivo')
 								})
+								db.Image.destroy({
+									where: {
+										productId: +req.params.id
+									}
+								})
+									.then(() => {
+										let images = arrayImages.map(image => {
+											return {
+												name: image,
+												productId: +req.params.id
+											}
+										})
+										db.Image.bulkCreate(images)
+											.then(() => {
+												res.redirect(`/products/detail/${req.params.id}`)
+											})
+											.catch(err => console.log(err))
+									})
 
-						})
+							})
 
 					} else {
 						res.redirect("/")
@@ -300,26 +295,35 @@ let controller = {
 	},
 
 	// Delete - Delete one product from DB
-	destroy: (req, res) => { 
+	destroy: (req, res) => {
 		db.Image.findAll({
 			where: {
 				productId: +req.params.id
 			}
 		})
-		.then(images => {
-
+			.then(images => {
+				images.forEach(image => {
+					fs.existsSync('./public/images/products/', image.name)
+						? fs.unlinkSync(`./public/images/products/${image.name}`)
+						: console.log('No se encontró el archivo')
+				})
+				db.Image.destroy({
+					where: {
+						productId: +req.params.id
+					}
+				})
+			})
+			.then(() => {
+				db.Product.destroy({
+					where: {
+						id: +req.params.id
+					}
+				})
+			.then(() => {
+				res.redirect('/')
+			})
+			.catch((err => console.log(err)))
 		})
-		db.Product.destroy({
-			where: {
-				id: +req.params.id
-			}
-		})
-		.then(()=> {
-			res.redirect('/')
-		})
-		.catch((err => console.log(err)))
-
-
 
 	}
 
