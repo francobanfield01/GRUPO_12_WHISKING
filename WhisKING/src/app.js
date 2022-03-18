@@ -38,7 +38,7 @@ app.set('views', path.join(__dirname, 'views')) //define la ubicacion de la carp
 let mainRouter = require('./routes/main');  //middleware a nivel aplicación
 let productsRouter = require('./routes/products');  //middleware a nivel aplicación
 let usersRouter = require('./routes/users')  //middleware a nivel aplicación
-/* let adminRouter = require('./routes/admin');  */ // middleware a nivel aplicación,  nuevo --> controllers/adminController.js, routes/admin.js
+let adminRouter = require('./routes/admin'); // middleware a nivel aplicación,  nuevo --> controllers/adminController.js, routes/admin.js
 //let userLogs = require('./middlewares/userLogs')  // middleware a nivel de aplicación  nuevo para saber donde ingreso
 
 
@@ -55,7 +55,7 @@ app.use((req, res) => {
 app.use('/', mainRouter);  //middleware a nivel aplicación
 app.use('/products', productsRouter);  //middleware a nivel aplicación
 app.use('/users', usersRouter);   //middleware a nivel aplicación
-/* app.use('/admin', adminRouter); */  //middleware a nivel aplicación----- nuevo 
+app.use('/admin', adminRouter);  //middleware a nivel aplicación----- nuevo 
 
 
 //*********** * ERROR 404  * *********** siempre al final de las rutas  nuevo
