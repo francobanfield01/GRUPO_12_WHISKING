@@ -6,11 +6,14 @@
         <%- include('../partials/header.ejs')%>
             <main class="register-main"> <!--  -->
                
-                <div style="display: flex; justify-content: center; padding: 20px 0;">
-                     <img width="150" src="/images/users/<%= user.avatar %>" alt="" >
-                </div>
+                
 
-                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST">
+                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div style="display: flex; justify-content: center; padding: 20px 0;">
+                        <img width="150" src="/images/users/<%= user.avatar %>" alt="" >
+                        <input type="file" id="avatar" name="image" hidden>
+                        <label style="cursor:pointer" for="avatar">Cambiar imágen</label>
+                   </div>
                     <h2>Datos personales</h2>
                     <hr>
                     <div class="form-register"> <!--  -->
@@ -30,6 +33,14 @@
                             <input class="input-style-register" type="email" name="email" placeholder="" id="email" value="<%= user.email %>" readonly>
                             <span class="error-profile"></span>
                         </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="phone" placeholder="teléfono" id="phone" value="<%= user.phone %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="cellPhone" placeholder="celular" id="cellPhone" value="<%= user.cellPhone %>">
+                            <span class="error-profile"></span>
+                        </div>
                         <h2>Dirección de Facturación</h2>
                         <hr>
                         <div class="input-container-register">
@@ -41,11 +52,17 @@
                             <span class="error-profile"></span>
                         </div>
                         <div class="input-container-register">
-                            <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<%= user.addresses[0].city %>">
+                            <select name="city" id="city">
+
+                            </select>
+                           <!--  <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<= user.addresses[0].city %>"> -->
                             <span class="error-profile"></span>
                         </div>
                         <div class="input-container-register">
-                            <input class="input-style-register" type="text" name="province" placeholder="Provincia" id="province" value="<%= user.addresses[0].province %>">
+                            <select name="province" id="province">
+
+                            </select>
+                            <!-- <input class="input-style-register" type="text" name="province" placeholder="Provincia" id="province" value="<= user.addresses[0].province %>"> -->
                             <span class="error-profile"></span>
                         </div>
                         <div class="input-container-register">
@@ -84,28 +101,8 @@
                 </form>
             </main>
             <%- include('../partials/footer.ejs') %>
+            <script src="/js/apiProvinceslocalities.js"></script>
     </body>
 
 </html>
 
-
-   <!-- <h3>Cambio de contraseña</h3>
-                                <div class="profile2-info">
-                                    <div class="input-container-profile2-info">
-                                        <p class="profile-datos">Contraseña Actual:</p> 
-                                        <input class="input-style-userProfile" type="password" name="pass" placeholder="" id="contrasenia">
-                                        <span class="error-profile">Debes ingresar la contraseña actual</span>
-                                    </div>
-                                    <div class="input-container-profile2-info">
-                                        <p class="profile-datos">Contraseña Nueva:</p> 
-                                        <input class="input-style-userProfile" type="password" name="pass" placeholder="" id="contrasenia">
-                                        <span class="error-profile">Debes ingresar una Nueva contraseña</span>
-                                    </div>
-                                    <div class="input-container-profile2-info">
-                                        <p class="profile-datos">Confirmar Nueva Contraseña:</p> 
-                                        <input class="input-style-userProfile" type="password" name="pass2" placeholder="" id="contrasenia2">
-                                        <span class="error-profile">Debes ingresar confirmar una Nueva Contraseña</span>
-                                    </div>
-                                    
-                                </div>  
-                            </div>        -->

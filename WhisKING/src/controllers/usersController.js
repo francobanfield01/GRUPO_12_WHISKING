@@ -1,7 +1,9 @@
 let { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");/* para hasheo */
+const fs = require('fs');
 
-const db = require('../database/models')
+const db = require('../database/models');
+const { param } = require("../routes/main");
 
 let controller = {
   register: (req, res) => {
@@ -12,7 +14,7 @@ let controller = {
     /*  return res.send(req.body)  *//* para saber como me llega al body */
     /* return res.send(req.file) */ /* para ver si carga la imagen en el registro */
     if (errors.isEmpty()) {
-      let { name, last_name, date_of_birth, email, pass } = req.body;
+      let { name, last_name, date_of_birth, email, pass } = req.body; //destructuring
 
       db.User.create({
         name: name.trim(),
@@ -88,12 +90,6 @@ let controller = {
         return res.redirect("/");
       }).catch(error => console.log(error))
 
-
-
-
-
-
-
     } else {
       res.render("users/login", {
         errors: errors.mapped(),
@@ -121,17 +117,21 @@ let controller = {
     })
   },
   update: async (req, res) => {
+    let errors = validationResult(req);
 
-    const { name, lastName, dateOfBirth, street, number, city, province, postalCode, street2, number2, city2, province2, postalCode2 } = req.body;
+    const { name, lastName, dateOfBirth, phone, cellPhone, street, number, city, province, postalCode, street2, number2, city2, province2, postalCode2 } = req.body;
 
-    const { id } = req.params;
-
-    try {
+    const { id } = req.params;   
+   
+    try { 
       await db.User.update(
         {
           name: name.trim(),
           lastName: lastName.trim(),
-          dateOfBirth
+          dateOfBirth,
+          phone: req.body.phone.trim(), 
+          cellPhone: req.body.cellPhone.trim(),
+          avatar: req.file ? req.file.filename : req.session.user.image
         },
         {
           where: {
@@ -183,6 +183,22 @@ let controller = {
     } catch (error) {
       console.log(error)
     }
+
+    try {
+      if(req.file){
+                    
+        if(fs.existsSync('public/images/users/' + req.session.user.avatar) && req.session.user.avatar != "default-img.png"){
+            fs.unlinkSync('public/images/users/' + req.session.user.avatar)
+        }
+        req.session.user.avatar = req.file.filename
+    }
+
+     
+    } catch (error) {
+      console.log(error)
+
+    }
+    req.session.user.image = req.file ? req.filename : req.session.user.image
     return res.redirect("/users/profile")
   }
 };

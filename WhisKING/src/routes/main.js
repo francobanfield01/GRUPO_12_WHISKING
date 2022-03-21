@@ -1,6 +1,7 @@
 let express = require('express')
 let router = express.Router();
 let controller = require('../controllers/mainController');
+let guestMiddlewares = require('../middlewares/guest'); //invitado
 
 let db = require('../database/models')
 
@@ -16,7 +17,7 @@ router.get('/products/all', (req, res) => {
 })
 
 //*** GET PRODUCT-CART ***/
-router.get('/productCart', controller.cart)
+router.get('/productCart', guestMiddlewares, controller.cart)
 
 
 

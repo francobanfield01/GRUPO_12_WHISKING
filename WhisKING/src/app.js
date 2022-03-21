@@ -11,12 +11,13 @@ const cookieParser = require('cookie-parser')
 const cookieSession = require('./middlewares/cookieSession')
 
 const localsUserCheck = require('./middlewares/localsUserCheck')
+/* const guest = require('./middlewares/guest') //invitado */
 
 
 //************ Middlewares  ************ Usamos el método use de app (aplicación de express), x ej intentando acceder a un archivo estático
 app.use(express.static(path.join(__dirname, '../public')));  //middleware a nivel aplicación, es dónde tenemos que ir a buscar los recursos estaticos de nuestra aplicación
 app.use(express.json());  //middleware a nivel aplicación
-app.use(express.urlencoded({ extended: false }));  //middleware a nivel aplicación
+app.use(express.urlencoded({ extended: false }));   //middleware a nivel aplicación
 app.use(methodOverride('_method'));  //middleware a nivel aplicación
 app.use(session({
     secret: "theWhisking",
@@ -24,9 +25,10 @@ app.use(session({
     saveUninitialized: true
     //cookie: { secure: true }
 }))
+/* app.use(guest); */
 app.use(localsUserCheck);
-app.use(cookieParser())
-app.use(cookieSession)
+app.use(cookieParser());
+app.use(cookieSession);
 
 // ************ Template Engine  ************
 app.set('view engine', 'ejs'); // Setea el template engine
@@ -38,7 +40,7 @@ app.set('views', path.join(__dirname, 'views')) //define la ubicacion de la carp
 let mainRouter = require('./routes/main');  //middleware a nivel aplicación
 let productsRouter = require('./routes/products');  //middleware a nivel aplicación
 let usersRouter = require('./routes/users')  //middleware a nivel aplicación
-let adminRouter = require('./routes/admin'); // middleware a nivel aplicación,  nuevo --> controllers/adminController.js, routes/admin.js
+let adminRouter = require('./routes/admin');  // middleware a nivel aplicación,  nuevo --> controllers/adminController.js, routes/admin.js
 //let userLogs = require('./middlewares/userLogs')  // middleware a nivel de aplicación  nuevo para saber donde ingreso
 
 
