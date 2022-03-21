@@ -1,4 +1,3 @@
-//let { products , writeProductsJSON } = require('../database/dataBase')
 const fs = require('fs');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 let db = require('../database/models')
