@@ -1,0 +1,16 @@
+.body-admin-products nav ul.nav-menu-create{
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    margin-right: 0.5rem;
+    padding-bottom: 2rem
+}
+
+.body-admin-products .admin-products-title {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.body-admin-products .id-products {
+    padding-left: 1.5rem
+}
