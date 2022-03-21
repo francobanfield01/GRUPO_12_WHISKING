@@ -23,7 +23,7 @@ let controller = {
         email: email.trim(),
         pass: bcrypt.hashSync(pass, 10),
         rol: false, /* se guarda en la bddatos como un cero */
-        avatar: req.file ? req.file.filename : "default-image-perfil.png"
+        avatar: req.file ? req.file.filename : "default-image-profile.png"
       }).then(async (user) => { /* recomendable que levante sesion, lo muestro por consola el obj que me devuelve user */
 
         try {
@@ -115,6 +115,7 @@ let controller = {
       })
 
     })
+    .catch(error => console.log(error))
   },
   update: async (req, res) => {
     let errors = validationResult(req);
@@ -131,17 +132,34 @@ let controller = {
           dateOfBirth,
           phone: req.body.phone.trim(), 
           cellPhone: req.body.cellPhone.trim(),
-          avatar: req.file ? req.file.filename : req.session.user.image
+          avatar: req.file ? req.file.filename : req.session.user.image 
         },
         {
           where: {
-            id
+            id: req.session.user.id
           }
         }
       )
     } catch (error) {
       console.log(error)
     }
+
+    try {
+      if(req.file){
+                    
+        if(fs.existsSync('public/images/users/' + req.session.user.image) && req.session.user.image != "default-image-profile.png"){
+            fs.unlinkSync('public/images/users/' + req.session.user.image)
+        }
+        req.session.user.image = req.file.filename
+    }
+    /* req.session.user.image = req.file ? req.filename : req.session.user.image */
+
+     
+    } catch (error) {
+      console.log(error)
+
+    }
+
     try{
       await db.Address.update(
         {
@@ -184,21 +202,8 @@ let controller = {
       console.log(error)
     }
 
-    try {
-      if(req.file){
-                    
-        if(fs.existsSync('public/images/users/' + req.session.user.avatar) && req.session.user.avatar != "default-img.png"){
-            fs.unlinkSync('public/images/users/' + req.session.user.avatar)
-        }
-        req.session.user.avatar = req.file.filename
-    }
-
-     
-    } catch (error) {
-      console.log(error)
-
-    }
-    req.session.user.image = req.file ? req.filename : req.session.user.image
+    
+    
     return res.redirect("/users/profile")
   }
 };
