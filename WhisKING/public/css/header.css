@@ -11,8 +11,6 @@ header a img {
     margin-top: 5%;
     width: 150px;
     
-  
-   
 }
 header .container{
     position: relative;
@@ -250,6 +248,9 @@ header .container{
 /* .buscar:hover  .search-bar{
 width: 200px;
     } */
+    header a img {
+        width: 180px;
+    }
 header .container{
     margin-right: 2rem;
 }
@@ -265,9 +266,13 @@ header .buscar{
 header input.search-bar{
     margin-right: 170px;
 }
+header.headerCreate a img {
+    width: 180px;
 }
 
+
 @media(min-width:1024px) {
+}
 /* .buscar:hover  .search-bar{
 width: 300px;
     } */
@@ -275,4 +280,7 @@ header nav label.bar-btn{
 display: none;
     }
 
+
+
+    
 }

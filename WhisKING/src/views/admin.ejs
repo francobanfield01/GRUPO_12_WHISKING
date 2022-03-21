@@ -3,7 +3,7 @@
 
 <%- include('./partials/headAdmin.ejs', {title: 'Admin - The WhisKING Argentina' })%>
 
-    <body class="body-create">
+    <body class="body-admin-products">
         <%- include('./partials/headerAdmin.ejs')%>
             <main class="row  my-5">
                 <div class="col-12 col-md-10 col-lg-8 mx-auto">
@@ -11,13 +11,13 @@
 
                     <div class="card shadow">
                         <div class="card-header">
-                            <h4>Productos</h4>
+                            <h4 class="admin-products-title pt-2">Administrar productos</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th scope="col">ID</th>
                                             <th scope="col">Imagen</th>
                                             <th scope="col">Nombre</th>
@@ -30,8 +30,8 @@
                                     </thead>
                                     <tbody>
                                         <% products.forEach(product=> { %>
-                                            <tr>
-                                                <th scope="row">
+                                            <tr class="text-center">
+                                                <th class="row id-products">
                                                     <%= product.id %>
                                                 </th>
                                                 <td><img class="w-25"
@@ -95,7 +95,7 @@
                                                                                 <span><%- product.discount > 0 ? `${product.discount} % OFF` : "" %></span>
                                                                             </div>
                                                                             <div class="button-container">
-                                                                                <button class="comprar btn-whisking">Comprar</button>                    
+                                                                                                  
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -14,21 +14,17 @@
           <h3 class="ofertas-home">OFERTAS LIMITADAS</h3>
         </div>
 
-        <% productsInsale.forEach(products=> { %>
+        <% productsInSale.forEach(product=> { %>
         <div class="articulos">
-          <a href="/products/detail/ <%- products.id %>">
+          <a href="/products/detail/<%- product.id %>">
             <article class="card-home">
-              <img
-                src="images/products/<%- products.image %>"
-                width="100%"
-                alt="<%- products.name %>"
-              />
-
+              <img src="images/products/<%= product.images[0].name %>" width="100%"
+                                    alt="<%- product.name %>"/>
               <div class="card-content-home">
-                <h5><%- products.name %></h5>
+                <h5><%- product.name %></h5>
                 <p>
-                  $<%- toThousand(products.price -
-                  products.price*products.discount/100) %>
+                  $<%- toThousand(product.price -
+                  product.price*product.discount/100) %>
                 </p>
               </div>
             </article>
@@ -36,17 +32,16 @@
         </div>
         <% }) %>
       </section>
-
       <section>
         <div class="subtitle-home">
-          <h3 class="ofertas-home">PRODUCTOS DESTACADOS</h3>
+          <h3 class="ofertas-home">NOVEDADES</h3>
         </div>
-        <% productsStandOut.forEach(products=> { %>
+        <% productsNews.forEach(products=> { %>
         <div class="articulos">
-          <a href="/products/detail/ <%- products.id %>">
+          <a href="/products/detail/<%- products.id %>">
             <article class="card-home">
               <img
-                src="images/products/<%- products.image %>"
+                src="images/products/<%= products.images[0].name %>"
                 width="100%"
                 alt="<%- products.name %>"
               />
@@ -59,6 +54,7 @@
         </div>
         <% }) %>
       </section>
+      
     </main>
     <%- include('./partials/footer.ejs') %>
   </body>

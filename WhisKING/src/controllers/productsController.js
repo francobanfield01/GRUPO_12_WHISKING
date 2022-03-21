@@ -8,15 +8,8 @@ const { validationResult } = require("express-validator")
 
 
 let controller = {
-	// Root - Show all products NO FUNCIONA
-	index: (req, res) => {    //iria en admin/adminIndex
-		res.render('index', {
-			products,
-			toThousand,
-			session: req.session
-		})
-	},
-	list: (req, res) => {     //iria admin/products/admintProducts
+	//Listado de todos los productos.
+	list: (req, res) => {     
 		db.Product.findAll({
 			include: [{ association: 'images' }]
 		})
@@ -108,7 +101,6 @@ let controller = {
 		} else {
 			db.Category.findAll()
 				.then(categories => {
-					console.log(categories)
 					res.render("products/productCreate", {
 						session: req.session,
 						categories,
