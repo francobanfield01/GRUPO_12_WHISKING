@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+    <%- include('../partials/head.ejs',  {title:`Editar Producto: ${product.name} - The WhisKING Argentina`} )%> 
+   
+<!-- {title: product.name}  -->
+<body class="body-edit">
+    <!-- HeaderAdmin -->
+    <%- include('../partials/headerAdmin.ejs')%> 
+    <!-- /Header -->
+   
+    <main class="edit-main">
+        <form action="/products/edit/<%- product.id  %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
+            <div class="form-edit">   <!-- css class="form-create" -->
+                <section class="mediaEdit1"> <!--  css class="mediaCreate1"   -->                         
+                        <h2>Estas editando: <i><%= product.name  %></i></h2> <!-- reemplazar PRODUCT NAME con ejs, le ponemos un '=' porque es una variable que esta llegando de la B.de datos del controlador -->
+                    <div class="section-edit"> <!-- css class="section-create"  -->
+                        <p>nombre del producto</p>
+                        <input class="" type="text" name="name" placeholder="" id="productName" value="<%= product.name  %>"> <!-- PREGUNTAR AL EQUIPO xq id="productName" y  NO id="name"  -->
+                        <span class="error-message-edit">Debes ingresar el nombre del producto</span>
+                    </div>
+                    <div class="section-edit"> <!-- css class="section-create" -->
+                        <p>categoria</p>
+                        <!-- <input class="" type="text" name="category" placeholder="" id="category" value="<%= product.category  %>"> -->
+                        <select name="category" id="">
+                            <option value="0" hidden></option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%- category.id  %>" <%- category.id == product.categoryId ? "selected" : ""  %> ><%- category.name %> </option>
+                            <% }) %>
+                        </select>
+                        <span class="error-message-edit">Debes ingresar la categoria del producto</span>
+                    </div>
+                    <div class="price-discount">
+                        <div class="section-edit"> <!-- css class="section-create" -->
+                            <p>precio</p>
+                            <input class="" type="text" name="price" placeholder="" id="price" value="<%= product.price  %>">
+                            <span class="error-message-edit">Debes ingresar el precio</span>
+                        </div>
+    
+                        <div class="section-edit discount"> <!--  css class="section-create stock"  -->
+                            <p>Descuento</p>
+                            <input class="input-discount" type="" name="discount" placeholder="" id="discount" value="<%= product.discount %>">    
+                        </div>
+                    </div>
+
+
+
+                    <div class="section-edit"> <!-- css class="section-create" -->
+                        <p>descripción</p>
+                        <textarea class="" type="" name="description" placeholder="" id="description"><%= product.description  %></textarea>
+                        <span class="error-message-edit">Debes ingresar una descripción del producto</span>
+                    </div>
+
+                    <div class="section-create">
+                        <p>cata</p>
+                        <textarea class="" type="" name="tasting" placeholder="" id="tasting"><%= product.tasting  %></textarea>
+                    </div>
+                    <div class="origin-stock">
+                        <div class="section-create">
+                            <p>origen</p>
+                            <input class="" type="" name="origin" placeholder="" id="origin" value="<%= product.origin  %>">
+                        </div>
+                        <div class="section-create stock">
+                            <p>Stock</p>
+                            <input class="input-stock" type="" name="stock" placeholder="" id="stock" value="<%= product.stock  %>">
+                            <span class="error-message-create">Debes ingresar el stock inicial</span>    
+                        </div>
+                    </div>
+
+                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
+                        
+                        <div class="section-edit">
+                            <p>Cargar foto</p>
+                            <input type="file" name="image" class="" id="" multiple > <!-- usamos el name del input=file para  -->
+                            
+                        </div>
+                    </div>
+                    <div class="botones">
+                            
+                            <!--  <button type="submit" class="botonCancel" >cancelar</button> -->
+                        <div class="button-public-edit">
+                            <button type="submit" class="buttonCreate">actualizar</button>
+                        </div>
+                        </div>                      
+                        
+                    </div>
+                </section>
+
+            </div>   
+        </form> 
+        <div></div><a href="/products/detail/<%- product.id %>"><button class="buttonCancel">cancelar</button></a>
+        <form action="/products/<%- product.id  %>?_method=DELETE" method="POST">
+             <!--reemplazar /products/delete/¿? por el producto.id con ejs, borramos el delete  -->
+            <div class="div-delete">
+                <button type="submit" class="buttonDelete">eliminar</button>
+            </div> <!-- lo hice asi fuera del form porque  -->
+        </form>
+    </main>
+    
+    <%-include('../partials/footerAdmin.ejs')%> 
+</body>
+
+</html>
