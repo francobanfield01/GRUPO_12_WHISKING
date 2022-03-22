@@ -70,6 +70,19 @@
                             </div>
                             <div class="input-container-register">
                                 <select name="city" id="city">
+                        <div class="input-container-register">
+                            <select name="city" id="select-city">
+                                <option value="<%= locals.old ? old.city : user.addresses[0].city %>"><%= user.addresses[0].city  %></option>
+
+                            </select>
+                           <!--  <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<= user.addresses[0].city %>"> -->
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="postalCode" placeholder="Código Postal" id="postalCode" value="<%= user.addresses[0].postalCode %>">
+                            <span class="error-profile"></span>
+                        </div>
+                      
 
                                 </select>
                                 <!--  <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<= user.addresses[0].city %>"> -->
@@ -123,11 +136,44 @@
 
                             </div>
                         </div>
+                        <div class="input-container-register">
+                            <select name="province2" id="select-province2">
+                                <option value="<%= locals.old ? old.province : user.addresses[1].province %>"><%= user.addresses[1].province  %></option>
+
+                            </select>
+                            <!-- <input class="input-style-register" type="text" name="province" placeholder="Provincia" id="province" value="<= user.addresses[0].province %>"> -->
+                            <span class="error-profile"></span>
+                        </div>
+                        <!-- <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="city2" placeholder="Ciudad" id="city" value="< user.addresses[1].city %>">
+                            <span class="error-profile"></span>
+                        </div> -->
+                        <div class="input-container-register">
+                            <select name="city2" id="select-city2">
+                                <option value="<%= locals.old ? old.city : user.addresses[1].city %>"><%= user.addresses[1].city  %></option>
+
+                            </select>
+                           <!--  <input class="input-style-register" type="text" name="city" placeholder="Ciudad" id="city" value="<= user.addresses[0].city %>"> -->
+                            <span class="error-profile"></span>
+                        </div>
+                        <!-- <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="province2" placeholder="Provincia" id="province" value="< user.addresses[1].province %>">
+                            <span class="error-profile"></span>
+                        </div> -->
+                        <div class="input-container-register">
+                            <input class="input-style-register" type="text" name="postalCode2" placeholder="Código Postal" id="postalCode" value="<%= user.addresses[1].postalCode %>">
+                            <span class="error-profile"></span>
+                        </div>
+                        <div class="button-container-register">
+                            <button  class="btn-whisking" type="submit">Guardar cambios</button>
+                           
+                       </div>
                     </div>
                 </form>
             </main>
             <%- include('../partials/footer.ejs') %>
                 <script src="/js/apiProvinceslocalities.js"></script>
+            <script src="/js/apiProvinceslocalities.js" defer></script>
     </body>
 
 </html>

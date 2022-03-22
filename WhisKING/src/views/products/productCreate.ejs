@@ -1,94 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head.ejs', {title: 'Crear Producto - The WhisKING Argentina'})%> 
+    <%- include('../partials/headAdmin', {title: 'Crear Producto - The WhisKING Argentina'})%> 
 
-<body class="body-create">
+<body class="body-admin-products">
     <%- include('../partials/headerAdmin.ejs')%> 
-    <main class="create-main">
-        <form action="/products/create" method="POST" enctype="multipart/form-data">
-            <div class="form-create">   
-                <section class="mediaCreate1">
-                    <h2>Crear Producto</h2>
-                    <div class="section-create">
-                        <p>nombre del producto</p>
-                        <input class="" type="" name="name" placeholder="" id="productName">
-                        <span class="error-message-create">Debes ingresar el nombre del producto</span>
-                    </div>
-                    <div class="section-create">
-                        <p>categoria</p>
-                        <select name="category" id="">
-                            <option value="0" hidden>Seleccione una categoría</option>
-                            <% categories.forEach(category => { %>
-                                <option value="<%- category.id  %> "><%- category.name %> </option>
-                            <% }) %>
-                        </select>
-                        <span class="error-message-create">Debes ingresar la categoria del producto</span>
-                    </div>                    
-                    <div class="price-discount">
-                        <div class="section-create">
-                            <p>precio</p>
-                            <input class="" type="" name="price" placeholder="" id="price">
-                            <span class="error-message-create">Debes ingresar el precio</span>
-                        </div>
-    
-                        <div class="section-create discount">
-                            <p>Descuento</p>
-                            <input class="input-discount" type="" name="discount" placeholder="" id="discount">    
-                        </div>
-                    </div>
-                    <div class="section-create">
-                        <p>descripción</p>
-                        <textarea class="" type="" name="description" placeholder="" id="description"></textarea>
-                        <span class="error-message-create">Debes ingresar una descripción del producto</span>
-                    </div>
-                    <div class="section-create">
-                        <p>cata</p>
-                        <textarea class="" type="" name="tasting" placeholder="" id="tasting"></textarea>
-                    </div>
-                    <div class="origin-stock">
-                        <div class="section-create">
-                            <p>origen</p>
-                            <input class="" type="" name="origin" placeholder="" id="origin">
-                        </div>
-                        <div class="section-create stock">
-                            <p>Stock</p>
-                            <input class="input-stock" type="" name="stock" placeholder="" id="stock">
-                            <span class="error-message-create">Debes ingresar el stock inicial</span>    
-                        </div>
-                    </div>
-                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
-                        <div class="section-create">
-                            <p>Cargar foto</p>
-                            <input type="file" name="image" class="" id="" multiple> <!-- usamos el name del input=file para  -->
-                            
-                        </div>
-                    </div>
-                    <div class="botones">
-                        <div class="button-cancel-create">
-                            <button type="submit" class="buttonCancel">cancelar</button>
-                        </div>
-                        <div class="button-public-create">
-                            <button type="submit" class="buttonCreate">publicar</button>
-                        </div>
-                    </div>
-                    
-                </section>
-                <!-- <section class="mediaCreate2"> 
-                  Comento esta seccion, hasta cuando sepamos renderizar una previa de la imagen cargada con multer  
-                    <div class="section-create">
-                        <p>imágen</p>
-                        <i class="far fa-image"></i>
-                        <button type="submit" class="addImage">agrega una imagen</button>
-
-                    </div>
-                </section> -->
-                
+    <div class="container">
+    <main class="row my-5">
+        <div class="col-12 col-md-10 col-lg-8 mx-auto">
+            <div class="card-header">
+                <h4 class="admin-products-title pt-2">Agregar producto</h4>
             </div>
-        </form>
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="/products/create" method="POST" enctype="multipart/form-data" class="row needs-validation" novalidate>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <label for="name">Nombre del producto</label>
+                                    <div class="input-group has-validation">
+                                    <input class="form-control" type="text" name="name" placeholder="" id="name" required>
+                                    <div class="invalid-feedback">
+                                        El nombre es obligatorio.
+                                      </div>
+                                    </div>
+                                    <span class="error-message-create" id="errorName"></span>
+                                </div>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <label for="category">Categoria</label>
+                                    <div class="input-group has-validation">
+
+                                    <select name="category" id="category" class="form-select" required>
+                                        <option value="" hidden selected>Seleccione una categoría</option>
+                                        <% categories.forEach(category => { %>
+                                            <option value="<%- category.id  %> "><%- category.name %> </option>
+                                        <% }) %>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        La categoría es requerida.
+                                      </div>
+                                    </div>
+                                    <span class="error-message-create" id="errorCategory"></span>
+                                </div>                    
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="price">Precio</label>
+                                        <div class="input-group has-validation">
+
+                                        <input class="form-control" type="" name="price" placeholder="" id="price" required>
+                                        <div class="invalid-feedback">
+                                            Debes indicar el precio.
+                                          </div>
+                                    </div>
+                                        <span class="error-message-create" id="errorPrice"></span>
+                                    </div>
+                
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="discount">Descuento</label>
+                                        <input class="form-control" type="number" name="discount" placeholder="" id="discount" required>    
+                                    </div>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <label for="description">Descripción</label>
+                                    <div class="input-group has-validation">
+
+                                    <textarea class="form-control" name="description" placeholder="" id="description" style="resize: none;" required></textarea>
+                                    <div class="invalid-feedback">
+                                        La descripción es obligatorio
+                                      </div>
+                                </div>
+                                    <span class="error-message-create" id="errorDescription"></span>
+                                </div>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <label for="tasting">Cata</label>
+                                    <textarea class="form-control" name="tasting" placeholder="" id="tasting" style="resize: none;"></textarea>
+                                    
+                                </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="origin">Origen</label>
+                                        <input class="form-control" type="text" name="origin" placeholder="" id="origin">
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="stock">Stock</label>
+                                        <div class="input-group has-validation">
+                                        <input class="form-control" type="number" name="stock" placeholder="" id="stock" required>
+                                        <div class="invalid-feedback">
+                                            Indicá el stock
+                                          </div>
+                                        </div>
+                                        <span class="error-message-create" id="errorStock"></span>    
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3 mt-3">
+                                        <label for="images" class="btn btn-outline-secondary w-100" id="btnImages">Cargar imágenes</label>
+                                        <input type="file" name="image" class="form-control" id="images" multiple hidden>
+                                        <span class="error-message-create" id="imageError"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mt-3 d-flex justify-content-around" id="preview">
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3 d-flex justify-content-end px-3">
+                                    <div class="button-cancel-create">
+                                        <button type="button" class="buttonCancel" onclick="window.location.href = '/admin'">cancelar</button>
+                                    </div>
+                                    <div class="button-public-create">
+                                        <button type="submit" class="buttonCreate">publicar</button>
+                                    </div>
+                                </div>
+                                
+                            
+                    </form>
+                </div>
+            </div>
+        </div>
+      
+    </div>
 
     </main>
     <%-include('../partials/footerAdmin.ejs')%> 
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+
+const regExExt = /(.jpg|.jpeg|.png|.gif|.webp)$/i;
+var preview = document.querySelector('#preview');
+
+        document.getElementById('images').addEventListener('change', function (e) {
+    switch (true) {
+        case !regExExt.exec(this.value):
+            imageError.innerHTML = "Solo imágenes con extensión jpg, jpeg, png, gif, webp"
+            this.classList.add('is-invalid')
+            preview.innerHTML = null;
+            break;
+        case this.value == "":
+            imageError.innerHTML = "Tiene subir una imagen"
+            this.classList.add('is-invalid');
+            preview.innerHTML = null;
+            break
+        case this.files.length > 3:
+            imageError.innerHTML = "Solo se permiten 3 imágenes"
+            this.classList.add('is-invalid');
+            preview.innerHTML = null;
+            break
+        default:
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+            imageError.innerHTML = null;
+            document.getElementById('btnImages').innerText = "Cambiar imágenes"
+            if (this.files) {
+                [].forEach.call(this.files, readAndPreview);
+            }
+
+            function readAndPreview(file) {
+
+                var reader = new FileReader();
+                preview.innerHTML = null;
+                reader.addEventListener("load", function () {
+                    var image = new Image();
+                    image.height = 80;
+                    image.title = file.name;
+                    image.src = this.result;
+                    preview.appendChild(image);
+                });
+                reader.readAsDataURL(file);
+
+            }
+            break;
+    }
+})
+    </script>
 </body>
 
 </html>
