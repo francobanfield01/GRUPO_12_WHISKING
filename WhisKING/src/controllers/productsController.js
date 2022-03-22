@@ -316,8 +316,11 @@ let controller = {
 			.catch((err => console.log(err)))
 		})
 
-	}
+	}, 
+	/* search: (req, res) =>{
 
+	}
+ */
 
 }
 

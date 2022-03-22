@@ -27,6 +27,9 @@ router.put('/edit/:id', upload.array('image'), controller.update); // y la 2da e
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/:id', controller.destroy);
 
+/*  GET - Search products */
+/* router.get('/search', controller.search); */
+
 
 
 
