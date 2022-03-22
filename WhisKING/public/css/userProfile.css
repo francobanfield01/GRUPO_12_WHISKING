@@ -1,6 +1,13 @@
 body.body-profile-avatar {
     background-color: var(--beige);
 }
+.avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: black;
+}
 .profile-avatar-main {
     background-color: var(--beige);
     width: 100%;
@@ -12,7 +19,7 @@ body.body-profile-avatar {
 }
 .profile-avatar-main h2 {
     padding: 10px; 
-    text-align: center;
+    text-align: left;
     color: var(--cobre);
     text-transform: uppercase;
 }
@@ -109,10 +116,22 @@ body.body-profile-avatar {
     text-decoration: none;
     color: black;
 }
-
+.foto{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+label.iconPencil{
+background-image: url(../images/pen-to-square-solid.svg);
+width: 20px;
+    background-repeat: no-repeat;
+}
 
 /*Media Queries*/
 @media(min-width:480px){
+    .register-main{
+        width: 460px;
+    }
     .body-profile-avatar {
         background-color: var(--beige);
       /*  background: linear-gradient(rgb(228,219,202), white);
@@ -129,5 +148,41 @@ body.body-profile-avatar {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         min-height:600px;
         
+    }
+}
+
+@media(min-width:768px){
+    .register-main{
+        width: 750px;
+    }
+    .body-profile-avatar {
+        background-color: var(--beige);
+      /*  background: linear-gradient(rgb(228,219,202), white);
+       height: 100vh; ¿puedo poner gradient?*/
+
+    }
+    .profile-avatar-main {
+        width: 1000px;
+        justify-content: center;
+        margin: 10vh auto;
+        border: 1px solid var(--grisOscuro);
+        border-radius: 1.5rem;
+        min-height: 68vh;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        min-height:600px;
+        
+    }
+    .register-main .form-register{
+        display: flex;
+        justify-content: center;
+    }
+    .register-main .form-register .bloque1{
+        margin: 1rem;
+    }
+    .register-main .form-register .bloque2{
+        margin: 1rem;
+    }
+    .register-main .form-register .bloque3{
+        margin: 1rem;
     }
 }

@@ -14,6 +14,7 @@ const localsUserCheck = require('./middlewares/localsUserCheck')
 /* const guest = require('./middlewares/guest') //invitado */
 
 
+
 //************ Middlewares  ************ Usamos el método use de app (aplicación de express), x ej intentando acceder a un archivo estático
 app.use(express.static(path.join(__dirname, '../public')));  //middleware a nivel aplicación, es dónde tenemos que ir a buscar los recursos estaticos de nuestra aplicación
 app.use(express.json());  //middleware a nivel aplicación

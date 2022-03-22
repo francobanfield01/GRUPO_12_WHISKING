@@ -31,7 +31,10 @@
     </nav>
     
       
-    <div class="user-icons-desktop">      
+    <div class="user-icons-desktop">
+        <% if (locals.user && locals.user.rol) { %>
+            <li><a>Bienvenido <%= locals.user.name %> </a></li>
+            <% }%>      
         <div class="user">
             <% if (locals.user ) { %>
                 <i class="fas fa-user"></i><span class="session"></span>
@@ -50,11 +53,7 @@
         </div>
         <ul>
             <li><a href="/products">Productos</a></li>
-            <% if (locals.user && locals.user.rol) { %>
-                <li><a>Bienvenido <%= locals.user.name %> </a></li>
-                <% }%> 
-                   
-        </ul>
+         </ul>
     </div>
 
 </header>
