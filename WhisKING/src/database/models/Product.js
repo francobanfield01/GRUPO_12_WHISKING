@@ -64,11 +64,11 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = models => {
         Product.belongsTo(models.Category, {
             as: "category",
-            foreignkey: "categoryId"
+            foreignKey: "categoryId"
         })
         Product.hasMany(models.Image, {
             as: "images",
-            foreignkey: "productId"
+            foreignKey: "productId"
 
         })
      }
