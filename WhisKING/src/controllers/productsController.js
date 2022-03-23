@@ -312,7 +312,7 @@ let controller = {
 					}
 				})
 			.then(() => {
-				res.redirect('/')
+				res.redirect('/admin')
 			})
 			.catch((err => console.log(err)))
 		})
