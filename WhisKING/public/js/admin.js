@@ -89,7 +89,7 @@ const addItem = (product, index) => {
                                 <div class="img-container">
                                     <div class="second-img">
                                         <% product.images.forEach(image => { %>
-                                            <img src="/images/products/<%- image.name %>" alt="">
+                                            <img src=/images/products/<%- image.name %>" alt="">
                                         <% }) %>
                                     </div>
                                     <div class="main-img">
@@ -98,7 +98,7 @@ const addItem = (product, index) => {
                                 </div>
                                 <div class="productResponsive2">
                                     <div class="nombreProducto">
-                                        <h2><%- product.name %> </h2>
+                                        <h2> ${ product.name } </h2>
                                     </div>
                                     <div class="productDescription">
                                         <div class="precio">
@@ -119,7 +119,7 @@ const addItem = (product, index) => {
                                     <p>${product.origin}</p>
                                 </div>
                                 <div class="text-description">
-                                    <b>Descripción: </b><${product.description}
+                                    <b>Descripción: </b><p>${product.description}</p>
                                 </div>
                                 <div class="text-description">
                                     <b>Cata: </b>${product.tasting}
