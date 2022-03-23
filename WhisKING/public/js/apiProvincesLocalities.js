@@ -9,20 +9,44 @@ const selectProvincias2 = document.getElementById('select-province2');
 const selectLocalidades = document.getElementById('select-city');
 const selectLocalidades2 = document.getElementById('select-city2');
 
-/* -----Api para Direccion de Facturación-------- */
-window.addEventListener('load', async()=>{
+const getProvinces = async () => {
     try {
         let resp = await fetch(urlProvincias);
         let result = await resp.json();      
         let provincias = result.provincias;
         provincias = provincias.sort((a, b) => a.nombre < b.nombre ? -1 : a.nombre > b.nombre ? 1 : 0);
+        selectProvincias.innerHTML = null;
         result.provincias.forEach(provincia => {
             selectProvincias.innerHTML += `<option value="${provincia.nombre}">${provincia.nombre}</option>`          
         });
     } catch (error) {
         console.error(error);
     }
-})
+}
+
+const getProvinces2 = async () => {
+    try {
+        let resp = await fetch(urlProvincias);
+        let result = await resp.json();      
+        let provincias = result.provincias;
+        provincias = provincias.sort((a, b) => a.nombre < b.nombre ? -1 : a.nombre > b.nombre ? 1 : 0);
+        selectProvincias2.innerHTML = null;
+        result.provincias.forEach(provincia => {
+            selectProvincias2.innerHTML += `<option value="${provincia.nombre}">${provincia.nombre}</option>`          
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+/* -----Api para Direccion de Facturación-------- */
+window.addEventListener('load', async()=>{
+
+    console.log('provinces.js connected')
+
+    selectProvincias.addEventListener('focus', () => getProvinces());
+    selectProvincias2.addEventListener('focus', () => getProvinces2())
+
 
 selectProvincias.addEventListener('change', async (e) =>{
     try {
@@ -40,8 +64,6 @@ selectProvincias.addEventListener('change', async (e) =>{
     }
 })
 
-/*------- Api para Direccion de Envio --------*/
-window.addEventListener('load', async()=>{
     try {
         let resp2 = await fetch(urlProvincias);
         let result2 = await resp2.json();      
@@ -54,7 +76,6 @@ window.addEventListener('load', async()=>{
     } catch (error) {
         console.error(error);
     }
-})
 
 selectProvincias2.addEventListener('change', async (e) =>{
     try {
@@ -72,3 +93,4 @@ selectProvincias2.addEventListener('change', async (e) =>{
     }
 });    
     
+})

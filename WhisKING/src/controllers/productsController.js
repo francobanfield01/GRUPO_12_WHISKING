@@ -2,6 +2,7 @@ const fs = require('fs');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 let db = require('../database/models')
 const { validationResult } = require("express-validator")
+let { Op } = require('sequelize');
 
 
 
@@ -316,11 +317,9 @@ let controller = {
 			.catch((err => console.log(err)))
 		})
 
-	}, 
-	/* search: (req, res) =>{
-
 	}
- */
+	
+
 
 }
 

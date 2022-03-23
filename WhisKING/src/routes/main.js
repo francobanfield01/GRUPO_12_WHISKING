@@ -19,6 +19,9 @@ router.get('/products/all', (req, res) => {
 //*** GET PRODUCT-CART ***/
 router.get('/productCart', guestMiddlewares, controller.cart)
 
+/*  GET - Search products */
+router.get('/search/all', controller.search);
+
 
 
 module.exports = router; 

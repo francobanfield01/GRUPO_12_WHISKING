@@ -9,7 +9,7 @@ const storage = multer.diskStorage({ //usamos de la libreria multer el método d
     },
 
     filename: function(req, file, callback){  //filename a traves de una funcion nos devuelve un nombre unico, que va a ser guardado en la b.de datos
-        callback(null, `${Date.now()}_img_${path.extname(file.originalname)}`) // nos retorna una cadena de caracteres, con un nombre y una extension del archvio que está subiendo
+        callback(null, `${Date.now()}_img_${path.extname(file.originalname)}`)  // nos retorna una cadena de caracteres, con un nombre y una extension del archvio que está subiendo
 
     }
     

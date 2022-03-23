@@ -11,8 +11,7 @@ let controller = {
   },
   processRegister: (req, res) => {
     let errors = validationResult(req);
-    /*  return res.send(req.body)  *//* para saber como me llega al body */
-    /* return res.send(req.file) */ /* para ver si carga la imagen en el registro */
+    
     if (errors.isEmpty()) {
       let { name, last_name, date_of_birth, email, pass } = req.body; //destructuring
 
@@ -42,7 +41,6 @@ let controller = {
           console.log(error)
         }
 
-        /*  console.log(user); *//* muestro el objeto user por consola */
       }).catch(error => console.log(error))
 
     } else {
@@ -60,7 +58,7 @@ let controller = {
   },
   processLogin: (req, res) => {
     let errors = validationResult(req);
-    /*  res.send(errors) */ //con esto enviamos los errores
+   
 
     if (errors.isEmpty()) {
       db.User.findOne({
@@ -152,7 +150,7 @@ let controller = {
         }
         req.session.user.image = req.file.filename
     }
-    /* req.session.user.image = req.file ? req.filename : req.session.user.image */
+    
 
      
     } catch (error) {
