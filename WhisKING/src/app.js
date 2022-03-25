@@ -30,6 +30,7 @@ app.use(session({
 app.use(localsUserCheck);
 app.use(cookieParser());
 app.use(cookieSession);
+app.use('/api/cart', require('./routes/cart'))
 
 // ************ Template Engine  ************
 app.set('view engine', 'ejs'); // Setea el template engine
