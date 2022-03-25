@@ -1,7 +1,8 @@
 const fs = require('fs');
 const db = require('../database/models')
 const Sequelize = require('sequelize')
-const Op = Sequelize.Op
+const { Op } = require('sequelize')
+
 /* let { products } = require('../database/dataBase') */
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -49,7 +50,29 @@ let controller = {
         img: 'src="images/logo.svg"', 
         img2: 'src="images/logo2.svg"', 
         session: req.session });
-    }
+    },
+
+    search: (req, res) =>{
+		let keywords = req.query.keywords.trim().toLowerCase();
+		/* res.send(keywords); */
+		db.Product.findAll({
+			where: {
+				name: {
+					[ Op.substring] : keywords
+				}
+			},
+			include : [{ association : "images"}]
+		})
+		.then (result => {
+			res.render('products/productsList',{				
+				products: result,
+				toThousand,
+				session: req.session
+			})
+		})
+		
+		
+	}
 }
 
 module.exports = controller;

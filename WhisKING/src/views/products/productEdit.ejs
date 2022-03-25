@@ -1,103 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Include Head -->
-    <%- include('../partials/head.ejs',  {title:`Editar Producto: ${product.name} - The WhisKING Argentina`} )%> 
-   
-<!-- {title: product.name}  -->
-<body class="body-edit">
-    <!-- HeaderAdmin -->
-    <%- include('../partials/headerAdmin.ejs')%> 
-    <!-- /Header -->
-   
-    <main class="edit-main">
-        <form action="/products/edit/<%- product.id  %>?_method=PUT" method="POST" enctype="multipart/form-data"> <!-- modificar sacar el edit ->action="/products/edit/¿?" y poner ejs de produsts.id y el metodo es POST method="___" y agregarle el metodo override action="/products/ product.id  ?_method=PUT" -->
-            <div class="form-edit">   <!-- css class="form-create" -->
-                <section class="mediaEdit1"> <!--  css class="mediaCreate1"   -->                         
-                        <h2>Estas editando: <i><%= product.name  %></i></h2> <!-- reemplazar PRODUCT NAME con ejs, le ponemos un '=' porque es una variable que esta llegando de la B.de datos del controlador -->
-                    <div class="section-edit"> <!-- css class="section-create"  -->
-                        <p>nombre del producto</p>
-                        <input class="" type="text" name="name" placeholder="" id="productName" value="<%= product.name  %>"> <!-- PREGUNTAR AL EQUIPO xq id="productName" y  NO id="name"  -->
-                        <span class="error-message-edit">Debes ingresar el nombre del producto</span>
-                    </div>
-                    <div class="section-edit"> <!-- css class="section-create" -->
-                        <p>categoria</p>
-                        <!-- <input class="" type="text" name="category" placeholder="" id="category" value="<%= product.category  %>"> -->
-                        <select name="category" id="">
-                            <option value="0" hidden></option>
-                            <% categories.forEach(category => { %>
-                                <option value="<%- category.id  %>" <%- category.id == product.categoryId ? "selected" : ""  %> ><%- category.name %> </option>
-                            <% }) %>
-                        </select>
-                        <span class="error-message-edit">Debes ingresar la categoria del producto</span>
-                    </div>
-                    <div class="price-discount">
-                        <div class="section-edit"> <!-- css class="section-create" -->
-                            <p>precio</p>
-                            <input class="" type="text" name="price" placeholder="" id="price" value="<%= product.price  %>">
-                            <span class="error-message-edit">Debes ingresar el precio</span>
+
+<%- include('../partials/headAdmin', {title: 'Crear Producto - The WhisKING Argentina' })%>
+
+    <body class="body-admin-products">
+        <%- include('../partials/headerAdmin.ejs')%>
+            <div class="container">
+                <main class="row my-5">
+                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                        <div class="card-header">
+                            <h4 class="admin-products-title pt-2">Editar producto</h4>
                         </div>
-    
-                        <div class="section-edit discount"> <!--  css class="section-create stock"  -->
-                            <p>Descuento</p>
-                            <input class="input-discount" type="" name="discount" placeholder="" id="discount" value="<%= product.discount  %>">    
-                        </div>
-                    </div>
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <form action="/products/edit/<%- product.id  %>?_method=PUT" method="POST"
+                                    enctype="multipart/form-data" class="row needs-validation" novalidate>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="name">Nombre del producto</label>
+                                        <div class="input-group has-validation">
+                                            <input class="form-control" type="text" name="name" placeholder="" id="name"
+                                                value="<%= product.name  %>" required>
+                                            <div class="invalid-feedback">
+                                                El nombre es obligatorio.
+                                            </div>
+                                        </div>
+                                        <span class="error-message-create" id="errorName"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="category">Categoria</label>
+                                        <div class="input-group has-validation">
+
+                                            <select name="category" id="category" class="form-select" required>
+                                                <option value="" hidden selected>Seleccione una categoría</option>
+                                                <% categories.forEach(category=> { %>
+                                                    <option value="<%- category.id  %>" <%-
+                                                        category.id==product.categoryId ? "selected" : "" %> ><%-
+                                                            category.name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                La categoría es requerida.
+                                            </div>
+                                        </div>
+                                        <span class="error-message-create" id="errorCategory"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="price">Precio</label>
+                                        <div class="input-group has-validation">
+
+                                            <input class="form-control" type="" name="price" placeholder="" id="price"
+                                                value="<%= product.price  %>" required>
+                                            <div class="invalid-feedback">
+                                                Debes indicar el precio.
+                                            </div>
+                                        </div>
+                                        <span class="error-message-create" id="errorPrice"></span>
+                                    </div>
+
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="discount">Descuento</label>
+                                        <input class="form-control" type="number" name="discount" placeholder=""
+                                            id="discount" value="<%= product.discount %>" required>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="description">Descripción</label>
+                                        <div class="input-group has-validation">
+
+                                            <textarea class="form-control" name="description" placeholder=""
+                                                id="description" style="resize: none;"
+                                                required><%= product.description  %></textarea>
+                                            <div class="invalid-feedback">
+                                                La descripción es obligatoria
+                                            </div>
+                                        </div>
+                                        <span class="error-message-create" id="errorDescription"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="tasting">Cata</label>
+                                        <textarea class="form-control" name="tasting" placeholder="" id="tasting"
+                                            style="resize: none;"><%= product.tasting  %></textarea>
+
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="origin">Origen</label>
+                                        <input class="form-control" type="text" name="origin" placeholder="" id="origin"
+                                            value="<%= product.origin  %>">
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3">
+                                        <label for="stock">Stock</label>
+                                        <div class="input-group has-validation">
+                                            <input class="form-control" type="number" name="stock" placeholder=""
+                                                id="stock" value="<%= product.stock  %>" required>
+                                            <div class="invalid-feedback">
+                                                Indicá el stock
+                                            </div>
+                                        </div>
+                                        <span class="error-message-create" id="errorStock"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mb-3 mt-3">
+                                        <label for="images" class="btn btn-outline-secondary w-100"
+                                            id="btnImages">Cargar imágenes</label>
+                                        <input type="file" name="image" class="form-control" id="images" multiple
+                                            hidden>
+                                        <span class="error-message-create" id="imageError"></span>
+                                    </div>
+                                    <div class="col-12 col-md-6 mt-3 d-flex justify-content-around" id="preview">
+
+                                    </div>
+                            </div>
+                            <div class="col-12 mb-3 d-flex justify-content-end px-3">
+                                <div class="button-cancel-create">
+                                    <button type="button" class="buttonCancel"
+                                        onclick="window.location.href = '/admin'">cancelar</button>
+                                </div>
+                                <div class="button-public-create">
+                                    <button type="submit" class="buttonCreate">publicar</button>
+                                </div>
+                            </div>
 
 
-
-                    <div class="section-edit"> <!-- css class="section-create" -->
-                        <p>descripción</p>
-                        <textarea class="" type="" name="description" placeholder="" id="description"><%= product.description  %></textarea>
-                        <span class="error-message-edit">Debes ingresar una descripción del producto</span>
-                    </div>
-
-                    <div class="section-create">
-                        <p>cata</p>
-                        <textarea class="" type="" name="tasting" placeholder="" id="tasting"><%= product.tasting  %></textarea>
-                    </div>
-                    <div class="origin-stock">
-                        <div class="section-create">
-                            <p>origen</p>
-                            <input class="" type="" name="origin" placeholder="" id="origin" value="<%= product.origin  %>">
-                        </div>
-                        <div class="section-create stock">
-                            <p>Stock</p>
-                            <input class="input-stock" type="" name="stock" placeholder="" id="stock" value="<%= product.stock  %>">
-                            <span class="error-message-create">Debes ingresar el stock inicial</span>    
+                            </form>
                         </div>
                     </div>
+            </div>
 
-                    <div> <!-- carga de imagen no se como seguir, estaba hecho en boostrap, tengo que ver artisitica de el profe dijo que lo hizo en html y css sin boostrap -->
-                        
-                        <div class="section-edit">
-                            <p>Cargar foto</p>
-                            <input type="file" name="image" class="" id="" multiple > <!-- usamos el name del input=file para  -->
-                            
-                        </div>
-                    </div>
-                    <div class="botones">
-                            
-                            <!--  <button type="submit" class="botonCancel" >cancelar</button> -->
-                        <div class="button-public-edit">
-                            <button type="submit" class="buttonCreate">actualizar</button>
-                        </div>
-                        </div>                      
-                        
-                    </div>
-                </section>
+            </div>
 
-            </div>   
-        </form> 
-        <div></div><a href="/products/detail/<%- product.id %>"><button class="buttonCancel">cancelar</button></a>
-        <form action="/products/<%- product.id  %>?_method=DELETE" method="POST">
-             <!--reemplazar /products/delete/¿? por el producto.id con ejs, borramos el delete  -->
-            <div class="div-delete">
-                <button type="submit" class="buttonDelete">eliminar</button>
-            </div> <!-- lo hice asi fuera del form porque  -->
-        </form>
-    </main>
-    
-    <%-include('../partials/footerAdmin.ejs')%> 
-</body>
+            </main>
+            <%-include('../partials/footerAdmin.ejs')%>
+            <script src="/js/previewImages.js"></script>
+    </body>
 
 </html>

@@ -7,14 +7,18 @@
 
 
     <div class="container">
+        <form action="/search/all" method="GET" class="search-form"> <!-- ponerle css a las class -->
 
-        <div class="buscar">
-            <input type="text" class="search-bar" placeholder="Buscar...">
-            <a href="" class="lupa_buscar">
-                <i class="fas fa-search fa-lg"></i>
-            </a>
-        </div>
+            <div class="search-bar"> <!-- era "buscar" -->
+                <input type="search" class="search-bar" name="keywords" placeholder="Buscar...">
+                <!-- <a href="" class="lupa_buscar">
+                    <i class="fas fa-search fa-lg"></i>
+                </a> -->
+                <button type="submit"><i class="fas fa-search fa-lg"></i></button>
 
+            </div>
+            
+        </form>
     </div>
 
     <nav>

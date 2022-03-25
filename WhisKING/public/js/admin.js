@@ -72,8 +72,13 @@ const addItem = (product, index) => {
         </button>
             <a class="mx-1 btn btn-sm btn-success" href="/products/edit/${product.id}"><i
                     class="fas fa-edit"></i></a>
-            <a class="mx-1 btn btn-sm btn-danger" href=""><i
-                    class="fas fa-trash-alt"></i></a>
+                    <form action="/products/${product.id}?_method=DELETE" method="POST">
+            <div class="div-delete">
+                <button type="submit" class="mx-1 btn btn-sm btn-danger"><i
+                class="fas fa-trash-alt"></i></button>
+            </div> 
+        </form>
+
         </td>
 
         </tr>
@@ -87,10 +92,11 @@ const addItem = (product, index) => {
                         <main class="productDetail">
                             <div class="productResponsive">
                                 <div class="img-container">
-                                    <div class="second-img">
-                                        <% product.images.forEach(image => { %>
-                                            <img src="/images/products/<%- image.name %>" alt="">
-                                        <% }) %>
+                                    <div class="second-img">`
+                                        product.images.forEach(image => {
+                                            item += `<img src="/images/products/${image.name}" alt="">`
+                                         })
+ item += `
                                     </div>
                                     <div class="main-img">
                                         <img src="/images/products/${product.images[0].name}" alt="">
@@ -98,7 +104,7 @@ const addItem = (product, index) => {
                                 </div>
                                 <div class="productResponsive2">
                                     <div class="nombreProducto">
-                                        <h2><%- product.name %> </h2>
+                                        <h2> ${ product.name } </h2>
                                     </div>
                                     <div class="productDescription">
                                         <div class="precio">
@@ -119,7 +125,7 @@ const addItem = (product, index) => {
                                     <p>${product.origin}</p>
                                 </div>
                                 <div class="text-description">
-                                    <b>Descripción: </b><${product.description}
+                                    <b>Descripción: </b><p>${product.description}</p>
                                 </div>
                                 <div class="text-description">
                                     <b>Cata: </b>${product.tasting}
