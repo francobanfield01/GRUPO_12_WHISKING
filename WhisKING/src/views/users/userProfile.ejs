@@ -2,9 +2,9 @@
 <html lang="en">
 <%- include('../partials/head.ejs', {title: 'The WhisKING Argentina' })%>
 
-    <body class="container">
+    <body class="body-profile-avatar">
         <%- include('../partials/header.ejs')%>
-            <main class="register-main">
+            <main class="profile-avatar-main">
                 <!--  -->
 
 
@@ -19,38 +19,38 @@
 
                     </div>
 
-                    <div class="form-register">
+                    <div class="form-profile">
                         <!--  -->
                         <div class="bloque1">
                             <h2>Datos personales</h2>
                             <hr>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="name" placeholder="" id="name"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="name" placeholder="" id="name"
                                     value="<%= user.name %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="lastName" placeholder=""
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="lastName" placeholder=""
                                     id="lastName" value="<%= user.lastName %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="date" name="dateOfBirth" placeholder=""
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="date" name="dateOfBirth" placeholder=""
                                     min="1900-01-01" max="3000-12-31" id="dateOfBirth" value="<%= user.dateOfBirth %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="email" name="email" placeholder="" id="email"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="email" name="email" placeholder="" id="email"
                                     value="<%= user.email %>" readonly>
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="phone" placeholder="teléfono"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="phone" placeholder="teléfono"
                                     id="phone" value="<%= user.phone %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="cellPhone" placeholder="celular"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="cellPhone" placeholder="celular"
                                     id="cellPhone" value="<%= user.cellPhone %>">
                                 <span class="error-profile"></span>
                             </div>
@@ -58,26 +58,26 @@
                         <div class="bloque2">
                             <h2>Dirección de Facturación</h2>
                             <hr>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="street" placeholder="Calle"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="street" placeholder="Calle"
                                     id="street2" value="<%= user.addresses[0].street %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="number" name="number" placeholder="Número"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="number" name="number" placeholder="Número"
                                     id="number" value="<%= user.addresses[0].number %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <select name="province" id="select-province" class="input-style-register" style="padding: 5px; background-color: white; background-color: white;">
+                            <div class="input-container-profile">
+                                <select name="province" id="select-province" class="input-style-profile" style="padding: 5px; background-color: white; background-color: white;">
                                     <option value="<%= user.addresses[0].province ? user.addresses[0].province : "" %>" hidden selected>
                                         <%= user.addresses[0].province ? user.addresses[0].province : "Seleccione la provincia..." %>
                                     </option>
                                 </select>
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <select name="city" id="select-city" class="input-style-register" style="padding: 5px; background-color: white;">
+                            <div class="input-container-profile">
+                                <select name="city" id="select-city" class="input-style-profile" style="padding: 5px; background-color: white;">
                                     <option value="<%= user.addresses[0].city ? user.addresses[0].city : "" %>" hidden selected>
                                         <%= user.addresses[0].city ? user.addresses[0].city : "Seleccione la localidad..." %>
                                     </option>
@@ -85,8 +85,8 @@
                                 <span class="error-profile"></span>
                             </div>
 
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="postalCode"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="postalCode"
                                     placeholder="Código Postal" id="postalCode"
                                     value="<%= user.addresses[0].postalCode %>">
                                 <span class="error-profile"></span>
@@ -95,26 +95,26 @@
                         <div class="bloque3">
                             <h2>Dirección de Envío</h2>
                             <hr>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="street2" placeholder="Calle"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="street2" placeholder="Calle"
                                     id="street" value="<%= user.addresses[1].street %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="number" name="number2" placeholder="Número"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="number" name="number2" placeholder="Número"
                                     id="number" value="<%= user.addresses[1].number %>">
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <select name="province2" id="select-province2" class="input-style-register" style="padding: 5px; background-color: white;"> 
+                            <div class="input-container-profile">
+                                <select name="province2" id="select-province2" class="input-style-profile" style="padding: 5px; background-color: white;"> 
                                     <option value="<%= user.addresses[1].province ? user.addresses[1].province : "" %>" hidden selected>
                                         <%= user.addresses[1].province ? user.addresses[1].province : "Seleccione la provincia..." %>
                                     </option>
                                 </select>
                                 <span class="error-profile"></span>
                             </div>
-                            <div class="input-container-register">
-                                <select name="city2" id="select-city2" class="input-style-register" style="padding: 5px; background-color: white;">
+                            <div class="input-container-profile">
+                                <select name="city2" id="select-city2" class="input-style-profile" style="padding: 5px; background-color: white;">
                                     <option value="<%= user.addresses[1].city ? user.addresses[1].city : "" %>" hidden selected>
                                         <%= user.addresses[1].city ? user.addresses[1].city : "Seleccione la localidad..." %>
                                     </option>
@@ -122,8 +122,8 @@
                                 <span class="error-profile"></span>
                             </div>
 
-                            <div class="input-container-register">
-                                <input class="input-style-register" type="text" name="postalCode2"
+                            <div class="input-container-profile">
+                                <input class="input-style-profile" type="text" name="postalCode2"
                                     placeholder="Código Postal" id="postalCode"
                                     value="<%= user.addresses[1].postalCode %>">
                                 <span class="error-profile"></span>
@@ -134,7 +134,7 @@
 
 
                     </div>
-                    <div class="button-container-register">
+                    <div class="button-container-profile">
                         <button class="btn-whisking" type="submit">Guardar cambios</button>
 
                     </div>

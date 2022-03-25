@@ -126,11 +126,26 @@ background-image: url(../images/pen-to-square-solid.svg);
 width: 20px;
     background-repeat: no-repeat;
 }
-
+.input-container-profile {
+    padding: 10px 0px;
+}
+.input-style-profile {
+    border-radius: 1rem;
+    height: 2rem;
+    width: 100%;
+    padding: 1rem; 
+    border: none;
+} 
 /*Media Queries*/
 @media(min-width:480px){
-    .register-main{
+    .profile-avatar-main{
         width: 460px;
+        justify-content: center;
+        margin: 10vh auto;
+        border: 1px solid var(--grisOscuro);
+        border-radius: 1.5rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        min-height:600px;
     }
     .body-profile-avatar {
         background-color: var(--beige);
@@ -152,9 +167,7 @@ width: 20px;
 }
 
 @media(min-width:768px){
-    .register-main{
-        width: 750px;
-    }
+    
     .body-profile-avatar {
         background-color: var(--beige);
       /*  background: linear-gradient(rgb(228,219,202), white);
@@ -162,7 +175,7 @@ width: 20px;
 
     }
     .profile-avatar-main {
-        width: 1000px;
+        width: 768px;
         justify-content: center;
         margin: 10vh auto;
         border: 1px solid var(--grisOscuro);
@@ -172,17 +185,22 @@ width: 20px;
         min-height:600px;
         
     }
-    .register-main .form-register{
+    .profile-avatar-main .form-profile{
         display: flex;
         justify-content: center;
     }
-    .register-main .form-register .bloque1{
+    .profile-avatar-main .form-profile .bloque1{
         margin: 1rem;
     }
-    .register-main .form-register .bloque2{
+    .profile-avatar-main .form-profile .bloque2{
         margin: 1rem;
     }
-    .register-main .form-register .bloque3{
+    .profile-avatar-main .form-profile .bloque3{
         margin: 1rem;
+        
+    }
+    .profile-avatar-main .button-container-profile{
+        display: flex;
+        justify-content: center;
     }
 }
