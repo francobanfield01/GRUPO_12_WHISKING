@@ -32,18 +32,18 @@
     
       
     <div class="user-icons-desktop">
-        <% if (locals.user && locals.user.rol) { %>
-            <li><a>Bienvenido <%= locals.user.name %> </a></li>
-            <% }%>      
+        <ul>
+            <li><a href="/products">Productos</a></li>
+         </ul>     
         <div class="user">
             <% if (locals.user ) { %>
                 <i class="fas fa-user"></i><span class="session"></span>
                 <div class="menu-user">
-                    <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
-                    <a href="/users/profile">Mis datos</a>
-                    <a href="/users/logout">Cerrar sesión</a>
+                    <a class="menu_user" href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="menu_user" href="/users/profile">Mis datos</a>
+                    <a class="menu_user" href="/users/logout">Cerrar sesión</a>
                     <% if (locals.user.rol) { %>
-                        <a href="/admin">ADMIN</a>
+                        <a class="menu_user" href="/admin">ADMIN</a>
                         <% } %>
                 </div>
                 <% } else {%>
@@ -51,9 +51,10 @@
                     <a href="/users/login"><i class="fas fa-user"></i></a>
                     <% } %>
         </div>
-        <ul>
-            <li><a href="/products">Productos</a></li>
-         </ul>
+        <% if (locals.user && locals.user.rol) { %>
+            <li><a>Bienvenido <%= locals.user.name %> </a></li>
+            <% }%>
+        
     </div>
 
 </header>
