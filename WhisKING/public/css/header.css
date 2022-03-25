@@ -18,7 +18,7 @@ header .container{
     padding-right: 5rem;
     
 }
-header .buscar{
+header .search-bar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,6 @@ header .buscar{
 }
 header input.search-bar{
 border: none;
-background: none;
 outline: none;
 color: var(--grisOscuro);
 font-size: 15px;
@@ -40,13 +39,19 @@ line-height: 60px;
 width: 0;
 
 }
+header input:placeholder-shown{
+    color: black;
+}
 header .lupa_buscar{
     width: 25px;
     height: 20px;
-    text-decoration: none;
+    border: none;
     color: var(--grisOscuro);
     font-size: 20px;
-
+    background-image: url(../images/magnifying-glass-solid.svg);
+    width: 20px;
+    background-repeat: no-repeat;
+    background-color: transparent;
 }
 header nav{
     height: 100px;
@@ -194,7 +199,7 @@ header .user-icons-desktop{
 header .container{
     padding-right: 0rem;
 }
-header .buscar{
+header .search-bar{
     width: 125px;
 } 
 header input.search-bar{
@@ -229,7 +234,7 @@ header .user-icons-desktop a.menu_user{
 header .user-icons-desktop a:hover{
     color: var(--cobre);
 }
-header .buscar{
+header .search-bar{
     width: 125px;
 } 
 header input.search-bar{
@@ -265,11 +270,11 @@ header nav label.bar-btn{
 header .user-icons-desktop ul{
     display: flex;
                 }
-header .buscar{
+header .search-bar{
      width: 285px;
 }
 header input.search-bar{
-    margin-right: 150px;
+    width: 285px;
 }
 header.headerCreate a img {
     width: 180px;
