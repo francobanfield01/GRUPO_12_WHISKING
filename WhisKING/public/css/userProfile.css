@@ -122,10 +122,16 @@ body.body-profile-avatar {
     padding: 20px 0;
 }
 label.iconPencil{
-background-image: url(../images/pen-to-square-solid.svg);
-width: 20px;
+    background-image: url(../images/pen-to-square-solid.svg);
+    width: 15px;
+    height: 15px;
     background-repeat: no-repeat;
+    display: flex;
+    position: absolute;
+    margin-top: 130px;
+    
 }
+
 .input-container-profile {
     padding: 10px 0px;
 }
@@ -201,6 +207,7 @@ width: 20px;
     }
     .profile-avatar-main .button-container-profile{
         display: flex;
-        justify-content: center;
+        justify-content: end;
+        margin-right: 1rem;
     }
 }
