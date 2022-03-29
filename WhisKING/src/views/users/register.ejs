@@ -5,35 +5,46 @@
     <%- include('../partials/header.ejs')  %>
     
     <main class="register-main">        
-        <h2>Registrate</h2>       
+        <h2>Registrate</h2> 
+      
         <hr>
-        <form action="/users/register" method="POST" enctype="multipart/form-data">                
+        <span class="error-register" id="msgError" style="text-align: center;"></span>
+
+        <form action="/users/register" method="POST" enctype="multipart/form-data" id="form-register">                
             <div class="form-register">                    
                 <div class="input-container-register">                       
                     <input class="input-style-register" type="text" name="name" placeholder="nombre" id="nombre" value="<%= locals.old && old.user_first_name  %>">
+                    <div id="error-nombre" style="margin-left: 10px;"></div>
                     <% if (locals.errors && errors.name) { %>
-                        <span class="error-register"><%= errors.name.msg  %></span>       <!-- Debes ingresar tu nombre -->                  
+                        <span class="error-register" ><%= errors.name.msg  %></span>       <!-- Debes ingresar tu nombre -->                  
                     <% } %>
                 </div>
                 <div class="input-container-register">                       
                     <input class="input-style-register" type="text" name="last_name" placeholder=" apellido" id="apellido" value="<%= locals.old && old.user_last_name  %>">
+                    <div id="error-apellido" style="margin-left: 10px;"></div>
                     <% if (locals.errors && errors.last_name) { %>
                         <span class="error-register"><%= errors.last_name.msg  %></span>    <!-- Debes ingresar tu apellido -->                         
                     <% } %>
                 </div>
                 <div class="input-container-register">                        
-                    <input class="input-style-register" type="date" name="date_of_birth" placeholder="Fecha de Nacimiento" min="1900-01-01" max="3000-12-31" id="f_nacimiento" value="<%= locals.old && old.date_of_birth  %>">
+                    <input class="input-style-register" type="date" name="date_of_birth"  min="1900-01-01" max="3000-12-31" id="f_nacimiento" value="<%= locals.old && old.date_of_birth  %>" style="padding:0; padding-left: 10px;">
+                    <div id="error-f_nacimiento" style="margin-left: 10px;"></div>
+
                     <% if (locals.errors && errors.date_of_birth) { %>
                         <span class="error-register"><%= errors.date_of_birth.msg  %></span>   <!-- Debes ingresar tu fecha de Nacimiento -->                         
                     <% } %>
                     <div class="input-container-register">                        
                         <input class="input-style-register" type="email" name="email" placeholder="Ingrese su email" id="email" value="<%= locals.old && old.email  %>">
+                        <div id="error-email" style="margin-left: 10px;"></div>
+
                         <% if (locals.errors && errors.email){%>
                             <span class="error-register"><%= errors.email.msg  %></span>           <!-- Debes ingresar tu email -->              
                         <% } %>
                     </div>
                     <div class="input-container-register">                       
                         <input class="input-style-register" type="password" name="pass" placeholder="Ingrese su contraseña" id="contrasenia">
+                        <div id="error-contrasenia" style="margin-left: 10px;"></div>
+
                         <% if (locals.errors && errors.pass){%>
                             <span class="error-register"><%= errors.pass.msg  %></span>   <!-- Debes ingresar tu contraseña -->                        
                         <% } %>
@@ -41,22 +52,21 @@
                    
                     <div class="input-container-register">
                         <input class="input-style-register" type="password" name="pass2" placeholder="Confirma su contraseña" id="contrasenia2">
+                        <div id="error-contrasenia2" style="margin-left: 10px;"></div>
+
                         <% if (locals.errors && errors.pass2){%>
                             <span class="error-register"><%= errors.pass2.msg  %></span>   <!-- Debes confirmar tu contraseña -->                        
                         <% } %>
                     </div>
-                    <div class="register-image">
-                        <p>Agregar foto</p>
-                        <input type="file" name="image"> <!-- usamos el name del input=file para  -->   
-                        <% if (locals.errors && errors.image) { %>
-                            <span class="error-register"><%= errors.image.msg  %></span>                  
-                        <% } %>
-                    </div>
+                  
                     <div class="check-register">
-                       <label class="label-terms-register" for="terminos_cond">Acepto los <a href="/users/terms">términos y condiciones</a></label>
+                       <label class="label-terms-register" for="terminos-cond">Acepto los <a href="/users/terms" target="blank">términos y condiciones</a></label>
                        <input class="checkbox-terms-register" type="checkbox" name="terms" id="terminos-cond">              
-                       <br>                       
+                       <br>
+                      
                     </div>
+                    <div id="error-terminos-cond" style="margin-left: 10px;"></div>
+
                    <br>
                    <% if (locals.errors && errors.terms) { %>
                     <span class="error-terms"><%= errors.terms.msg  %></span>    <!-- Debes aceptar los términos y condiciones -->                
@@ -64,16 +74,171 @@
                    
                    <div class="button-container-register">
                         <button  class="btn-whisking" type="submit">Registrarse</button>
-                       
                    </div>
                    
-                   <span class="span-cuenta"><a href="login.html">Ya tienes cuenta</a></span>
+                   <span class="span-cuenta"><a href="/users/login">Ya tienes cuenta</a></span>
                  
                 </div>
             </form>
            
 
     </main>
-    <%- include('../partials/footer.ejs')  %>    
+    <%- include('../partials/footer.ejs')  %>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+
+    <script>
+        const formRegister = document.getElementById('form-register');
+        let regExLetter = /^[A-Z]+$/i;
+        let regExEmail =  /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/;
+        let regExPass = /^\S{6,12}$/;
+
+        const emailVerify = async (email) => {
+            try {
+                let response = await fetch('http://localhost:3000/api/emails');
+                let result = await response.json()
+
+                return result.data.includes(email)
+                    
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    document.getElementById('nombre').addEventListener('blur', function(){
+
+        switch (true) {
+            case !this.value.trim():
+                document.getElementById('error-nombre').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> El nombre es obligatorio</span>"
+                this.style.border = "1px solid red"
+                break;
+           
+            default:
+                this.style.border = "none"
+                
+                document.getElementById('error-nombre').innerText = null
+                break;
+        }
+    })
+
+    document.getElementById('apellido').addEventListener('blur', function(){
+
+        switch (true) {
+            case !this.value.trim():
+                document.getElementById('error-apellido').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> El apellido es obligatorio</span>"
+                this.style.border = "1px solid red"
+                break;
+        
+            default:
+                this.style.border = "none"
+                
+                document.getElementById('error-apellido').innerText = null
+                break;
+        }
+    })
+
+    document.getElementById('email').addEventListener('blur', function(){
+
+        switch (true) {
+            case !this.value.trim():
+                document.getElementById('error-email').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> El email es obligatorio</span>"
+                this.style.border = "1px solid red"
+                break;
+            case !regExEmail.test(this.value):
+                document.getElementById('error-email').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes ingresar un email válido</span>"
+                this.style.border = "1px solid red"
+            break;
+            default:
+                this.style.border = "none"
+                document.getElementById('error-email').innerText = null
+                break;
+        }
+    })
+
+    document.getElementById('f_nacimiento').addEventListener('blur', function(){
+
+        switch (true) {
+            case !this.value.trim():
+                document.getElementById('error-f_nacimiento').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> El fecha de nacimiento es obligatoria</span>"
+                this.style.border = "1px solid red"
+                break;
+            case moment().diff(moment(this.value),'years') < 18:
+                document.getElementById('error-f_nacimiento').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes ser mayor edad</span>"
+                this.style.border = "1px solid red"
+                break
+            default:
+                this.style.border = "none"
+                
+                document.getElementById('error-f_nacimiento').innerText = null
+                break;
+        }
+    })
+
+    document.getElementById('contrasenia').addEventListener('blur', function(){
+
+        switch (true) {
+            case !this.value.trim():
+                document.getElementById('error-contrasenia').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debe ingresar una contraseña</span>"
+                this.style.border = "1px solid red"
+                break;
+            case !regExPass.test(this.value):
+                document.getElementById('error-contrasenia').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> La contraseña debe tener entre 6 y 12 caracteres</span>"
+                this.style.border = "1px solid red"
+                break;
+            default:
+                this.style.border = "none"
+                
+                document.getElementById('error-contrasenia').innerText = null
+                break;
+        }
+    })
+
+    document.getElementById('contrasenia2').addEventListener('blur', function(){
+
+        switch (true) {
+            case !this.value.trim():
+                document.getElementById('error-contrasenia2').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debe reingresar su contraseña</span>"
+                this.style.border = "1px solid red"
+                break;
+            case this.value !== document.getElementById('contrasenia').value:
+                document.getElementById('error-contrasenia2').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Las contraseñas no coinciden</span>"
+                this.style.border = "1px solid red"
+                break;
+            default:
+                this.style.border = "none"
+                
+                document.getElementById('error-contrasenia2').innerText = null
+                break;
+        }
+    })
+
+    formRegister.addEventListener('submit',function(event){
+        let error = false
+        event.preventDefault()
+
+        let elementosForm = this.elements;
+        
+        for (let index = 0; index < elementosForm.length-1; index++) {
+            if(elementosForm[index].value == ""){
+                elementosForm[index].style.border = "1px solid red";
+                msgError.innerHTML = "Los campos señalados son obligatorios";
+                error =true
+            }
+        }
+
+        if(!document.getElementById('terminos-cond').checked){
+            document.getElementById('terminos-cond').style.boder = "1px solid red";
+            document.getElementById('error-terminos-cond').innerHTML = "<span><i class='fas fa-exclamation-triangle'></i> Debes aceptar las bases y condiciones</span>"
+            error = true
+        }
+        if(!error){
+            console.log("Todo Perfecto!!");
+            formRegister.submit()
+        }
+        
+    })
+    
+    
+
+    </script>
 </body>
 </html>

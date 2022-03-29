@@ -9,13 +9,13 @@
 
 
 
-                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <div class="foto">
+                <form action="/users/profile/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="formProfile">
+                    <div class="foto" id="box-avatar">
 
 
                         <input type="file" id="avatar" name="image" hidden>
-                        <label class="iconPencil" style="cursor:pointer"  for="avatar"></label>
-                        <img class="avatar" src="/images/users/<%= user.avatar %>" alt="">
+                            <label class="iconPencil" style="cursor:pointer; "  for="avatar"></label>
+                        <img class="avatar" id="imgPreview" src="/images/users/<%= user.avatar %>" alt="">
 
                     </div>
 
@@ -36,7 +36,7 @@
                             </div>
                             <div class="input-container-profile">
                                 <input class="input-style-profile" type="date" name="dateOfBirth" placeholder=""
-                                    min="1900-01-01" max="3000-12-31" id="dateOfBirth" value="<%= user.dateOfBirth %>">
+                                    min="1900-01-01" max="3000-12-31" id="dateOfBirth" value="<%= user.dateOfBirth %>" style="padding:0px; padding-left: 10px;">
                                 <span class="error-profile"></span>
                             </div>
                             <div class="input-container-profile">
@@ -135,14 +135,51 @@
 
                     </div>
                     <div class="button-container-profile">
-                        <button class="btn-whisking" type="submit">Guardar cambios</button>
-                        <button class="btn-whisking" type="submit">Cancelar</button>
+                        <button class="btn-whisking" type="submit" style="cursor: pointer;">Guardar cambios</button>
+                        <button class="btn-whisking" type="button" style="cursor: pointer;" onclick="window.location.href = '/'">Cerrar</button>
                     </div>
                 </form>
             </main>
             <%- include('../partials/footer.ejs') %>
+            <%- include('../partials/scripts.ejs') %>
+
                 <script src="/js/apiProvincesLocalities.js"></script>
-                
+                <script>
+                    document.getElementById('avatar').addEventListener('change', (e) => {
+                        const imgPreview = document.getElementById('imgPreview');
+                        const reader = new FileReader();
+                        reader.readAsDataURL(e.target.files[0])
+                        reader.onload = () => {
+                            imgPreview.src = reader.result
+                        }
+                    })
+
+                    document.getElementById('formProfile').addEventListener('submit', (e) => {
+                        e.preventDefault()
+                        const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                                timer: 2000,
+                                //timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                    
+                                },
+                              
+                                })
+
+                                Toast.fire({
+                                icon: 'success',
+                                title: 'Cambios guardados',
+                                didClose : () => {
+                                    e.target.submit()
+                                    }
+                                })
+                        })
+                   
+                </script>
     </body>
 
 </html>

@@ -43,7 +43,7 @@
             <% if (locals.user ) { %>
                 <i class="fas fa-user"></i><span class="session"></span>
                 <div class="menu-user">
-                    <a class="menu_user" href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="menu_user" href="/productCart">Mi compra</a>
                     <a class="menu_user" href="/users/profile">Mis datos</a>
                     <a class="menu_user" href="/users/logout">Cerrar sesión</a>
                     <% if (locals.user.rol) { %>
@@ -55,8 +55,8 @@
                     <a href="/users/login"><i class="fas fa-user"></i></a>
                     <% } %>
         </div>
-        <% if (locals.user && locals.user.rol) { %>
-            <li><a>Bienvenido <%= locals.user.name %> </a></li>
+        <% if (locals.user) { %>
+            <li style="color: white;">Bienvenido <%= locals.user.name %></li>
             <% }%>
         
     </div>

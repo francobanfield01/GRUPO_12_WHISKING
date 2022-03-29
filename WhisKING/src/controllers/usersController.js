@@ -11,7 +11,7 @@ let controller = {
   },
   processRegister: (req, res) => {
     let errors = validationResult(req);
-    
+
     if (errors.isEmpty()) {
       let { name, last_name, date_of_birth, email, pass } = req.body; //destructuring
 
@@ -58,7 +58,7 @@ let controller = {
   },
   processLogin: (req, res) => {
     let errors = validationResult(req);
-   
+
 
     if (errors.isEmpty()) {
       db.User.findOne({
@@ -84,8 +84,43 @@ let controller = {
           });
         }
         res.locals.user = req.session.user;
+/* CARRITO */
+        req.session.cart = [];
+        db.OrderCart.findOne({
+          where: {
+            userId: req.session.user.id,
+            state: true
+          },
+          include: [
+            {
+              association: 'orderItems',
+              include: [
+                {
+                  association: 'product',
+                  include: ['category', 'images']
+                }
+              ]
+            }
+          ]
+        }).then(order => {
+          if (order) {
+            order.orderItems.forEach(item => {
+              let product = {
+                id: item.productId,
+                name: item.product.name,
+                image: item.product.images[0].name,
+                price: Math.trunc(+item.product.price),
+                quantity: +item.quantity,
+                subtotal: item.product.price * item.quantity,
+                orderId: order.id
+              }
+              req.session.cart.push(product)
+            });
+          }
+          //console.log(req.session.cart);
 
-        return res.redirect("/");
+          return res.redirect('/')
+        }).catch(error => console.log(error))
       }).catch(error => console.log(error))
 
     } else {
@@ -113,24 +148,24 @@ let controller = {
       })
 
     })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
   },
   update: async (req, res) => {
     let errors = validationResult(req);
 
     const { name, lastName, dateOfBirth, phone, cellPhone, street, number, city, province, postalCode, street2, number2, city2, province2, postalCode2 } = req.body;
 
-    const { id } = req.params;   
-   
-    try { 
+    const { id } = req.params;
+
+    try {
       await db.User.update(
         {
           name: name.trim(),
           lastName: lastName.trim(),
           dateOfBirth,
-          phone: req.body.phone.trim(), 
+          phone: req.body.phone.trim(),
           cellPhone: req.body.cellPhone.trim(),
-          avatar: req.file ? req.file.filename : req.session.user.image 
+          avatar: req.file ? req.file.filename : req.session.user.image
         },
         {
           where: {
@@ -143,34 +178,34 @@ let controller = {
     }
 
     try {
-      if(req.file){
-                    
-        if(fs.existsSync('public/images/users/' + req.session.user.image) && req.session.user.image != "default-image-profile.png"){
-            fs.unlinkSync('public/images/users/' + req.session.user.image)
+      if (req.file) {
+
+        if (fs.existsSync('public/images/users/' + req.session.user.image) && req.session.user.image != "default-image-profile.png") {
+          fs.unlinkSync('public/images/users/' + req.session.user.image)
         }
         req.session.user.image = req.file.filename
-    }
-    
+      }
 
-     
+
+
     } catch (error) {
       console.log(error)
 
     }
 
-    try{
+    try {
       await db.Address.update(
         {
-          street : street.trim(),
-          number : +number,
-          city : city.trim(), 
-          province : province.trim(), 
-          postalCode : postalCode.trim(),
+          street: street.trim(),
+          number: +number,
+          city: city.trim(),
+          province: province.trim(),
+          postalCode: postalCode.trim(),
         },
         {
-          where : {
-            userId : id,
-            type : 'facturacion'
+          where: {
+            userId: id,
+            type: 'facturacion'
           }
         }
       )
@@ -182,27 +217,26 @@ let controller = {
 
       await db.Address.update(
         {
-          street : street2.trim(),
-          number : +number2,
-          city : city2.trim(), 
-          province : province2.trim(), 
-          postalCode : postalCode2.trim(),
+          street: street2.trim(),
+          number: +number2,
+          city: city2.trim(),
+          province: province2.trim(),
+          postalCode: postalCode2.trim(),
         },
         {
-          where : {
-            userId : id,
-            type : 'envio'
+          where: {
+            userId: id,
+            type: 'envio'
           }
         }
       )
-  
+
     } catch (error) {
       console.log(error)
     }
 
-    
-    
-    return res.redirect("/users/profile")
+
+    return res.redirect("/users/profile#box-avatar")
   }
 };
 

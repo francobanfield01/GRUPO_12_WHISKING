@@ -11,11 +11,11 @@
             <div class="img-container">
                 <div class="second-img">
                     <% product.images.forEach(image => { %>
-                        <img src="/images/products/<%- image.name %>" alt="">
+                        <img onclick="document.getElementById('imgMain').src = '/images/products/<%- image.name %>'" src="/images/products/<%- image.name %>" alt="">
                     <% }) %>
                 </div>
                 <div class="main-img">
-                    <img src="/images/products/<%- product.images[0].name %>" alt="">
+                    <img id="imgMain" src="/images/products/<%- product.images[0].name %>" alt="">
                 </div>
             </div>
             <div class="productResponsive2">
@@ -29,7 +29,16 @@
                         <span><%- product.discount > 0 ? `${product.discount} % OFF` : "" %></span>
                     </div>
                     <div class="button-container">
-                        <button class="comprar btn-whisking">Comprar</button>                    
+                        <button onclick="'<%=locals.user%>' ? addItem(event,'<%=product.id%>') : Swal.fire(
+                            {
+                                title: 'Debes loguearte',
+                            text: 'Para adquirir nuestros productos',
+                            icon: 'warning',
+                            confirmButtonColor: '#a45323',
+
+                            }
+                          
+                          )"  class="comprar btn-whisking">Comprar</button>                    
                     </div>
                 </div>
             </div>
@@ -49,5 +58,7 @@
         </div>
     </main>
     <%- include('../partials/footer.ejs')  %>
+    <%- include('../partials/scripts.ejs')  %>
+
 </body>
 </html>

@@ -1,107 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">    
-    <%- include('./partials/head.ejs')  %> 
-<body>
-    <%- include('./partials/header.ejs')  %>
-    
-    <div class="productCart-main">
-        <div class="productCartTitle">
-            <i class="fas fa-shopping-cart"></i>
-            <h1 class="cart-title">Mi carrito</h1>
-        </div>
-        <div class="sections">
-        <section class="section1">
-            
-            <div class="cart-subtitles">
-                <h3>Productos</h3>
-                <h3>Cant.</h3>
-                <div>
-                <h3>Subtot.</h3>
-                </div>
-            </div>
-            <div class="cart-description">
-                <div class="product-name">
-                <div class="product-img">
-                    <img src="images/products/whisky_03.png" alt="whisky">
-                </div>
-                <div class="product-name-text"><p>Nombre del producto</p></div>
-            </div>
-            <div class="suma"><select id="dropdown" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-             </select> 
-             </div>
-                <div class="product-subt">
-                   <p>10000</p>
-                </div> 
-            </div>
-            <div class="cart-description">
-                <div class="product-name">
-                <div class="product-img">
-                    <img src="images/products/whisky_03.png" alt="whisky">
-                </div>
-                <div class="product-name-text"><p>Nombre del producto</p></div>
-            </div>
-            <div class="suma"><select id="dropdown" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+<html lang="es">
+<%- include('./partials/head.ejs') %>
+    <style>
+        #cart {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-             </select> 
-             </div>
-                <div class="product-subt">
-                   <p>10000</p>
-                </div> 
-            </div>
-            <div class="cart-description">
-                <div class="product-name">
-                <div class="product-img">
-                    <img src="images/products/whisky_03.png" alt="whisky">
-                </div>
-                <div class="product-name-text"><p>Nombre del producto</p></div>
-            </div>
-            <div class="suma"><select id="dropdown" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-             </select> 
-             </div>
-                <div class="product-subt">
-                   <p>10000</p>
-                </div> 
-            </div>
+        #cart td,
+        #cart th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-        </section>
-        <section class="section2">
-            <div class="subtotal">
-                <div class="value1">Subtotal</div>
-                <div class="value2">45000</div>
+
+        #cart tr.item {
+            border-bottom: 2px solid #aa4604;
+        }
+
+        #cart th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #aa4604;
+            color: white;
+        }
+    </style>
+
+    <body>
+        <%- include('./partials/header.ejs') %>
+
+            <div class="profile-avatar-main" style="display: block;">
+                <div class="">
+                    <!--  -->
+                    <div class="bloque1">
+                        <h2 style="text-align: center;">Mi Compra</h2>
+                        <hr>
+                    </div>
+                    <div class="bloque2" style="margin-top: 30px;">
+                        <table id="cart">
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Cantidad</th>
+                                <th>Producto</th>
+                                <th>Precio Unitario</th>
+                                <th>Subtotal</th>
+                            </tr>
+                            <tbody id="cart-body">
+                              
+                            </tbody>
+                           
+                            
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+
+
+                </section>
             </div>
-            <div class="envio">
-                <div class="value1">Envio</div>
-                <div class="value2">450</div>
+          
             </div>
-            <div class="cupon-desc">
-                <div class="value1">Cupon de desc.</div>
-                <div class="value2">CYBERWHISKY</div>
-            </div>
-            <div class="total">
-                <div class="value1">Total</div>
-                <div class="value2">48900</div>
-            </div>
-        </section>
-    </div>
-       <div class="button-container">
-           <button type="submit">Finalizar compra</button>
-        </div>
-    </div>   
-    <%- include('./partials/footer.ejs')  %> 
-</body>
+            <%- include('./partials/footer.ejs') %>
+            <%- include('./partials/scripts.ejs') %>
+    </body>
+
 </html>

@@ -9,7 +9,6 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 let controller = {
     index: (req, res) => {
-        req.session.cart = [];  //levantamos el session.cart con un array vacio
         let productsInSale = db.Product.findAll({
             include: [{ association: 'images' }],
             where: {

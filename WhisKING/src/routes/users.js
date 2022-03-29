@@ -6,7 +6,7 @@ let registerValidator = require('../validations/registerValidator');
 let loginValidator = require('../validations/loginValidator');
 // ************ Middlewares ************
 let uploadFile = require('../middlewares/uploadUserFiles')    //requerimos el multer, upload tiene que ver con la carga, requiriendo el middleware que acabamos de crear
-/* let guestMiddlewares = require('../middlewares/guest') */
+let guestMiddlewares = require('../middlewares/guest')
 // ************ Controller Require ************
 let controller = require('../controllers/usersController');
 
@@ -36,7 +36,7 @@ router.get('/logout', controller.logout)
 
 
 //*GET - Perfil de usuario 
-router.get('/profile', controller.profile);
+router.get('/profile',guestMiddlewares, controller.profile);
 router.put('/profile/:id' , uploadFile.single('image'), controller.update);
 
 
