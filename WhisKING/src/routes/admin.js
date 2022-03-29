@@ -6,6 +6,7 @@ let controller = require('../controllers/adminController');
 router
     .get('/', controller.index)
     .get('/get-all-products', controller.getlAllProducts)
+    .get('/search', controller.getProductBySearch)
 
 
 

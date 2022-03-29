@@ -7,6 +7,7 @@ const $ = (id) => document.getElementById(id);
 let tableProduct = document.getElementById("table-products");
 let selectFilter = document.getElementById("select-filter");
 let boxPaginator = document.getElementById("box-paginator");
+let filter = document.getElementById('keywords')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); /* funcion para poner los puntos a miles */
 
 
@@ -43,6 +44,71 @@ const loadProducts = async (
 
 loadProducts(10, 6, 1, 1);
 
+document.getElementById('form-search').addEventListener('submit', (e) => {
+  e.preventDefault()
+  searchProducts(10, 6, 1, 1, 'id', document.getElementById('keywords').value)
+})
+
+const searchProducts = async (
+  limit,
+  show,
+  current,
+  initial,
+  order = "id",
+  filter
+) => {
+  tableProduct.innerHTML = null;
+  boxPaginator.innerHTML = null;
+  try {
+    let response = await fetch(
+      `/admin/search?current=${current}&limit=${limit}&order=${order}&filter=${filter}`
+    );
+    let result = await response.json();
+    if(result.data.length > 0){
+      result.data.forEach((product, index) => {
+        addItem(product, index);
+      });
+    }else{
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No hay productos para la búsqueda ' + filter,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '/admin'
+        }
+      })
+   
+    }
+    console.log(result)
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const confirmDelete = (e) => {
+e.preventDefault()
+  Swal.fire({
+    title: '¿Estás seguro que desea eliminar el producto?',
+    text: "No podrá deshacer los cambios",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#353534',
+    cancelButtonColor: '#a45323',
+    confirmButtonText: 'Si, borralo'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      e.target.submit()
+      Swal.fire(
+        'Eliminado!',
+        'El producto fue eliminado con éxito',
+        'success'
+      )
+    }
+  })
+}
+
 
 const addItem = (product, index) => {
   let item = `
@@ -72,7 +138,7 @@ const addItem = (product, index) => {
         </button>
             <a class="mx-1 btn btn-sm btn-success" href="/products/edit/${product.id}"><i
                     class="fas fa-edit"></i></a>
-                    <form action="/products/${product.id}?_method=DELETE" method="POST">
+                    <form action="/products/${product.id}?_method=DELETE" method="POST" onsubmit="confirmDelete(event)">
             <div class="div-delete">
                 <button type="submit" class="mx-1 btn btn-sm btn-danger"><i
                 class="fas fa-trash-alt"></i></button>
