@@ -28,7 +28,7 @@ body {
         height: 2.5rem;
         border-radius: 0.5rem ;
         padding: 0.5rem;
-        box-shadow: 5px 5px 5px rgb(0 0 0 / 50%);
+        box-shadow: 5px 5px 5px rgb(0 0 0 / 30%);
         font-size: 0.9rem;
         font-weight: 700;
         background-color: var(--grisOscuro);
@@ -37,6 +37,7 @@ body {
 
 .btn-whisking:hover {
     color: white;
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 60%);
 }
 .btn-whisking2{
     cursor: pointer;

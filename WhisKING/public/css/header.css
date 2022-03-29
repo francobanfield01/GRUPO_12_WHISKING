@@ -286,6 +286,7 @@ header .search-bar{
 }
 header input.search-bar{
     width: 285px;
+    background-color: var(--beige);
 }
 header.headerCreate a img {
     width: 180px;

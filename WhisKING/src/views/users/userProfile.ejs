@@ -14,7 +14,7 @@
 
 
                         <input type="file" id="avatar" name="image" hidden>
-                        <label class="iconPencil" style="cursor:pointer" for="avatar"></label>
+                        <label class="iconPencil" style="cursor:pointer"  for="avatar"></label>
                         <img class="avatar" src="/images/users/<%= user.avatar %>" alt="">
 
                     </div>
@@ -136,12 +136,13 @@
                     </div>
                     <div class="button-container-profile">
                         <button class="btn-whisking" type="submit">Guardar cambios</button>
-
+                        <button class="btn-whisking" type="submit">Cancelar</button>
                     </div>
                 </form>
             </main>
             <%- include('../partials/footer.ejs') %>
                 <script src="/js/apiProvincesLocalities.js"></script>
+                
     </body>
 
 </html>
