@@ -76,7 +76,7 @@ let controller = {
         };
 
         if (req.body.remember) {
-          const TIME_IN_MILISECONDS = 600000;
+          const TIME_IN_MILISECONDS = 7200000;
           res.cookie("userWhisking", req.session.user, {
             expires: new Date(Date.now() + TIME_IN_MILISECONDS),
             httpOnly: true,

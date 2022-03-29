@@ -96,7 +96,7 @@ e.preventDefault()
     showCancelButton: true,
     confirmButtonColor: '#353534',
     cancelButtonColor: '#a45323',
-    confirmButtonText: 'Si, borralo'
+    confirmButtonText: 'Si, borrarlo'
   }).then((result) => {
     if (result.isConfirmed) {
       e.target.submit()
@@ -132,11 +132,11 @@ const addItem = (product, index) => {
             ${product.category.name}
         </td>
         <td class="d-flex">
-            <button type="button" class="mx-1 btn btn-sm btn-primary" data-bs-toggle="modal"
+            <button type="button" class="mx-1 btn btn-sm btn-wksecondary" data-bs-toggle="modal"
             data-bs-target="#viewProduct${product.id}">
             <i class="fas fa-eye"></i>
         </button>
-            <a class="mx-1 btn btn-sm btn-success" href="/products/edit/${product.id}"><i
+            <a class="mx-1 btn btn-sm btn-wkprimary" href="/products/edit/${product.id}"><i
                     class="fas fa-edit"></i></a>
                     <form action="/products/${product.id}?_method=DELETE" method="POST" onsubmit="confirmDelete(event)">
             <div class="div-delete">

@@ -86,7 +86,7 @@ let controller = {
 							})
 							db.Image.bulkCreate(images)
 								.then(() => {
-									res.redirect('/')
+									res.redirect('/admin')
 								})
 								.catch(err => console.log(err))
 						} else {

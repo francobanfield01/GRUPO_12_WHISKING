@@ -14,3 +14,18 @@
 .body-admin-products .id-products {
     padding-left: 1.5rem
 }
+
+.main-admin-products {
+    min-height: 80vh
+}
+
+.btn-wkprimary {
+    color: var(--grisOscuro);
+    background-color: #adacaa;
+        
+}
+
+.btn-wksecondary {
+    color: var(--cobre);
+    background-color: var(--beige);
+}

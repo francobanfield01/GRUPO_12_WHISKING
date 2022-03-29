@@ -60,3 +60,14 @@ body {
 .button-cancel-create{
     padding: 25px,25px,25px,25px;
 }
+
+.main-404 {
+    min-height: 80vh
+}
+
+.body-404 {
+    height: 400px;
+    background-image: url("/images/scene-missing.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+  }
