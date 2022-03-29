@@ -6,8 +6,10 @@
     
   </a>
   <div class="container-create">
-    <div class="acceso">
-      <p>Usuario: Administrador</p>
+    <div class="acceso"> 
+      <% if (locals.user) { %>
+        <li class="headerAdmin-userName">Usuario: <%= locals.user.name %></li>
+        <% }%>
       <a href="/users/logout">cerrar sesión</a>
     </div>
 

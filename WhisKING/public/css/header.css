@@ -201,6 +201,13 @@ input:-webkit-autofill,
     transition: background-color 600000s 0s, color 600000s 0s;
   }
 
+
+.headerAdmin-userName {
+    font-weight: 700;
+    padding: 0.5rem 0;
+    text-transform: capitalize;
+}
+
 /* == RESPONSIVE == */
 @media(max-width:479px){
    
@@ -301,8 +308,4 @@ width: 300px;
 header nav label.bar-btn{
 display: none;
     }
-
-
-
-    
 }
