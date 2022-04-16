@@ -128,7 +128,7 @@ header.headerCreate{
 
 header.headerCreate a img {
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
     width: 150px;
 }
 
@@ -163,11 +163,11 @@ header.headerCreate a img {
 
 .user:hover .menu-user{
    display: block;
-
 }
 .menu-user a{
     display: block;
     padding-bottom: 0.5rem;
+    transition: all 100ms;
 }
 .menu-user a i.fa-shopping-cart{
     font-size: 1rem;
